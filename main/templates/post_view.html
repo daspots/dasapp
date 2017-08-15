@@ -1,0 +1,14 @@
+# extends 'base.html'
+
+# block content
+  <div class="page-header">
+    <h1>{{title}}</h1>
+  </div>
+  <p>{{contact_db.content}}</p>
+  <p>{{contact_db.keywords}}</p>
+  <p>{{contact_db.image}}</p>
+  <hr>
+  <p>
+    <a href="{{url_for('post_list')}}">Back</a>
+  </p>
+# endblock

@@ -1,0 +1,33 @@
+# extends 'base.html'
+
+# block content
+  <div class="page-header">
+    <h1>{{title}}</h1>
+  </div>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Content</th>
+        <th>Image</th>
+        <th>Keywords</th>
+      </tr>
+    </thead>
+    <tbody>
+      # for post_db in post_dbs
+        <tr>
+          <td> <a href="{{url_for('post_update', post_id=post_db.key.id())}}">
+              update
+          </a></td>
+          <td> <a href="{{url_for('post_view', post_id=post_db.key.id())}}">
+                {{post_db.title}}
+          </a></td>
+          <td>{{post_db.content}}</td>
+          <td>{{post_db.image}}</td>
+          <td>{{post_db.keywords}}</td>
+        </tr>
+      # endfor
+    </tbody>
+  </table>
+# endblock
