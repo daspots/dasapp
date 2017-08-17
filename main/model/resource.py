@@ -1,22 +1,23 @@
+#coding: utf-8
+
+from __future__ import absolute_import
+
 from google.appengine.ext import ndb
-import model
-from api import fields
 import flask
+
+from api import fields
+import model
 import util
 
-class Post(model.Base):
+
+class Resource(model.Base):
   user_key = ndb.KeyProperty(kind=model.User, required=True)
-  title = ndb.StringProperty(required=True)
-  content = ndb.StringProperty(default='')
-  image_ids_string = ndb.StringProperty(default='')
-  keywords = ndb.StringProperty(default='')
-  blob_key = ndb.BlobKeyProperty()
-  name = ndb.StringProperty()
+  blob_key = ndb.BlobKeyProperty(required=True)
+  name = ndb.StringProperty(required=True)
   bucket_name = ndb.StringProperty()
   image_url = ndb.StringProperty(default='')
   content_type = ndb.StringProperty(default='')
   size = ndb.IntegerProperty(default=0)
-  img_ids = ndb.IntegerProperty(repeated=True)
 
   @ndb.ComputedProperty
   def size_human(self):
@@ -55,4 +56,3 @@ class Post(model.Base):
   }
 
   FIELDS.update(model.Base.FIELDS)
-

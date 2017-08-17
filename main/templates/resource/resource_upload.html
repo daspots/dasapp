@@ -1,11 +1,15 @@
 # extends 'base.html'
-# import 'macro/forms.html' as forms
 # import 'macro/utils.html' as utils
+# import 'macro/forms.html' as forms
 
 # block content
   <div class="page-header">
-    <h1>{{title}}</h1>
+    <h1>
+      {{utils.back_link('Back', 'resource_list')}}
+      {{title}}
+    </h1>
   </div>
+
   <div class="row">
     <div class="col-md-4">
       <form method="POST" enctype="multipart/form-data" action="{{form.upload_url}}">
@@ -13,7 +17,7 @@
           {{form.csrf_token}}
           {{forms.text_field(form.title, autofocus=True)}}
           {{forms.text_field(form.keywords)}}
-          {{form.image}}
+           {{forms.hidden_field(form.image)}}
           {{forms.textarea_field(form.content)}}
           <button type="submit" class="btn btn-primary btn-block">
             # if contact_db
@@ -27,7 +31,9 @@
       </form>
     </div>
   </div>
-      <form id="upload" class="form-horizontal" method="POST" action="{{upload_url}}" enctype='multipart/form-data'>
+<br><br>
+<div class="row">
+  <form id="upload" class="form-horizontal" method="POST" action="{{upload_url}}" enctype='multipart/form-data'>
     <fieldset>
       <div class='control-group pretty-file'>
         <div class='controls'>
@@ -59,5 +65,7 @@
       </div>
     </div>
   </div>
+</div>
+
 
 # endblock

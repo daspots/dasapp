@@ -10,3 +10,4 @@ from .profile import *
 from .test import *
 from .welcome import *
 from .post import *
+from .resource import *

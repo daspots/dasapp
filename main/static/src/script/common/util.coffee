@@ -77,3 +77,12 @@ window.show_notification = (message, category='warning') ->
         #{message}
       </div>
     """
+
+
+window.size_human = (nbytes) ->
+  for suffix in ['B', 'KB', 'MB', 'GB', 'TB']
+    if nbytes < 1000
+      if suffix == 'B'
+        return "#{nbytes} #{suffix}"
+      return "#{parseInt(nbytes * 10) / 10} #{suffix}"
+    nbytes /= 1024.0
