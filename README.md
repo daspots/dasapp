@@ -115,3 +115,7 @@ Tech Stack
 [tutorial]: http://docs.gae-init.appspot.com/tutorial/
 [virtualenv]: http://www.virtualenv.org/
 [windows]: http://windows.microsoft.com/
+
+// codes chris:
+(switch to python2) source activate python2
+deploy: gulp deploy --project dasapp-176816
