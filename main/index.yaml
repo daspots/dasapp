@@ -15,3 +15,15 @@ indexes:
   - name: user_key
   - name: created
     direction: desc
+
+- kind: Recommender
+  properties:
+  - name: user_key
+  - name: created
+    direction: desc
+
+- kind: Recommender
+  properties:
+  - name: user_key
+  - name: modified
+    direction: desc

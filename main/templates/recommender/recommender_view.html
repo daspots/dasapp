@@ -1,0 +1,18 @@
+# extends 'base.html'
+
+# block content
+  <div class="page-header">
+    <h1>{{title}}</h1>
+  </div>
+  <p>{{recommender_db.bio}}</p>
+  <p>{{recommender_db.website_url}}</p>
+  <p>{{recommender_db.image_url}}</p>
+  <hr>
+  <p>
+    <a href="{{url_for('recommender_list')}}">Back</a>
+  </p>
+  {% for url  in url_list %}
+  <p><img src="{{url}}"></p>
+ {% endfor %}
+
+# endblock

@@ -1,4 +1,4 @@
-import urllib
+
 import flask
 import auth
 import model
@@ -7,11 +7,8 @@ import wtforms
 import util
 import config
 
-from main import app
 from google.appengine.ext import blobstore
 
-from flask_wtf.file import FileField, FileRequired
-from werkzeug.utils import secure_filename
 
 from main import app
 
@@ -19,10 +16,14 @@ class PostUpdateForm(flask_wtf.FlaskForm):
   title = wtforms.StringField('Name', [wtforms.validators.required()])
   content = wtforms.TextAreaField('Content', [wtforms.validators.required()])
   keywords = wtforms.TextAreaField('Keywords', [wtforms.validators.optional()])
-  image = wtforms.StringField('Image', [wtforms.validators.required()])
+  image = wtforms.StringField('Image', [wtforms.validators.optional()])
 
 def get_img_url(first_img_id):
+  if first_img_id is None:
+      return ''
+
   resource = model.Resource.get_by_id(first_img_id)
+
   if resource is not None:
     return resource.image_url
   else:
@@ -36,6 +37,10 @@ def post_create():
 
   if form.validate_on_submit():
     img_ids_list = [int(id) for id in form.image.data.split(';') if id != '']
+    if len(img_ids_list) > 0:
+        first_img_id = img_ids_list[0]
+    else:
+        first_img_id = None
 
     post_db = model.Post(
       user_key=auth.current_user_key(),
@@ -44,7 +49,7 @@ def post_create():
       keywords=form.keywords.data,
       image_ids_string=form.image.data,
       img_ids = img_ids_list,
-      image_url=get_img_url(img_ids_list[0])
+      image_url=get_img_url(first_img_id)
 
     )
     post_db.put()
