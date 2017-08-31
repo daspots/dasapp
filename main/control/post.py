@@ -12,11 +12,18 @@ from google.appengine.ext import blobstore
 
 from main import app
 
+
+def get_recommenders():
+    q = model.Recommender.query().fetch()
+    return [(recommender.name, recommender.name) for recommender in q]
+
 class PostUpdateForm(flask_wtf.FlaskForm):
-  title = wtforms.StringField('Name', [wtforms.validators.required()])
-  content = wtforms.TextAreaField('Content', [wtforms.validators.required()])
-  keywords = wtforms.TextAreaField('Keywords', [wtforms.validators.optional()])
-  image = wtforms.StringField('Image', [wtforms.validators.optional()])
+    title = wtforms.StringField('Name', [wtforms.validators.required()])
+    content = wtforms.TextAreaField('Content', [wtforms.validators.required()])
+    keywords = wtforms.TextAreaField('Keywords', [wtforms.validators.optional()])
+    image = wtforms.StringField('Image', [wtforms.validators.optional()])
+    recommender = wtforms.SelectField('Recommended By', choices=get_recommenders())
+
 
 def get_img_url(first_img_id):
   if first_img_id is None:
@@ -48,8 +55,9 @@ def post_create():
       content=form.content.data,
       keywords=form.keywords.data,
       image_ids_string=form.image.data,
-      img_ids = img_ids_list,
-      image_url=get_img_url(first_img_id)
+      img_ids=img_ids_list,
+      image_url=get_img_url(first_img_id),
+      recommender=form.recommender.data,
 
     )
     post_db.put()

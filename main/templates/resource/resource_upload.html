@@ -17,8 +17,9 @@
           {{form.csrf_token}}
           {{forms.text_field(form.title, autofocus=True)}}
           {{forms.text_field(form.keywords)}}
-           {{forms.hidden_field(form.image)}}
+          {{forms.hidden_field(form.image)}}
           {{forms.textarea_field(form.content)}}
+          {{forms.select_field(form.recommender)}}
           <button type="submit" class="btn btn-primary btn-block">
             # if contact_db
               Update Post
