@@ -6,4 +6,5 @@ from .config import Config
 from .user import User
 from .post import Post
 from .resource import Resource
+from .recommender import Recommender
 

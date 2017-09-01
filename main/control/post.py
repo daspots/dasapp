@@ -1,4 +1,4 @@
-import urllib
+
 import flask
 import auth
 import model
@@ -7,22 +7,31 @@ import wtforms
 import util
 import config
 
-from main import app
 from google.appengine.ext import blobstore
 
-from flask_wtf.file import FileField, FileRequired
-from werkzeug.utils import secure_filename
 
 from main import app
 
+
+def get_recommenders():
+    q = model.Recommender.query().fetch()
+    return [(recommender.name, recommender.name) for recommender in q]
+
 class PostUpdateForm(flask_wtf.FlaskForm):
-  title = wtforms.StringField('Name', [wtforms.validators.required()])
-  content = wtforms.TextAreaField('Content', [wtforms.validators.required()])
-  keywords = wtforms.TextAreaField('Keywords', [wtforms.validators.optional()])
-  image = wtforms.StringField('Image', [wtforms.validators.required()])
+    title = wtforms.StringField('Name', [wtforms.validators.required()])
+    content = wtforms.TextAreaField('Content', [wtforms.validators.required()])
+    keywords = wtforms.TextAreaField('Keywords', [wtforms.validators.optional()])
+    image = wtforms.StringField('Image', [wtforms.validators.optional()])
+    recommender = wtforms.SelectField('Recommended By', choices=get_recommenders())
+    website = wtforms.StringField('Website', [wtforms.validators.optional()])
+
 
 def get_img_url(first_img_id):
+  if first_img_id is None:
+      return ''
+
   resource = model.Resource.get_by_id(first_img_id)
+
   if resource is not None:
     return resource.image_url
   else:
@@ -36,6 +45,10 @@ def post_create():
 
   if form.validate_on_submit():
     img_ids_list = [int(id) for id in form.image.data.split(';') if id != '']
+    if len(img_ids_list) > 0:
+        first_img_id = img_ids_list[0]
+    else:
+        first_img_id = None
 
     post_db = model.Post(
       user_key=auth.current_user_key(),
@@ -43,8 +56,10 @@ def post_create():
       content=form.content.data,
       keywords=form.keywords.data,
       image_ids_string=form.image.data,
-      img_ids = img_ids_list,
-      image_url=get_img_url(img_ids_list[0])
+      img_ids=img_ids_list,
+      image_url=get_img_url(first_img_id),
+      recommender=form.recommender.data,
+      website=form.website.data,
 
     )
     post_db.put()
@@ -93,7 +108,7 @@ def post_view(post_id):
       'post_view.html',
       html_class='post-view',
       title=post_db.title,
-      contact_db=post_db,
+      post_db=post_db,
       url_list=[get_img_url(id) for id in post_db.img_ids]
     )
 

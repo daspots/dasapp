@@ -12,6 +12,8 @@
         <th>Content</th>
         <th>Image</th>
         <th>Keywords</th>
+        <th>Recommender</th>
+        <th>Website</th>
       </tr>
     </thead>
     <tbody>
@@ -26,6 +28,8 @@
           <td>{{post_db.content}}</td>
           <td><a href="{{post_db.view_url}}">{{post_db.view_url}}</a></td>
           <td>{{post_db.keywords}}</td>
+          <td><a href="{{post_db.recommender_url}}">{{post_db.recommender}}</a></td>
+          <td><a href="{{post_db.website}}">{{post_db.website}}</a> </td>
         </tr>
       # endfor
     </tbody>

@@ -17,6 +17,8 @@ class Post(model.Base):
   content_type = ndb.StringProperty(default='')
   size = ndb.IntegerProperty(default=0)
   img_ids = ndb.IntegerProperty(repeated=True)
+  recommender = ndb.StringProperty(default='')
+  website = ndb.StringProperty(default='')
 
   @ndb.ComputedProperty
   def size_human(self):
@@ -55,4 +57,11 @@ class Post(model.Base):
   }
 
   FIELDS.update(model.Base.FIELDS)
+
+  @ndb.ComputedProperty
+  def recommender_url(self):
+    recommender = model.Recommender.query(model.Recommender.name == self.recommender).get()
+    return flask.url_for(
+      'recommender_view', recommender_id=recommender.key.id(), _external=True
+    )
 

@@ -17,7 +17,13 @@
         </li>
         <li class="{{'active' if html_class == 'post-list'}}">
           <a href="{{url_for('post_list')}}"><i class="fa fa-list"></i> Post List</a>
-      </li>
+        </li>
+        <li class="{{'active' if html_class == 'recommender-create'}}">
+          <a href="{{url_for('recommender_create')}}"><i class="fa fa-file"></i> Create Recommender</a>
+        </li>
+        <li class="{{'active' if html_class == 'recommender-list'}}">
+          <a href="{{url_for('recommender_list')}}"><i class="fa fa-list"></i>Recommender List</a>
+        </li>
         # endif
         # include 'bit/contact_menu.html'
       </ul>

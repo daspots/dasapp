@@ -1,0 +1,33 @@
+# extends 'base.html'
+
+# block content
+  <div class="page-header">
+    <h1>{{title}}</h1>
+  </div>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Bio</th>
+        <th>Image</th>
+        <th>Website</th>
+      </tr>
+    </thead>
+    <tbody>
+      # for recommender_db in recommender_dbs
+        <tr>
+          <td> <a href="{{url_for('recommender_update', recommender_id=recommender_db.key.id())}}">
+              update
+          </a></td>
+          <td> <a href="{{url_for('recommender_view', recommender_id=recommender_db.key.id())}}">
+                {{recommender_db.name}}
+          </a></td>
+          <td>{{recommender_db.bio}}</td>
+          <td><a href="{{recommender_db.image_url}}">{{recommender_db.image_url}}</a></td>
+          <td>{{recommender_db.website_url }}</td>
+        </tr>
+      # endfor
+    </tbody>
+  </table>
+# endblock
