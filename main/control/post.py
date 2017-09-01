@@ -23,6 +23,7 @@ class PostUpdateForm(flask_wtf.FlaskForm):
     keywords = wtforms.TextAreaField('Keywords', [wtforms.validators.optional()])
     image = wtforms.StringField('Image', [wtforms.validators.optional()])
     recommender = wtforms.SelectField('Recommended By', choices=get_recommenders())
+    website = wtforms.StringField('Website', [wtforms.validators.optional()])
 
 
 def get_img_url(first_img_id):
@@ -58,6 +59,7 @@ def post_create():
       img_ids=img_ids_list,
       image_url=get_img_url(first_img_id),
       recommender=form.recommender.data,
+      website=form.website.data,
 
     )
     post_db.put()
@@ -106,7 +108,7 @@ def post_view(post_id):
       'post_view.html',
       html_class='post-view',
       title=post_db.title,
-      contact_db=post_db,
+      post_db=post_db,
       url_list=[get_img_url(id) for id in post_db.img_ids]
     )
 

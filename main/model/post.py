@@ -18,6 +18,7 @@ class Post(model.Base):
   size = ndb.IntegerProperty(default=0)
   img_ids = ndb.IntegerProperty(repeated=True)
   recommender = ndb.StringProperty(default='')
+  website = ndb.StringProperty(default='')
 
   @ndb.ComputedProperty
   def size_human(self):
