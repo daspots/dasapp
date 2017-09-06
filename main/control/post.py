@@ -61,7 +61,6 @@ def post_create():
     else:
         first_img_id = None
 
-
     keyword_list = [k for k in form.keywords.data.split(',') if k != '' ]
     keywords = model.Keyword.query(model.Keyword.keyword.IN(keyword_list)).fetch()
     keywords_str = [keyword.keyword for keyword in keywords]
@@ -100,7 +99,7 @@ def post_create():
     return flask.redirect(flask.url_for('post_list', order='-created'))
 
   return flask.render_template(
-    'resource/resource_upload.html',
+    'post_create.html',
     title='Create New Post',
     html_class='resource-upload',
     get_upload_url=flask.url_for('api.resource.upload'),

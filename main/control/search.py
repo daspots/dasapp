@@ -17,6 +17,7 @@ class SearchForm(flask_wtf.FlaskForm):
 
 @app.route('/search', methods=['POST'])
 def search():
+    query = flask.g.search_form.search.data.replace(',', '+')
     if not flask.g.search_form.validate_on_submit():
         return flask.redirect(flask.url_for('welcome'))
-    return flask.redirect(flask.url_for('post_list_q', query=flask.g.search_form.search.data))
+    return flask.redirect(flask.url_for('post_list_q', query=query))

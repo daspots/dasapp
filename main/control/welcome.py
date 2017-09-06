@@ -18,15 +18,15 @@ from main import app
 
 @app.route('/')
 def welcome():
-  post_dbs, post_cursor = model.Post.get_dbs(
-      user_key=auth.current_user_key(),
-    )
+  post_dbs = model.Post.query().fetch()
+
   return flask.render_template(
       'welcome.html',
       html_class='main-list',
       title='Post List',
       post_dbs=post_dbs,
-      next_url=util.generate_next_url(post_cursor),
+      next_url=''
+  # util.generate_next_url(post_cursor),
     )
 
 
