@@ -1,4 +1,13 @@
 
+import flask
+import flask_wtf
+import wtforms
+
+
+from main import app
+
+
+
 @app.before_request
 def before_request():
     flask.g.search_form = SearchForm()
