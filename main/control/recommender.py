@@ -53,7 +53,8 @@ def recommender_create():
       website_url=form.website_url.data,
       image_ids_string=form.image.data,
       img_ids = img_ids_list,
-      image_url=get_img_url(first_img_id)
+      image_url=get_img_url(first_img_id),
+      name_lower=form.name.data.lower(),
 
     )
     recommender_db.put()

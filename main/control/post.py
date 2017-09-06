@@ -25,7 +25,7 @@ def get_new_keywords(list):
 class PostUpdateForm(flask_wtf.FlaskForm):
     title = wtforms.StringField('Name', [wtforms.validators.required()])
     content = wtforms.TextAreaField('Content', [wtforms.validators.required()])
-    keywords = wtforms.StringField('Keywords', [wtforms.validators.optional()])
+    keywords = wtforms.StringField('Keywords', [wtforms.validators.required()])
     image = wtforms.StringField('Image', [wtforms.validators.optional()])
     recommender = wtforms.SelectField('Recommended By', choices=get_recommenders())
     website = wtforms.StringField('Website', [wtforms.validators.optional()])
@@ -76,9 +76,10 @@ def post_create():
       img_ids=img_ids_list,
       image_url=get_img_url(first_img_id),
       recommender=form.recommender.data,
+      recommender_lower=form.recommender.data.lower(),
       website=form.website.data,
       adress=form.adress.data,
-      keyword_list=keyword_list
+      keyword_list=keyword_list,
 
     )
 
@@ -91,7 +92,6 @@ def post_create():
 
     for keyword in keywords:
         if keyword.keyword not in new_keywords:
-            print 'putting keyword:' + keyword.keyword
             keyword.post_keys.append(post_db_key)
             keyword.put()
 
@@ -113,7 +113,6 @@ def post_create():
   )
 
 
-
 @app.route('/post/')
 @auth.login_required
 def post_list():
@@ -128,8 +127,10 @@ def post_list():
       next_url=util.generate_next_url(post_cursor),
     )
 
+
 def get_url_list(ids):
     return [get_img_url(id) for id in ids]
+
 
 @app.route('/post/<int:post_id>/')
 @auth.login_required
@@ -144,6 +145,7 @@ def post_view(post_id):
       post_db=post_db,
       url_list=[get_img_url(id) for id in post_db.img_ids]
     )
+
 
 @app.route('/post/<int:post_id>/update/', methods=['GET', 'POST'])
 @auth.login_required
@@ -165,7 +167,6 @@ def post_update(post_id):
     )
 
 
-
 @app.route('/post/q/<query>')
 def post_list_q(query):
     keywords_to_search = query.split('+')
@@ -181,6 +182,19 @@ def post_list_q(query):
         'welcome.html',
         html_class='main-list',
         title='Post List',
+        post_dbs=post_dbs,
+        next_url=''
+    )
+
+@app.route('/post/r/<recommender>')
+def list_recommenders(recommender):
+    post_dbs = model.Post.query(model.Post.recommender_lower == recommender.lower()).fetch()
+    print recommender.lower()
+    print post_dbs
+    return flask.render_template(
+        'welcome.html',
+        html_class='main-list',
+        title='recommender',
         post_dbs=post_dbs,
         next_url=''
     )

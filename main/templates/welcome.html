@@ -16,13 +16,17 @@
       <div class="row">
         <div class="col-sm-8 col-md-6 col-lg-4">
           <h2>
-            <a href="{{url_for('post_view', post_id=post_db.key.id())}}">
-              {{post_db.title}}
-            </a>
+            <a href="{{post_db.website}}">{{post_db.title}}</a>
           </h2>
           <i>Recommended by:</i><a href="{{post_db.recommender_url}}"> {{post_db.recommender}}</a>
+          <p>
+            {% for keyword in post_db.keyword_list %}
+              <a href="{{url_for('post_list_q', query=keyword)}}">#{{keyword}}</a>
+            {% endfor %}
+          </p>
           <p>{{post_db.content}}</p>
           <img src="{{post_db.image_url}}" style="width:128px;height:128px;">
+          <p><a href="{{post_db.google_maps_directions}}">{{post_db.adress}}</a> </p>
         </div>
 
         </div>

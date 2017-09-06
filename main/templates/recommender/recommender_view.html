@@ -5,8 +5,9 @@
     <h1>{{title}}</h1>
   </div>
   <p>{{recommender_db.bio}}</p>
-  <p>{{recommender_db.website_url}}</p>
+  <p><a href="{{recommender_db.website_url}}">{{recommender_db.website_url}}</a></p>
   <p>{{recommender_db.image_url}}</p>
+  <p><a href="{{url_for('list_recommenders', recommender=recommender_db.name_lower)}}">All Recommendations</a> </p>
   <hr>
   <p>
     <a href="{{url_for('recommender_list')}}">Back</a>

@@ -18,6 +18,7 @@ class Post(model.Base):
   size = ndb.IntegerProperty(default=0)
   img_ids = ndb.IntegerProperty(repeated=True)
   recommender = ndb.StringProperty(default='')
+  recommender_lower = ndb.StringProperty(default='')
   website = ndb.StringProperty(default='')
   adress = ndb.StringProperty(default='')
   keyword_list = ndb.StringProperty(repeated=True)
