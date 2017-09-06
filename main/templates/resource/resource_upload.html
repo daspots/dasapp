@@ -16,11 +16,16 @@
         <fieldset>
           {{form.csrf_token}}
           {{forms.text_field(form.title, autofocus=True)}}
-          {{forms.text_field(form.keywords)}}
           {{forms.hidden_field(form.image)}}
           {{forms.textarea_field(form.content)}}
           {{forms.text_field(form.website)}}
+          {{forms.text_field(form.adress)}}
           {{forms.select_field(form.recommender)}}
+          <div class="category-container">
+          {{forms.text_field(form.keywords, **{'data-role':'tagsinput'})}}
+            </div>
+
+
           <button type="submit" class="btn btn-primary btn-block">
             # if contact_db
               Update Post

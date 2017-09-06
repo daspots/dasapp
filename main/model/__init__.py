@@ -7,4 +7,4 @@ from .user import User
 from .post import Post
 from .resource import Resource
 from .recommender import Recommender
-
+from .keyword import Keyword

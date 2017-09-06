@@ -12,6 +12,8 @@ config =
     "#{paths.static.ext}/bootstrap/js/collapse.js"
     "#{paths.static.ext}/bootstrap/js/dropdown.js"
     "#{paths.static.ext}/bootstrap/js/tooltip.js"
+    "#{paths.static.ext}/bootstrap-tagsinput/dist/bootstrap-tagsinput.js"
+    "#{paths.static.ext}/typeahead.js/dist/typeahead.bundle.js"
   ]
   style: [
     "#{paths.src.style}/style.less"
