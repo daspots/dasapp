@@ -1,14 +1,13 @@
 <footer class="footer">
   <div class="container">
-    # if current_user.admin
-      <p>
-        Version: {{config.CURRENT_VERSION_NAME}}
-        (<time datetime="{{config.CURRENT_VERSION_DATE}}">{{config.CURRENT_VERSION_DATE}}</time>)
-        # if api_url
-          | <a class='api-url' href="{{api_url}}{% if request.query_string %}?{{request.query_string}}{% endif %}" target="_blank" data-api-url="{{api_url}}">View in JSON</a>
-        # endif
-      </p>
-    # endif
-    <p>&copy; 2017 - {{config.CONFIG_DB.brand_name}}</p>
+      <ul>
+        <li class="linkFooter"><a class="linkFooterGrey" href="https://www.facebook.com/favorite.places.saved/">FACEBOOK</a></li>
+        <li class="linkFooter"><a class="linkFooterGrey" href="https://www.instagram.com/daspots/">INSTAGRAM</a></li>
+
+        <li class="linkFooter"><a class="linkFooterWhite" href="{{url_for('about')}}">ABOUT</a></li>
+        <li class="linkFooter"><a class="linkFooterWhite" href="{{url_for('contact')}}">CONTACT</a></li>
+        <li class="linkFooter"><a class="linkFooterWhite" href="{{url_for('newsletter')}}">SIGN UP FOR OUR NEWSLETTER</a></li>
+        <li class="linkFooter" >&copy; 2017 - DASPOTS</li>
+      </ul>  
   </div>
 </footer>

@@ -10,27 +10,38 @@
 # endblock
 
 # block content
-  <div class="column">
+  <div class="container">
 
-       # for post_db in post_dbs
-      <div class="row">
-        <div class="col-sm-8 col-md-6 col-lg-4">
+    <div class="row">
+    {%- for post_db in post_dbs %}
+      <div class="col-6 col-sm-3">
+        <div class="box">
+          <img class="thumbnailImage" src="{{post_db.image_url}}">
           <h2>
-            <a href="{{post_db.website}}">{{post_db.title}}</a>
+            <a class="thumbnailTitle" href="{{url_for('post_view', post_id=post_db.key.id())}}">
+              {{post_db.title}}
+            </a>
           </h2>
-          <i>Recommended by:</i><a href="{{post_db.recommender_url}}"> {{post_db.recommender}}</a>
+          <i><a class="linkRecommended" href="{{post_db.recommender_url}}">RECOMMENDED BY: {{post_db.recommender}}</a></i>
           <p>
             {% for keyword in post_db.keyword_list %}
               <a href="{{url_for('post_list_q', query=keyword)}}">#{{keyword}}</a>
             {% endfor %}
           </p>
-          <p>{{post_db.content}}</p>
-          <img src="{{post_db.image_url}}" style="width:128px;height:128px;">
-          <p><a href="{{post_db.google_maps_directions}}">{{post_db.adress}}</a> </p>
+            <p><a href="{{post_db.google_maps_directions}}">{{post_db.adress}}</a> </p>
+            <p class="pLeft">{{post_db.content}}</p>
         </div>
+      </div>
+      {%- endfor %}
+    </div>
 
-        </div>
-      # endfor
+</div>
 
-  </div>
+<div class="jumbotronNewsletter">
+  <img class="newsletterIcon" src="https://i.imgur.com/PCeLZK8.png">
+      <h1 class="headerCenter">SIGN UP FOR DASPOTS NEWSLETTER</h1>
+      <h2 class="subheaderCenter"> Be the first to know about the latest updates, places and offers from DASPOTS</h2>
+      <p class="linkNewsletter"><a class="linkNewsletter" href={{url_for('newsletter')}}">SIGN ME UP</a></p>
+</div>
+
 # endblock

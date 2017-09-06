@@ -189,8 +189,6 @@ def post_list_q(query):
 @app.route('/post/r/<recommender>')
 def list_recommenders(recommender):
     post_dbs = model.Post.query(model.Post.recommender_lower == recommender.lower()).fetch()
-    print recommender.lower()
-    print post_dbs
     return flask.render_template(
         'welcome.html',
         html_class='main-list',
