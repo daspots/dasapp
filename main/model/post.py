@@ -18,7 +18,11 @@ class Post(model.Base):
   size = ndb.IntegerProperty(default=0)
   img_ids = ndb.IntegerProperty(repeated=True)
   recommender = ndb.StringProperty(default='')
+  recommender_lower = ndb.StringProperty(default='')
   website = ndb.StringProperty(default='')
+  adress = ndb.StringProperty(default='')
+  keyword_list = ndb.StringProperty(repeated=True)
+
 
   @ndb.ComputedProperty
   def size_human(self):
@@ -65,3 +69,6 @@ class Post(model.Base):
       'recommender_view', recommender_id=recommender.key.id(), _external=True
     )
 
+  @ndb.ComputedProperty
+  def google_maps_directions(self):
+    return 'https://www.google.com/maps?saddr=My+Location&daddr=' + self.adress.replace(' ', '+')

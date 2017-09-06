@@ -3,6 +3,8 @@
 # block header
   <div class="jumbotron">
     <div class="container">
+      <h1>{{config.CONFIG_DB.brand_name}}</h1>
+      <p>Hello, world!</p>
     </div>
   </div>
 # endblock
@@ -12,7 +14,7 @@
 
     <div class="row">
     {%- for post_db in post_dbs %}
-      <div class="col-6 col-sm-3">    
+      <div class="col-6 col-sm-3">
         <div class="box">
           <img class="thumbnailImage" src="{{post_db.image_url}}">
           <h2>
@@ -21,7 +23,13 @@
             </a>
           </h2>
           <i><a class="linkRecommended" href="{{post_db.recommender_url}}">RECOMMENDED BY: {{post_db.recommender}}</a></i>
-          <p class="pLeft">{{post_db.content}}</p>
+          <p>
+            {% for keyword in post_db.keyword_list %}
+              <a href="{{url_for('post_list_q', query=keyword)}}">#{{keyword}}</a>
+            {% endfor %}
+          </p>
+            <p><a href="{{post_db.google_maps_directions}}">{{post_db.adress}}</a> </p>
+            <p class="pLeft">{{post_db.content}}</p>
         </div>
       </div>
       {%- endfor %}

@@ -14,6 +14,7 @@
         <th>Keywords</th>
         <th>Recommender</th>
         <th>Website</th>
+        <th>Directions</th>
       </tr>
     </thead>
     <tbody>
@@ -30,6 +31,7 @@
           <td>{{post_db.keywords}}</td>
           <td><a href="{{post_db.recommender_url}}">{{post_db.recommender}}</a></td>
           <td><a href="{{post_db.website}}">{{post_db.website}}</a> </td>
+          <td><a href="{{post_db.google_maps_directions}}">{{post_db.adress}}</a> </td>
         </tr>
       # endfor
     </tbody>

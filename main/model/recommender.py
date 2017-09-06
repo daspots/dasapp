@@ -13,3 +13,4 @@ class Recommender(model.Base):
   website_url = ndb.StringProperty(default='')
   image_url = ndb.StringProperty(default='')
   img_ids = ndb.IntegerProperty(repeated=True)
+  name_lower = ndb.StringProperty(required=True)

@@ -12,4 +12,5 @@ from .welcome import *
 from .post import *
 from .resource import *
 from .recommender import *
+from .search import *
 from .static_pages import *
