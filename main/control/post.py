@@ -116,7 +116,7 @@ def post_create():
 @auth.admin_required
 def post_list():
   post_dbs, post_cursor = model.Post.get_dbs(
-      user_key=auth.current_user_key(),
+      query=model.Post.query(),
     )
   return flask.render_template(
       'post_list.html',
@@ -129,6 +129,31 @@ def post_list():
 
 def get_url_list(ids):
     return [get_img_url(id) for id in ids]
+
+
+@app.route('/post/<int:post_id>/remove/', methods=['GET', 'POST'])
+@auth.admin_required
+def post_remove(post_id):
+    post = model.Post.get_by_id(post_id)
+    # First remove all related images
+    for resource_id in post.img_ids:
+        resource = model.Resource.get_by_id(resource_id)
+        resource.key.delete()
+
+    # Clean up the keywords
+    keywords = model.Keyword.query(model.Keyword.keyword.IN(post.keyword_list)).fetch()
+    for keyword in keywords:
+        keyword.post_keys = [p_key for p_key in keyword.post_keys if p_key != post.key]
+        if len(keyword.post_keys) == 0:
+            keyword.key.delete()
+        else:
+            keyword.put()
+
+    post.key.delete()
+    flask.flash('Post verwijderd', category='success')
+    return flask.redirect(flask.url_for('post_list', order='-created'))
+
+
 
 
 @app.route('/post/<int:post_id>/')
@@ -175,7 +200,7 @@ def post_list_q(query):
     for keyword in keywords:
         post_keys.extend(keyword.post_keys)
 
-    post_dbs = ndb.get_multi(post_keys)
+    post_dbs = [post for post in ndb.get_multi(post_keys) if post is not None]
 
     return flask.render_template(
         'welcome.html',
