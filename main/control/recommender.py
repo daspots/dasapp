@@ -34,7 +34,7 @@ def get_img_url(id):
     return ''
 
 @app.route('/recommender/create/', methods=('GET', 'POST'))
-@auth.login_required
+@auth.admin_required
 def recommender_create():
   form = RecommenderUpdateForm()
 
@@ -78,7 +78,7 @@ def recommender_create():
 
 
 @app.route('/recommender/')
-@auth.login_required
+@auth.admin_required
 def recommender_list():
     recommender_dbs, post_cursor = model.Recommender.get_dbs(
       user_key=auth.current_user_key(),
@@ -95,7 +95,7 @@ def get_url_list(ids):
     return [get_img_url(id) for id in ids]
 
 @app.route('/recommender/<int:recommender_id>/')
-@auth.login_required
+@auth.admin_required
 def recommender_view(recommender_id):
     recommender_db = model.Recommender.get_by_id(recommender_id)
     if not recommender_db or recommender_db.user_key != auth.current_user_key():
@@ -109,7 +109,7 @@ def recommender_view(recommender_id):
     )
 
 @app.route('/recommender/<int:recommender_id>/update/', methods=['GET', 'POST'])
-@auth.login_required
+@auth.admin_required
 def recommender_update(recommender_id):
     recommender_db = model.Recommender.get_by_id(recommender_id)
     if not recommender_db or recommender_db.user_key != auth.current_user_key():
