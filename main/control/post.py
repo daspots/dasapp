@@ -50,7 +50,7 @@ def get_keywords():
     return json.dumps(keywords)
 
 @app.route('/post/create/', methods=['GET', 'POST'])
-@auth.login_required            # todo: should be admin
+@auth.admin_required            # todo: should be admin
 def post_create():
   form = PostUpdateForm()
 
@@ -113,7 +113,7 @@ def post_create():
 
 
 @app.route('/post/')
-@auth.login_required
+@auth.admin_required
 def post_list():
   post_dbs, post_cursor = model.Post.get_dbs(
       user_key=auth.current_user_key(),
@@ -132,7 +132,7 @@ def get_url_list(ids):
 
 
 @app.route('/post/<int:post_id>/')
-@auth.login_required
+@auth.admin_required
 def post_view(post_id):
   post_db = model.Post.get_by_id(post_id)
   if not post_db or post_db.user_key != auth.current_user_key():
@@ -147,7 +147,7 @@ def post_view(post_id):
 
 
 @app.route('/post/<int:post_id>/update/', methods=['GET', 'POST'])
-@auth.login_required
+@auth.admin_required
 def post_update(post_id):
   post_db = model.Post.get_by_id(post_id)
   if not post_db or post_db.user_key != auth.current_user_key():
