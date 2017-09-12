@@ -142,7 +142,6 @@ def recommender_overview():
     recommender_dbs, post_cursor = model.Recommender.get_dbs(
         query=model.Recommender.query(),
     )
-    print recommender_dbs
     return flask.render_template(
         'recommender/recommender_overview.html',
         html_class='recommender-overview',
