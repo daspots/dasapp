@@ -27,7 +27,7 @@ class PostUpdateForm(flask_wtf.FlaskForm):
     content = wtforms.TextAreaField('Content', [wtforms.validators.required()])
     keywords = wtforms.StringField('Keywords', [wtforms.validators.required()])
     image = wtforms.StringField('Image', [wtforms.validators.optional()])
-    recommender = wtforms.SelectField('Recommended By', choices=get_recommenders())
+    recommender = wtforms.SelectField('Recommended By', choices=[])
     website = wtforms.StringField('Website', [wtforms.validators.optional()])
     adress = wtforms.StringField('Adress', [wtforms.validators.optional()])
 
@@ -50,9 +50,10 @@ def get_keywords():
     return json.dumps(keywords)
 
 @app.route('/post/create/', methods=['GET', 'POST'])
-@auth.admin_required            # todo: should be admin
+@auth.admin_required
 def post_create():
   form = PostUpdateForm()
+  form.recommender.choices = get_recommenders()
 
   if form.validate_on_submit():
     img_ids_list = [int(id) for id in form.image.data.split(';') if id != '']
@@ -97,6 +98,7 @@ def post_create():
 
     flask.flash('New post was successfully created!', category='success')
     return flask.redirect(flask.url_for('post_list', order='-created'))
+
 
   return flask.render_template(
     'post_create.html',

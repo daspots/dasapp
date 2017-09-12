@@ -98,7 +98,7 @@ def get_url_list(ids):
 def recommender_view(recommender_id):
     recommender_db = model.Recommender.get_by_id(recommender_id)
     if not recommender_db:
-        return flask.render_template('recommender/no_longer_available.html')
+        return flask.render_template('recommender/recommender_view.html')
     return flask.render_template(
       'recommender/recommender_view.html',
       html_class='recommender-view',
@@ -136,3 +136,20 @@ def recommender_remove(recommender_id):
     flask.flash('Recommender removed', category='success')
 
     return flask.redirect(flask.url_for('recommender_list', order='-created'))
+
+@app.route('/recommender_overview')
+def recommender_overview():
+    recommender_dbs, post_cursor = model.Recommender.get_dbs(
+        query=model.Recommender.query(),
+    )
+    print recommender_dbs
+    return flask.render_template(
+        'recommender/recommender_overview.html',
+        html_class='recommender-overview',
+        title='All our experts',
+        recommender_dbs=recommender_dbs,
+        next_url=''
+        # util.generate_next_url(post_cursor),
+    )
+
+

@@ -1,0 +1,35 @@
+# extends 'base.html'
+
+# block header
+  <div class="jumbotron">
+    <div class="container">
+      <h1>{{config.CONFIG_DB.brand_name}}</h1>
+      <p>Hello, world!</p>
+    </div>
+  </div>
+# endblock
+
+# block content
+  <div class="container">
+
+    <div class="row">
+    {%- for recommender_db in recommender_dbs %}
+      <div class="col-6 col-sm-3">
+        <div class="box">
+          <img class="thumbnailImage" src="{{recommender_db.image_url}}">
+          <h2>
+            <a class="thumbnailTitle" href="{{url_for('recommender_view', recommender_id=recommender_db.key.id())}}">
+              {{recommender_db.name}}
+            </a>
+          </h2>
+          <i><a class="linkRecommended" href="{{url_for('list_recommenders', recommender=recommender_db.name_lower)}}">
+              ALL RECOMMENDATIONS BY: {{recommender_db.name}}</a></i>
+            <p class="pLeft">{{recommender_db.bio}}</p>
+        </div>
+      </div>
+      {%- endfor %}
+    </div>
+
+</div>
+
+# endblock
