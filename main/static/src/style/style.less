@@ -12,15 +12,25 @@
 @import "resource";
 @import "welcome";
 @import "header";
+@import "user_menu";
 @import "about";
+@import "contact";
 @import "newsletter";
 
-
-
+/* stop the glowing blue shadow */
+.add-on .form-control:focus {
+ box-shadow:none;
+ -webkit-box-shadow:none;
+ border-color:#cccccc;
+     width: 100%!important;
+    display: block;
+}
 
 .bootstrap-tagsinput {
-    width: 100%;
+    width: 15em !important;
+    display: block;
 }
+
 
 .tt-query, /* UPDATE: newer versions use tt-input instead of tt-query */
 .tt-hint {

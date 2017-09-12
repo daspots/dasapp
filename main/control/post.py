@@ -27,7 +27,7 @@ class PostUpdateForm(flask_wtf.FlaskForm):
     content = wtforms.TextAreaField('Content', [wtforms.validators.required()])
     keywords = wtforms.StringField('Keywords', [wtforms.validators.required()])
     image = wtforms.StringField('Image', [wtforms.validators.optional()])
-    recommender = wtforms.SelectField('Recommended By', choices=get_recommenders())
+    recommender = wtforms.SelectField('Recommended By', choices=[])
     website = wtforms.StringField('Website', [wtforms.validators.optional()])
     adress = wtforms.StringField('Adress', [wtforms.validators.optional()])
 
@@ -50,9 +50,10 @@ def get_keywords():
     return json.dumps(keywords)
 
 @app.route('/post/create/', methods=['GET', 'POST'])
-@auth.login_required            # todo: should be admin
+@auth.admin_required
 def post_create():
   form = PostUpdateForm()
+  form.recommender.choices = get_recommenders()
 
   if form.validate_on_submit():
     img_ids_list = [int(id) for id in form.image.data.split(';') if id != '']
@@ -60,7 +61,6 @@ def post_create():
         first_img_id = img_ids_list[0]
     else:
         first_img_id = None
-
 
     keyword_list = [k for k in form.keywords.data.split(',') if k != '' ]
     keywords = model.Keyword.query(model.Keyword.keyword.IN(keyword_list)).fetch()
@@ -99,8 +99,9 @@ def post_create():
     flask.flash('New post was successfully created!', category='success')
     return flask.redirect(flask.url_for('post_list', order='-created'))
 
+
   return flask.render_template(
-    'resource/resource_upload.html',
+    'post_create.html',
     title='Create New Post',
     html_class='resource-upload',
     get_upload_url=flask.url_for('api.resource.upload'),
@@ -114,10 +115,10 @@ def post_create():
 
 
 @app.route('/post/')
-@auth.login_required
+@auth.admin_required
 def post_list():
   post_dbs, post_cursor = model.Post.get_dbs(
-      user_key=auth.current_user_key(),
+      query=model.Post.query(),
     )
   return flask.render_template(
       'post_list.html',
@@ -132,8 +133,33 @@ def get_url_list(ids):
     return [get_img_url(id) for id in ids]
 
 
+@app.route('/post/<int:post_id>/remove/', methods=['GET', 'POST'])
+@auth.admin_required
+def post_remove(post_id):
+    post = model.Post.get_by_id(post_id)
+    # First remove all related images
+    for resource_id in post.img_ids:
+        resource = model.Resource.get_by_id(resource_id)
+        resource.key.delete()
+
+    # Clean up the keywords
+    keywords = model.Keyword.query(model.Keyword.keyword.IN(post.keyword_list)).fetch()
+    for keyword in keywords:
+        keyword.post_keys = [p_key for p_key in keyword.post_keys if p_key != post.key]
+        if len(keyword.post_keys) == 0:
+            keyword.key.delete()
+        else:
+            keyword.put()
+
+    post.key.delete()
+    flask.flash('Post removed', category='success')
+    return flask.redirect(flask.url_for('post_list', order='-created'))
+
+
+
+
 @app.route('/post/<int:post_id>/')
-@auth.login_required
+@auth.admin_required
 def post_view(post_id):
   post_db = model.Post.get_by_id(post_id)
   if not post_db or post_db.user_key != auth.current_user_key():
@@ -148,7 +174,7 @@ def post_view(post_id):
 
 
 @app.route('/post/<int:post_id>/update/', methods=['GET', 'POST'])
-@auth.login_required
+@auth.admin_required
 def post_update(post_id):
   post_db = model.Post.get_by_id(post_id)
   if not post_db or post_db.user_key != auth.current_user_key():
@@ -176,7 +202,7 @@ def post_list_q(query):
     for keyword in keywords:
         post_keys.extend(keyword.post_keys)
 
-    post_dbs = ndb.get_multi(post_keys)
+    post_dbs = [post for post in ndb.get_multi(post_keys) if post is not None]
 
     return flask.render_template(
         'welcome.html',

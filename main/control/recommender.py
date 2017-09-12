@@ -34,7 +34,7 @@ def get_img_url(id):
     return ''
 
 @app.route('/recommender/create/', methods=('GET', 'POST'))
-@auth.login_required
+@auth.admin_required
 def recommender_create():
   form = RecommenderUpdateForm()
 
@@ -78,10 +78,10 @@ def recommender_create():
 
 
 @app.route('/recommender/')
-@auth.login_required
+@auth.admin_required
 def recommender_list():
     recommender_dbs, post_cursor = model.Recommender.get_dbs(
-      user_key=auth.current_user_key(),
+        query=model.Recommender.query(),
     )
     return flask.render_template(
       'recommender/recommender_list.html',
@@ -95,11 +95,10 @@ def get_url_list(ids):
     return [get_img_url(id) for id in ids]
 
 @app.route('/recommender/<int:recommender_id>/')
-@auth.login_required
 def recommender_view(recommender_id):
     recommender_db = model.Recommender.get_by_id(recommender_id)
-    if not recommender_db or recommender_db.user_key != auth.current_user_key():
-        flask.abort(404)
+    if not recommender_db:
+        return flask.render_template('recommender/recommender_view.html')
     return flask.render_template(
       'recommender/recommender_view.html',
       html_class='recommender-view',
@@ -109,7 +108,7 @@ def recommender_view(recommender_id):
     )
 
 @app.route('/recommender/<int:recommender_id>/update/', methods=['GET', 'POST'])
-@auth.login_required
+@auth.admin_required
 def recommender_update(recommender_id):
     recommender_db = model.Recommender.get_by_id(recommender_id)
     if not recommender_db or recommender_db.user_key != auth.current_user_key():
@@ -127,3 +126,30 @@ def recommender_update(recommender_id):
           form=form,
           recommender_db=recommender_db,
         )
+
+
+@app.route('/recommender/<int:recommender_id>/remove/', methods=['GET', 'POST'])
+@auth.admin_required
+def recommender_remove(recommender_id):
+    recommender = model.Recommender.get_by_id(recommender_id)
+    recommender.key.delete()
+    flask.flash('Recommender removed', category='success')
+
+    return flask.redirect(flask.url_for('recommender_list', order='-created'))
+
+@app.route('/recommender_overview')
+def recommender_overview():
+    recommender_dbs, post_cursor = model.Recommender.get_dbs(
+        query=model.Recommender.query(),
+    )
+    print recommender_dbs
+    return flask.render_template(
+        'recommender/recommender_overview.html',
+        html_class='recommender-overview',
+        title='All our experts',
+        recommender_dbs=recommender_dbs,
+        next_url=''
+        # util.generate_next_url(post_cursor),
+    )
+
+

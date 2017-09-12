@@ -30,7 +30,7 @@ def get_img_url(first_img_id):
   return resource.image_url
 
 @app.route('/resource/upload/', methods=['GET', 'POST'])
-@auth.login_required
+@auth.admin_required
 def resource_upload():
   form = PostUpdateForm()
 
@@ -69,7 +69,7 @@ def resource_upload():
 # List
 ###############################################################################
 @app.route('/resource/', endpoint='resource_list')
-@auth.login_required
+@auth.admin_required
 def resource_list():
   resource_dbs, resource_cursor = auth.current_user_db().get_resource_dbs()
 
@@ -87,7 +87,7 @@ def resource_list():
 # View
 ###############################################################################
 @app.route('/resource/<int:resource_id>/', endpoint='resource_view')
-@auth.login_required
+@auth.admin_required
 def resource_view(resource_id):
   resource_db = model.Resource.get_by_id(resource_id)
 
@@ -111,7 +111,7 @@ class ResourceUpdateForm(flask_wtf.FlaskForm):
 
 
 @app.route('/resource/<int:resource_id>/update/', methods=['GET', 'POST'], endpoint='resource_update')
-@auth.login_required
+@auth.admin_required
 def resource_update(resource_id):
   resource_db = model.Resource.get_by_id(resource_id)
 
@@ -141,7 +141,7 @@ def resource_update(resource_id):
 # Download
 ###############################################################################
 @app.route('/resource/<int:resource_id>/download/')
-@auth.login_required
+@auth.admin_required
 def resource_download(resource_id):
   resource_db = model.Resource.get_by_id(resource_id)
   if not resource_db or resource_db.user_key != auth.current_user_key():
