@@ -150,7 +150,7 @@ def post_remove(post_id):
             keyword.put()
 
     post.key.delete()
-    flask.flash('Post verwijderd', category='success')
+    flask.flash('Post removed', category='success')
     return flask.redirect(flask.url_for('post_list', order='-created'))
 
 

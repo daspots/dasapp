@@ -12,6 +12,7 @@
         <th>Bio</th>
         <th>Image</th>
         <th>Website</th>
+        <th>Remove</th>
       </tr>
     </thead>
     <tbody>
@@ -26,6 +27,12 @@
           <td>{{recommender_db.bio}}</td>
           <td><a href="{{recommender_db.image_url}}">{{recommender_db.image_url}}</a></td>
           <td>{{recommender_db.website_url }}</td>
+          <td><a href="{{url_for('recommender_remove', recommender_id=recommender_db.key.id())}}">
+            <button type="button" class="btn btn-default btn-md">
+              <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+            </button>
+            </a>
+          </td>
         </tr>
       # endfor
     </tbody>
