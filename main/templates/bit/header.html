@@ -33,6 +33,7 @@
         # endif
         # include 'bit/contact_menu.html'
       </ul>
+      <ul class="nav navbar-nav navbar-right">
        <form class="navbar-form"  action="{{ url_for('search') }}" method="post" name="search">
           <div class="input-group add-on">
           {{ g.search_form.hidden_tag() }}{{ g.search_form.search(size=20) }}
@@ -45,6 +46,7 @@
       <ul class="nav navbar-nav navbar-right">
         # include 'bit/user_menu.html'
       </ul>
+
     </nav>
   </div>
 </header>
