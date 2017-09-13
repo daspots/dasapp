@@ -192,6 +192,13 @@ def post_update(post_id):
       contact_db=post_db,
     )
 
+@app.route('/post/q/')
+def no_posts_found():
+    return flask.render_template('no_post_found.html',
+                                 html_class='main-list',
+                                 title='No Posts Found',
+                                 )
+
 
 @app.route('/post/q/<query>')
 def post_list_q(query):
@@ -203,6 +210,12 @@ def post_list_q(query):
         post_keys.extend(keyword.post_keys)
 
     post_dbs = [post for post in ndb.get_multi(post_keys) if post is not None]
+
+    if len(post_dbs) == 0:
+        return flask.render_template('no_post_found.html',
+                                     html_class='main-list',
+                                     title='No Posts Found',
+                                     )
 
     return flask.render_template(
         'welcome.html',
