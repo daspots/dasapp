@@ -22,7 +22,7 @@ class Post(model.Base):
   website = ndb.StringProperty(default='')
   adress = ndb.StringProperty(default='')
   keyword_list = ndb.StringProperty(repeated=True)
-
+  starred = ndb.BooleanProperty(default=False)
 
   @ndb.ComputedProperty
   def size_human(self):

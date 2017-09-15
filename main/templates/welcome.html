@@ -18,9 +18,17 @@
         <div class="box">
           <img class="thumbnailImage" src="{{post_db.image_url}}">
           <h2>
-            <a class="thumbnailTitle" href="{{url_for('post_view', post_id=post_db.key.id())}}">
-              {{post_db.title}}
-            </a>
+            <i onclick="starFunction(this, '{{post_db.key.id()}}')"
+               {% if post_db.starred %}
+                 class="fa fa-star"
+               {% else %}
+                class="fa fa-star-o"
+               {% endif %}
+            ></i>
+              <a class="thumbnailTitle" href="{{url_for('post_view', post_id=post_db.key.id())}}">
+                {{post_db.title}}
+              </a>
+
           </h2>
           <i><a class="linkRecommended" href="{{post_db.recommender_url}}">RECOMMENDED BY: {{post_db.recommender}}</a></i>
           <p>
@@ -45,4 +53,7 @@
         <p class="linkNewsletter"><a class="linkNewsletter" href={{url_for('newsletter')}}">SIGN ME UP</a></p>
   </div>
 
+
+
+</div>
 # endblock

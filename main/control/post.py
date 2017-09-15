@@ -11,6 +11,7 @@ import json
 from google.appengine.ext import blobstore
 from google.appengine.ext import ndb
 
+from helpers import add_starred_to_posts
 from main import app
 
 
@@ -210,7 +211,7 @@ def post_list_q(query):
         post_keys.extend(keyword.post_keys)
 
     post_dbs = [post for post in ndb.get_multi(post_keys) if post is not None]
-
+    post_dbs = add_starred_to_posts(post_dbs)
     if len(post_dbs) == 0:
         return flask.render_template('no_post_found.html',
                                      html_class='main-list',
@@ -228,6 +229,7 @@ def post_list_q(query):
 @app.route('/post/r/<recommender>')
 def list_recommenders(recommender):
     post_dbs = model.Post.query(model.Post.recommender_lower == recommender.lower()).fetch()
+    post_dbs = add_starred_to_posts(post_dbs)
     return flask.render_template(
         'welcome.html',
         html_class='main-list',

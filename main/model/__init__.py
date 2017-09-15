@@ -8,3 +8,4 @@ from .post import Post
 from .resource import Resource
 from .recommender import Recommender
 from .keyword import Keyword
+from .star import Star
