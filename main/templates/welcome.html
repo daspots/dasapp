@@ -43,9 +43,9 @@
           <h2>
             <i onclick="starFunction(this, '{{post_db.key.id()}}')" data-rel="popup"
                {% if post_db.starred %}
-                 class="fa fa-star
+                 class="fa blue fa-star
                {% else %}
-                class="fa fa-star-o
+                class="fa blue fa-star-o
                {% endif %}
                {%  if current_user.id > 0 %}
                   "

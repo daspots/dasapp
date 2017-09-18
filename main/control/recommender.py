@@ -64,7 +64,7 @@ def recommender_create():
   return flask.render_template(
     'recommender/recommender_create.html',
     title='Create Recommender',
-    html_class='resource-upload',
+    html_class='recommender-create',
     get_upload_url=flask.url_for('api.resource.upload'),
     has_json=True,
     form=form,

@@ -104,7 +104,7 @@ def post_create():
   return flask.render_template(
     'post_create.html',
     title='Create New Post',
-    html_class='resource-upload',
+    html_class='post-create',
     get_upload_url=flask.url_for('api.resource.upload'),
     has_json=True,
     form=form,
@@ -198,6 +198,7 @@ def no_posts_found():
     return flask.render_template('no_post_found.html',
                                  html_class='main-list',
                                  title='No Posts Found',
+                                 error_message='Unfortunately, your search didn\'t return any results...',
                                  )
 
 
@@ -216,6 +217,7 @@ def post_list_q(query):
         return flask.render_template('no_post_found.html',
                                      html_class='main-list',
                                      title='No Posts Found',
+                                     error_message='Unfortunately, your search didn\'t return any results...',
                                      )
 
     return flask.render_template(
@@ -234,6 +236,28 @@ def list_recommenders(recommender):
         'welcome.html',
         html_class='main-list',
         title='recommender',
+        post_dbs=post_dbs,
+        next_url=''
+    )
+
+@app.route('/post/u')
+@auth.login_required
+def post_list_u():
+    user_db = auth.current_user_key().get()
+    stars = model.Star.query(model.Star.user_key == user_db.key).fetch()
+    post_dbs = [star.post_key.get() for star in stars]
+    post_dbs = add_starred_to_posts(post_dbs)
+    if len(post_dbs) == 0:
+        return flask.render_template('no_post_found.html',
+                                     html_class='starred',
+                                     title='No Posts Found',
+                                     error_message='You have no saved venues, click the star next to a post to save it'
+                                                   ' to your saved venues.'
+                                     )
+    return flask.render_template(
+        'welcome.html',
+        html_class='starred',
+        title='Starred Venues',
         post_dbs=post_dbs,
         next_url=''
     )

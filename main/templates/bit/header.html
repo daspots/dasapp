@@ -16,7 +16,11 @@
             <i class="fa fa-list"></i> Recommenders
           </a>
         </li>
-
+        <li class="{{'active' if html_class == 'starred'}}">
+          <a href="{{url_for('post_list_u')}}">
+            <i class="fa fa-star"></i> Starred
+          </a>
+        </li>
         # if current_user.admin
         <li class="{{'active' if html_class == 'post-create'}}">
           <a href="{{url_for('post_create')}}"><i class="fa fa-file"></i> Create Post</a>
