@@ -38,7 +38,8 @@
         # include 'bit/contact_menu.html'
       </ul>
       <ul class="nav navbar-nav navbar-right">
-       <form class="navbar-form"  action="{{ url_for('search') }}" method="post" name="search">
+        <li>
+       <form class="navbar-form form-inline"  action="{{ url_for('search') }}" method="post" name="search">
           <div class="input-group add-on">
           {{ g.search_form.hidden_tag() }}{{ g.search_form.search(size=20) }}
          <div class="input-group-btn">
@@ -47,7 +48,7 @@
         </div>
 
        </form>
-      <ul class="nav navbar-nav navbar-right">
+          </li>
         # include 'bit/user_menu.html'
       </ul>
 

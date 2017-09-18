@@ -9,3 +9,4 @@ from .resource import Resource
 from .recommender import Recommender
 from .keyword import Keyword
 from .star import Star
+from .following import Following

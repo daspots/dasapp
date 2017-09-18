@@ -97,6 +97,9 @@ def get_url_list(ids):
 @app.route('/recommender/<int:recommender_id>/')
 def recommender_view(recommender_id):
     recommender_db = model.Recommender.get_by_id(recommender_id)
+    bootstrap_class_list = get_bootstrap_class_list(recommender_db)
+    follow_text = get_follow_text(bootstrap_class_list)
+
     if not recommender_db:
         return flask.render_template('recommender/recommender_view.html')
     return flask.render_template(
@@ -104,8 +107,36 @@ def recommender_view(recommender_id):
       html_class='recommender-view',
       title=recommender_db.name,
       recommender_db=recommender_db,
-      url_list=[get_img_url(id) for id in recommender_db.img_ids]
+      url_list=[get_img_url(id) for id in recommender_db.img_ids],
+      bootstrap_class_list=bootstrap_class_list,
+      follow_text=follow_text,
+
     )
+
+
+def get_follow_text(class_list):
+    if 'label-success' in class_list:
+        return 'FOLLOWING'
+    return 'FOLLOW'
+
+
+def get_bootstrap_class_list(recommender_db):
+    bootstrap_class_list = ['label', 'label-pill']
+    # Get the classes needed for the "follow/following label"
+    if auth.is_logged_in():
+
+        user_db = auth.current_user_key().get()
+        following_dbs = model.Following.query(model.Following.recommender_key == recommender_db.key,
+                                              model.Following.user_key == user_db.key).fetch()
+        if following_dbs:
+            bootstrap_class_list.append('label-success')
+
+        else:
+            bootstrap_class_list.append('label-default')
+    else:
+        bootstrap_class_list.extend(['label-default', 'not-logged-in'])
+    return ' '.join(bootstrap_class_list)
+
 
 @app.route('/recommender/<int:recommender_id>/update/', methods=['GET', 'POST'])
 @auth.admin_required
@@ -142,6 +173,10 @@ def recommender_overview():
     recommender_dbs, post_cursor = model.Recommender.get_dbs(
         query=model.Recommender.query(),
     )
+    for recommender_db in recommender_dbs:
+        recommender_db.bootstrap_class_list = get_bootstrap_class_list(recommender_db)
+        recommender_db.follow_text = get_follow_text(recommender_db.bootstrap_class_list)
+
     return flask.render_template(
         'recommender/recommender_overview.html',
         html_class='recommender-overview',
