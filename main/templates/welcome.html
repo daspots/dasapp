@@ -10,7 +10,30 @@
 # endblock
 
 # block content
-  <div class="container">
+
+<center>
+  <div class="card box" id = "loginform" style="width:66%;text-align:left">
+
+    <div class="card-block" >
+       <button type="button" class="btn btn-default btn-md pull-right  close-icon">
+                <span class="pull-right glyphicon glyphicon-remove" aria-hidden="true"></span>
+       </button>
+        <h4 class="card-title">You have to be signed in to Star</h4>
+
+      <p class="card-text">
+        Starring a venue lets you save it to your personalised list of venues as a
+        reminder for later, or to share with friends.
+      </p>
+      <p>
+        <a href="/signin/" class="btn btn-primary">Sign in</a> or <a href="/signup/" class="btn btn-primary">Sign up</a>
+      </p>
+    </div>
+
+  </div>
+
+</center>
+
+  <div class="container" id="restaurant">
 
     <div class="row">
     {%- for post_db in post_dbs %}
@@ -18,12 +41,19 @@
         <div class="box">
           <img class="thumbnailImage" src="{{post_db.image_url}}">
           <h2>
-            <i onclick="starFunction(this, '{{post_db.key.id()}}')"
+            <i onclick="starFunction(this, '{{post_db.key.id()}}')" data-rel="popup"
                {% if post_db.starred %}
-                 class="fa fa-star"
+                 class="fa fa-star
                {% else %}
-                class="fa fa-star-o"
+                class="fa fa-star-o
                {% endif %}
+               {%  if current_user.id > 0 %}
+                  "
+              {% else %}
+                not-logged-in"
+              {% endif %}
+
+
             ></i>
               <a class="thumbnailTitle" href="{{url_for('post_view', post_id=post_db.key.id())}}">
                 {{post_db.title}}
@@ -44,6 +74,7 @@
     </div>
 
 </div>
+
 
 
   <div class="jumbotronNewsletter">
