@@ -14,23 +14,17 @@ var keywords = new Bloodhound({
 
 keywords.initialize();
 
-$('#search').tagsinput({
-    typeaheadjs: [{
-          minLength: 1,
-          highlight: true,
-
-    },{
-        minlength: 1,
-        name: 'keywords',
-        displayKey: 'name',
-        valueKey: 'name',
-        source: keywords.ttAdapter()
-    }],
-    freeInput: true
+$('#search').typeahead(null, {
+     minlength: 1,
+     name: 'keywords',
+     displayKey: 'name',
+     valueKey: 'name',
+     source: keywords.ttAdapter()
 });
 
 
 $('#keywords').tagsinput({
+    confirmKeys: [13, 32, 44],
     typeaheadjs: [{
           minLength: 1,
           highlight: true,
@@ -42,9 +36,11 @@ $('#keywords').tagsinput({
         valueKey: 'name',
         source: keywords.ttAdapter()
     }],
-    freeInput: true
+    freeInput: true,
+
 });
 
 $( document ).ready(function() {
     localStorage.clear();
 });
+

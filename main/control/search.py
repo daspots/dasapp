@@ -7,13 +7,14 @@ import wtforms
 from main import app
 
 
+class SearchForm(flask_wtf.FlaskForm):
+    search = wtforms.StringField('search')
+
 
 @app.before_request
 def before_request():
     flask.g.search_form = SearchForm()
 
-class SearchForm(flask_wtf.FlaskForm):
-    search = wtforms.StringField('search')
 
 @app.route('/search', methods=['POST'])
 def search():

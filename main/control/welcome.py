@@ -1,29 +1,28 @@
 # coding: utf-8
 
-import flask
-import auth
-import model
 import config
-import util
+import flask
+import model
+import auth
 
 from main import app
-
-
+from helpers import add_starred_to_posts
 ###############################################################################
 # Welcome
 ###############################################################################
-# @app.route('/')
-# def welcome():
-#   return flask.render_template('welcome.html', html_class='welcome')
+
+
 
 @app.route('/')
 def welcome():
-  post_dbs = model.Post.query().fetch()
+  post_dbs = add_starred_to_posts(
+      model.Post.query().fetch()
+  )
 
   return flask.render_template(
       'welcome.html',
       html_class='main-list',
-      title='Post List',
+      title='Welcome',
       post_dbs=post_dbs,
       next_url=''
   # util.generate_next_url(post_cursor),

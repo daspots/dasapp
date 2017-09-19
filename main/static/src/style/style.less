@@ -1,12 +1,11 @@
 @import "../../ext/font-awesome/less/font-awesome";
 @import "../../ext/bootstrap/less/bootstrap";
-/*@import "../../ext/bootstrap-tagsinput/dist/bootstrap-tagsinput.css";*/
 
 @import "base";
+@import "auth";
 @import "variables";
 @import "test";
 @import "mixins";
-@import "footer";
 @import "signin";
 @import "user";
 @import "resource";
@@ -16,6 +15,9 @@
 @import "about";
 @import "contact";
 @import "newsletter";
+@import "jumbotronFooter";
+@import "jumbotronNewsletter";
+@import "recommender-overview";
 @import "bootstrap-tagsinput";
 
 
@@ -79,4 +81,33 @@
 
 .tt-suggestion p {
     margin: 0;
+}
+
+.blue {
+     color: #03a9f4;
+}
+
+#loginform
+{
+ box-sizing:border-box;
+ display:none;
+}
+
+#restaurant {
+    visibility:visible;
+}
+
+.badge{
+    padding: 4px 7px;
+}
+
+.label-pill {
+  padding-right: .6em;
+  padding-left: .6em;
+  border-radius: 10rem;
+}
+
+ .nav {
+    background-color: white;
+
 }
