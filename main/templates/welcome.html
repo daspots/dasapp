@@ -1,10 +1,16 @@
 # extends 'base.html'
 
 # block header
-  <div class="jumbotron">
+  <div class="jumbotronHeader">
     <div class="container">
-      <h1>{{config.CONFIG_DB.brand_name}}</h1>
-      <p>Hello, world!</p>
+    <div class="row">
+      <div class="col-sm-6 col-md-4">
+        <h1 class="h1LeftHeader">RECOMMENDED BY PEOPLE WHO LIVE FOR FOOD</h1>
+        <p class="pLeftHeader">We share recommendations of people who are passionate about food - they grow it, make it, serve it, style it, enjoy it and everything in between. We will help you work every last one of your taste buds.</p>
+      </div>
+    <div class="col-sm-6 col-md-4"></div>
+    <div class="col-sm-6 col-md-4"></div>
+  </div>
     </div>
   </div>
 # endblock
@@ -19,6 +25,11 @@
     {%- for post_db in post_dbs %}
       <div class="col-6 col-sm-3">
         <div class="box">
+          <p>
+            {% for keyword in post_db.keyword_list %}
+              <a class="thumbnailKeyword" href="{{url_for('post_list_q', query=keyword)}}">#{{keyword}}</a>
+            {% endfor %}
+          </p>
           <img class="thumbnailImage" src="{{post_db.image_url}}">
           <h2>
             <i onclick="starFunction(this, '{{post_db.key.id()}}')" role="button"
@@ -40,31 +51,15 @@
               </a>
 
           </h2>
+          <p><a class="thumbnailAddress" href="{{post_db.google_maps_directions}}">{{post_db.adress}}</a></p>
+          <p class="pLeft">{{post_db.content}}</p>
           <i><a class="linkRecommended" href="{{post_db.recommender_url}}">RECOMMENDED BY: {{post_db.recommender}}</a></i>
-          <p>
-            {% for keyword in post_db.keyword_list %}
-              <a href="{{url_for('post_list_q', query=keyword)}}">#{{keyword}}</a>
-            {% endfor %}
-          </p>
-            <p><a href="{{post_db.google_maps_directions}}">{{post_db.adress}}</a> </p>
-            <p class="pLeft">{{post_db.content}}</p>
+
         </div>
       </div>
       {%- endfor %}
     </div>
 
-</div>
-
-
-
-  <div class="jumbotronNewsletter">
-    <img class="newsletterIcon" src="https://i.imgur.com/PCeLZK8.png">
-        <h1 class="headerCenter">SIGN UP FOR DASPOTS NEWSLETTER</h1>
-        <h2 class="subheaderCenter"> Be the first to know about the latest updates, places and offers from DASPOTS</h2>
-        <p class="linkNewsletter"><a class="linkNewsletter" href={{url_for('newsletter')}}">SIGN ME UP</a></p>
   </div>
 
-
-
-</div>
 # endblock

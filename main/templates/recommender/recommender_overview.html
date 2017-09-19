@@ -1,7 +1,9 @@
 # extends 'base.html'
 
 # block header
-
+  <div class="container">
+      <h1 class="h1CenterBig">OUR RECOMMENDERS</p>
+  </div>
 # endblock
 
 # block content
@@ -9,27 +11,21 @@
 
     <div class="row">
     {%- for recommender_db in recommender_dbs %}
-      <div class="col-6 col-sm-3">
+      <div class="col-6 col-sm-6">
         <div class="box">
           <img class="thumbnailImage" src="{{recommender_db.image_url}}">
           <h2>
             <a class="thumbnailTitle" href="{{url_for('recommender_view', recommender_id=recommender_db.key.id())}}">
               {{recommender_db.name}}
             </a>
-
           </h2>
-
-             <p role="button" onclick="followFunction(this, '{{recommender_db.key.id()}}')"
+          <p class="pLeft">{{recommender_db.bio}}</p>
+          <i><a class="linkRecommended" href="{{url_for('list_recommenders', recommender=recommender_db.name_lower)}}">
+              ALL RECOMMENDATIONS BY: {{recommender_db.name}}</a></i>
+            <p role="button" onclick="followFunction(this, '{{recommender_db.key.id()}}')"
                 class="{{recommender_db.bootstrap_class_list}}">
               {{recommender_db.follow_text}}
             </p>
-          <br>
-          <i>
-            <a class="linkRecommended" href="{{url_for('list_recommenders', recommender=recommender_db.name_lower)}}">
-              ALL RECOMMENDATIONS BY: {{recommender_db.name}}</a>
-          </i>
-
-            <p class="pLeft">{{recommender_db.bio}}</p>
         </div>
       </div>
       {%- endfor %}
