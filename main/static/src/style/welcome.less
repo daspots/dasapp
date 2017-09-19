@@ -1,35 +1,40 @@
-.jumbotron {
-	background-color: transparent;
+.jumbotronHeader {
+  background-image: url("/p/img/DASPOTS_FBHEADER-07.jpg");
+  background-size: cover;
+  height: auto;
+  padding: 5px 5px 0px 5px;
 }
 
-.headerCenter {
-  font-family: 'Roboto', sans-serif;
-  text-align: center;
-  margin-top: 30px;
-  margin-bottom: 30px;
-  font-size: 1.1em;
+.websiteIcon {
+  width: 20px;
+  float: right;
+}
+
+h1.h1LeftHeader {
+  font-family: 'Roboto Condensed', sans-serif;
+  text-align: left;
+  float: left;
   font-weight: bold;
+  margin-top: 140px;
+  font-size: 2em;
+  color: black;
 }
 
-.subheaderCenter {
+p.pLeftHeader {
   font-family: 'Roboto', sans-serif;
-  text-align: center;
+  text-align: left;
   margin-top: 10px;
-  margin-bottom: 30px;
-  font-size: 0.90em;
-}
-
-.newsletterIcon {
-    display: block;
-    margin: auto;
-    width: 70px;
-    margin-top: 50px;
+  margin-bottom: 50px;
+  font-size: 1.0em;
+  color: black;
 }
 
 .box {
-  border: 1px white solid;
   margin-bottom:30px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -webkit-box-shadow: 0 8px 6px -6px grey;
+  -moz-box-shadow: 0 8px 6px -6px grey;
+  box-shadow: 0 8px 6px -6px grey;
+  height: 250px;
 }
 
 .thumbnailImage {
@@ -37,13 +42,28 @@
 	height: auto;
 }
 
-a.thumbnailTitle {
+a.thumbnailKeyword {
   font-family: 'Roboto Condensed', sans-serif;
+  float: right;
+  color: grey;
+  font-size: 0.9em;
+}
+
+a.thumbnailTitle {
+  font-family: 'Roboto Condensed', sanss-serif;
   text-align: left;
   font-weight: bold;
-  color: #03a9f4;
+  color: black;
   margin-top: 20px;
   font-size: 1.1em;
+}
+
+a.thumbnailAddress {
+  font-family: 'Roboto', sanss-serif;
+  text-align: left;
+  color: grey;
+  margin-top: 10px;
+  font-size: 0.8em;
 }
 
 a.linkRecommended {
@@ -55,19 +75,12 @@ a.linkRecommended {
   color: black;
   text-decoration: underline;
   font-size: 0.8em;
+  display: block;
+  position: absolute;
+  bottom: 15px;
 }
 
-p.linkNewsletter {
-  text-align: center;
-  font-family: 'Roboto Condensed', sans-serif;
-  margin-top: 30px;
-  background-color: white;
-  color: black;
-  padding: 15px 15px 15px 15px;
-}
 
-.jumbotronNewsletter {
-  @url: "images/DASPOTS_FBHEADER-07";
-  background-image: url("/@{url}/images/DASPOTS_FBHEADER-07");
- }
+
+
 
