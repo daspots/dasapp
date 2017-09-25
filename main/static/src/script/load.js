@@ -22,6 +22,15 @@ $('#search').typeahead(null, {
      source: keywords.ttAdapter()
 });
 
+$('#search_page').typeahead(null, {
+     minlength: 1,
+     name: 'keywords',
+     displayKey: 'name',
+     valueKey: 'name',
+     source: keywords.ttAdapter()
+});
+
+
 
 $('#keywords').tagsinput({
     confirmKeys: [13, 32, 44],

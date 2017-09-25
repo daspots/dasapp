@@ -11,7 +11,7 @@
     </div>
     <nav class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
-        <li class="navbarList {{'active' if html_class == 'recommender_overview'}}">
+        <li class="navbarList {{'active' if html_class == 'recommender-overview'}}">
           <a class="navbarListElement" href="{{url_for('recommender_overview')}}">
             Recommenders
           </a>
@@ -19,6 +19,11 @@
         <li class="navbarList  {{'active' if html_class == 'starred'}}">
           <a href="{{url_for('post_list_u')}}">
             <i class="fa fa-star"></i> Starred
+          </a>
+        </li>
+        <li class="navbarList  {{'active' if html_class == 'search'}} visible-sm-block visible-xs-block">
+          <a href="{{url_for('search')}}">
+            <i class="fa fa-search"></i> Search
           </a>
         </li>
         # if current_user.admin
@@ -36,20 +41,27 @@
         </li>
         # endif
         # include 'bit/contact_menu.html'
+
+
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-       <li class="navbar-form"  action="{{ url_for('search') }}" method="post" name="search">
-          <div class="input-group add-on">
-          {{ g.search_form.hidden_tag() }}
-          {{ g.search_form.search(size=20) }}
-         <div class="input-group-btn">
-            <button class="btn btn-default" type="submit">
-            <i class="glyphicon glyphicon-search"></i></button>
-          </div>
-          </div>
+
+         <li class="visible-md-block visible-lg-block ">
+            <form class="navbar-form" role="search"  action="{{ url_for('search') }}" method="post" name="search">
+              <div class="input-group add-on">
+
+                {{ g.search_form.search(class="form-control", placeholder="Search", type="text") }}
+                {{ g.search_form.hidden_tag() }}
+                <div class="input-group-btn">
+                  <button class="btn btn-default cvdb-button-addon" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                </div>
+              </div>
+            </form>
+          </li>
+
           # include 'bit/user_menu.html'
-       </li>
+
        </ul>
     </nav>
   </div>
