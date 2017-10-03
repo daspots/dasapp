@@ -181,7 +181,10 @@ def post_update(post_id):
   post_db = model.Post.get_by_id(post_id)
   if not post_db or post_db.user_key != auth.current_user_key():
     flask.abort(404)
+
   form = PostUpdateForm(obj=post_db)
+  form.recommender.choices = get_recommenders()
+
   if form.validate_on_submit():
     form.populate_obj(post_db)
     post_db.put()
