@@ -1,4 +1,6 @@
 
+// Following code adds typeahead keywords to search bars
+
 var keywords = new Bloodhound({
     datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
     queryTokenizer: Bloodhound.tokenizers.whitespace,

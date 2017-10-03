@@ -50,6 +50,7 @@ def get_keywords():
     keywords = [keyword.keyword for keyword in model.Keyword.query().fetch()]
     return json.dumps(keywords)
 
+
 @app.route('/post/create/', methods=['GET', 'POST'])
 @auth.admin_required
 def post_create():

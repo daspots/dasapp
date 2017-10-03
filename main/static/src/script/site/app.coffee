@@ -16,5 +16,6 @@ $ -> $('html.resource-list').each ->
 $ -> $('html.resource-view').each ->
   init_resource_view()
 
-$ -> $('html.resource-upload').each ->
+$ -> $('html.post-create').each ->
   init_resource_upload()
+
