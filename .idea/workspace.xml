@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="864a03cf-aef5-4c19-b8ed-137a070b673e" name="Default" comment="Added pagination after 30 pages">
+    <list default="true" id="864a03cf-aef5-4c19-b8ed-137a070b673e" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main/control/post.py" afterPath="$PROJECT_DIR$/main/control/post.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main/control/welcome.py" afterPath="$PROJECT_DIR$/main/control/welcome.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main/index.yaml" afterPath="$PROJECT_DIR$/main/index.yaml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main/templates/welcome.html" afterPath="$PROJECT_DIR$/main/templates/welcome.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main/util.py" afterPath="$PROJECT_DIR$/main/util.py" />
     </list>
     <ignored path="$PROJECT_DIR$/.idea/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,8 +19,8 @@
       <file leaf-file-name="post.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main/control/post.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1447">
-              <caret line="123" column="5" lean-forward="true" selection-start-line="123" selection-start-column="5" selection-end-line="123" selection-end-column="5" />
+            <state relative-caret-position="493">
+              <caret line="208" column="21" lean-forward="false" selection-start-line="208" selection-start-column="21" selection-end-line="208" selection-end-column="21" />
               <folding>
                 <element signature="e#1#13#0" expanded="true" />
               </folding>
@@ -216,11 +212,11 @@
         <option value="$PROJECT_DIR$/main/static/src/script/site/app.coffee" />
         <option value="$PROJECT_DIR$/main/static/src/script/site/resource.coffee" />
         <option value="$PROJECT_DIR$/main/templates/post_create.html" />
-        <option value="$PROJECT_DIR$/main/control/post.py" />
         <option value="$PROJECT_DIR$/main/util.py" />
         <option value="$PROJECT_DIR$/main/templates/welcome.html" />
         <option value="$PROJECT_DIR$/main/control/welcome.py" />
         <option value="$PROJECT_DIR$/main/control/search.py" />
+        <option value="$PROJECT_DIR$/main/control/post.py" />
       </list>
     </option>
   </component>
@@ -588,7 +584,14 @@
       <option name="project" value="LOCAL" />
       <updated>1507056096869</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Added pagination after 30 pages">
+      <created>1507060226276</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1507060226276</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -645,7 +648,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added possibility to add images to posts" />
     <MESSAGE value="* Adding image to post is optional&#10;* Added recommenders" />
     <MESSAGE value="Added link between recommenders and post" />
     <MESSAGE value="Added link to website" />
@@ -670,7 +672,8 @@
     <MESSAGE value="improved search UI:&#10;- improved layout&#10;- added example keywords" />
     <MESSAGE value="Fixed searchbar, fixed create post" />
     <MESSAGE value="Fixes and only three keywords&#10;&#10;fixed create post bar (was broken)&#10;only three keywords are shown" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixes and only three keywords&#10;&#10;fixed create post bar (was broken)&#10;only three keywords are shown" />
+    <MESSAGE value="Added pagination after 30 pages" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added pagination after 30 pages" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1096,8 +1099,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main/control/post.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1447">
-          <caret line="123" column="5" lean-forward="true" selection-start-line="123" selection-start-column="5" selection-end-line="123" selection-end-column="5" />
+        <state relative-caret-position="493">
+          <caret line="208" column="21" lean-forward="false" selection-start-line="208" selection-start-column="21" selection-end-line="208" selection-end-column="21" />
           <folding>
             <element signature="e#1#13#0" expanded="true" />
           </folding>

@@ -206,7 +206,7 @@ def list_recommenders(recommender):
         html_class='main-list',
         title='recommender',
         post_dbs=post_dbs,
-        next_url=''
+        next_url=None
     )
 
 @app.route('/post/u')
