@@ -27,7 +27,9 @@
         <div class="box">
           <p>
             {% for keyword in post_db.keyword_list %}
+             {% if loop.index <= 3 %}
               <a class="thumbnailKeyword" href="{{url_for('post_list_q', query=keyword)}}">#{{keyword}}</a>
+             {% endif %}
             {% endfor %}
           </p>
           <img class="thumbnailImage" src="{{post_db.image_url}}">
