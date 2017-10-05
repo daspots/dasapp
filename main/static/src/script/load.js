@@ -1,4 +1,6 @@
 
+// Following code adds typeahead keywords to search bars
+
 var keywords = new Bloodhound({
     datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
     queryTokenizer: Bloodhound.tokenizers.whitespace,
@@ -21,6 +23,15 @@ $('#search').typeahead(null, {
      valueKey: 'name',
      source: keywords.ttAdapter()
 });
+
+$('#search_page').typeahead(null, {
+     minlength: 1,
+     name: 'keywords',
+     displayKey: 'name',
+     valueKey: 'name',
+     source: keywords.ttAdapter()
+});
+
 
 
 $('#keywords').tagsinput({

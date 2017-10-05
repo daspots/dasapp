@@ -154,6 +154,7 @@ def generate_next_url(next_cursor, base_url=None, cursor_name='cursor'):
   return '%s?%s' % (base_url, urllib.urlencode(args))
 
 
+
 def uuid():
   return uuid4().hex
 

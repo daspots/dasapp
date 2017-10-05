@@ -1,13 +1,43 @@
 # extends 'base.html'
 
 # block header
-  <div class="jumbotron">
-    <div class="container">
-      <h2>
-        No Results <small>:(</small>
-      </h2>
-      <p>{{error_message}}</p>
-      <a href="{{url_for('welcome')}}">Back</a>
+
+<!--  Jumbotron Contact -->
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 col-md-4"></div>
+    <div class="col-sm-6 col-md-4">
+      <h1 class="h1CenterBig">THIS PLACE LOOKS LONELY</h1>
+      <p class="pCenterBig">{{error_message}}</p>
+      <p class="linkNewsletter"><a class="linkNewsletterBlack" href="{{url_for('welcome')}}">EXPLORE PLACES</a></p>
+    </div>
+  </div>
+
+    <form class="navbar-form visible-sm-block visible-xs-block" role="search"  action="{{ url_for('search') }}" method="post" name="search">
+      <div class="input-group add-on">
+
+        {{ form.search_page(class="form-control", placeholder="Search", type="text") }}
+        {{ form.hidden_tag() }}
+        <div class="input-group-btn">
+          <button class="btn btn-default cvdb-button-addon" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+        </div>
+      </div>
+    </form>
+    <div class="card box">
+
+    <div class="card-block" >
+        <h4 class="card-title">#HASHTAGS</h4>
+
+      <p class="card-text keyword_tag_box">
+        {% for keyword_db in keyword_dbs %}
+          <a href="{{url_for('post_list_q', query=keyword_db.keyword)}}">#{{ keyword_db.keyword}}
+          </a>
+        {% endfor %}
+      </p>
+
+    </div>
+
+
     </div>
   </div>
 # endblock

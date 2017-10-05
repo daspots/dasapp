@@ -1,16 +1,17 @@
 # extends 'base.html'
 
+<!-- jumbotron title -->
 # block header
   <div class="jumbotronHeader">
     <div class="container">
     <div class="row">
+      <div class="col-sm-6 col-md-4"></div>
       <div class="col-sm-6 col-md-4">
-        <h1 class="h1LeftHeader">RECOMMENDED BY PEOPLE WHO LIVE FOR FOOD</h1>
-        <p class="pLeftHeader">We share recommendations of people who are passionate about food - they grow it, make it, serve it, style it, enjoy it and everything in between. We will help you work every last one of your taste buds.</p>
+        <img src="/p/img/daspots-white.png" class="logoWelcome">
+        <p class="pCenterBigWhite"> WE ARE HERE TO HELP YOU WORK EVERY LAST ONE OF YOUR TASTE BUDS.</p>
       </div>
-    <div class="col-sm-6 col-md-4"></div>
-    <div class="col-sm-6 col-md-4"></div>
-  </div>
+      <div class="col-sm-6 col-md-4"></div>
+    </div>
     </div>
   </div>
 # endblock
@@ -19,20 +20,35 @@
 
 # include 'bit/popup_loginform_star.html'
 
+<!-- UI post -->
   <div class="container" id="restaurant">
-
     <div class="row">
     {%- for post_db in post_dbs %}
       <div class="col-6 col-sm-3">
+        <!-- UI thumbnail -->
         <div class="box">
+          <!-- keywords -->
           <p>
             {% for keyword in post_db.keyword_list %}
+             {% if loop.index <= 3 %}
               <a class="thumbnailKeyword" href="{{url_for('post_list_q', query=keyword)}}">#{{keyword}}</a>
+             {% endif %}
             {% endfor %}
           </p>
+          <!-- image -->
           <img class="thumbnailImage" src="{{post_db.image_url}}">
-          <h2>
-            <i onclick="starFunction(this, '{{post_db.key.id()}}')" role="button"
+          <!-- name place -->
+          <h1 class="thumbnailTitle">{{post_db.title}}</h1>
+          <!-- link recommender -->
+          <a class="linkRecommended" href="{{post_db.recommender_url}}">Recommended by: {{post_db.recommender}}</a>
+
+          <!-- start accordion -->
+          <div class="tab">
+            <input id="tab-one" type="checkbox" name="tabs">
+            <label for="tab-one">
+              <ul class="additionalLinks" style="margin-left:0px;padding-left:0px";>
+              <!-- bookmark -->
+              <!-- <li class="iconList"><i onclick="starFunction(this, '{{post_db.key.id()}}')" role="button"
                {% if post_db.starred %}
                  class="fa blue fa-star
                {% else %}
@@ -42,24 +58,34 @@
                   "
               {% else %}
                 not-logged-in"
-              {% endif %}
-
-
-            ></i>
-              <a class="thumbnailTitle" href="{{url_for('post_view', post_id=post_db.key.id())}}">
-                {{post_db.title}}
-              </a>
-
-          </h2>
-          <p><a class="thumbnailAddress" href="{{post_db.google_maps_directions}}">{{post_db.adress}}</a></p>
-          <p class="pLeft">{{post_db.content}}</p>
-          <i><a class="linkRecommended" href="{{post_db.recommender_url}}">RECOMMENDED BY: {{post_db.recommender}}</a></i>
-
+              {% endif %}></i>
+              </li> -->
+              <!-- link getdirections -->
+               <li class="iconList"><a href="{{url_for('post_view', post_id=post_db.key.id())}}"><img src="p/img/link-color.png" class="postIcon">
+              <!-- {{post_db.adress}} --></a></li>
+              <!-- link website -->
+              <li class="iconList"><a href="{{post_db.google_maps_directions}}"><img src="p/img/getdirections-color.png" class="postIcon"><!-- {{post_db.title}} --></a></li>
+              </ul>
+            </label>
+            <!-- content accordion -->
+            <div class="tab-content">
+              <p class="pLeft">{{post_db.content}}</p>
+            </div>
+          <!-- end accordion -->
         </div>
+
+         <!-- end UI thumbnail -->
+        </div>
+      <!-- end col -->
       </div>
       {%- endfor %}
+    <!-- end row -->
     </div>
+    {% if next_url %}
+      <a href="{{next_url}}"> next</a>
+    {% endif %}
 
+  <!-- end container -->
   </div>
 
 # endblock

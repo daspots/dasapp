@@ -4,6 +4,7 @@ import config
 import flask
 import model
 import auth
+import util
 
 from main import app
 from helpers import add_starred_to_posts
@@ -15,17 +16,20 @@ from helpers import add_starred_to_posts
 
 @app.route('/')
 def welcome():
-  post_dbs = add_starred_to_posts(
-      model.Post.query().fetch()
+  post_dbs, post_cursor = model.Post.get_dbs(
+      query=model.Post.query(),
+      limit=30,
   )
-
+  post_dbs = add_starred_to_posts(
+      post_dbs
+  )
   return flask.render_template(
       'welcome.html',
       html_class='main-list',
       title='Welcome',
       post_dbs=post_dbs,
-      next_url=''
-  # util.generate_next_url(post_cursor),
+      next_url=util.generate_next_url(post_cursor),
+      # prev_url=util.generate_prev_url(post_cursor),
     )
 
 

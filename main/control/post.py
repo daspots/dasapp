@@ -50,6 +50,7 @@ def get_keywords():
     keywords = [keyword.keyword for keyword in model.Keyword.query().fetch()]
     return json.dumps(keywords)
 
+
 @app.route('/post/create/', methods=['GET', 'POST'])
 @auth.admin_required
 def post_create():
@@ -180,7 +181,10 @@ def post_update(post_id):
   post_db = model.Post.get_by_id(post_id)
   if not post_db or post_db.user_key != auth.current_user_key():
     flask.abort(404)
+
   form = PostUpdateForm(obj=post_db)
+  form.recommender.choices = get_recommenders()
+
   if form.validate_on_submit():
     form.populate_obj(post_db)
     post_db.put()
@@ -193,41 +197,6 @@ def post_update(post_id):
       contact_db=post_db,
     )
 
-@app.route('/post/q/')
-def no_posts_found():
-    return flask.render_template('no_post_found.html',
-                                 html_class='main-list',
-                                 title='No Posts Found',
-                                 error_message='Unfortunately, your search didn\'t return any results...',
-                                 )
-
-
-@app.route('/post/q/<query>')
-def post_list_q(query):
-    keywords_to_search = query.split('+')
-
-    keywords = model.Keyword.query(model.Keyword.keyword.IN(keywords_to_search)).fetch()
-    post_keys = []
-    for keyword in keywords:
-        post_keys.extend(keyword.post_keys)
-
-    post_dbs = [post for post in ndb.get_multi(post_keys) if post is not None]
-    post_dbs = add_starred_to_posts(post_dbs)
-    if len(post_dbs) == 0:
-        return flask.render_template('no_post_found.html',
-                                     html_class='main-list',
-                                     title='No Posts Found',
-                                     error_message='Unfortunately, your search didn\'t return any results...',
-                                     )
-
-    return flask.render_template(
-        'welcome.html',
-        html_class='main-list',
-        title='Post List',
-        post_dbs=post_dbs,
-        next_url=''
-    )
-
 @app.route('/post/r/<recommender>')
 def list_recommenders(recommender):
     post_dbs = model.Post.query(model.Post.recommender_lower == recommender.lower()).fetch()
@@ -237,7 +206,7 @@ def list_recommenders(recommender):
         html_class='main-list',
         title='recommender',
         post_dbs=post_dbs,
-        next_url=''
+        next_url=None
     )
 
 @app.route('/post/u')
