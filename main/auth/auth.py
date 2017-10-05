@@ -202,21 +202,21 @@ class SignInForm(flask_wtf.FlaskForm):
 @app.route('/signin/', methods=['GET', 'POST'])
 def signin():
   next_url = util.get_next_url()
-  form = None
-  if config.CONFIG_DB.has_email_authentication:
-    form = form_with_recaptcha(SignInForm())
-    save_request_params()
-    if form.validate_on_submit():
-      result = get_user_db_from_email(form.email.data, form.password.data)
-      if result:
-        cache.reset_auth_attempt()
-        return signin_user_db(result)
-      if result is None:
-        form.email.errors.append('Email or Password do not match')
-      if result is False:
-        return flask.redirect(flask.url_for('welcome'))
-    if not form.errors:
-      form.next_url.data = next_url
+  # form = None
+  # if config.CONFIG_DB.has_email_authentication:
+  form = form_with_recaptcha(SignInForm())
+  save_request_params()
+  if form.validate_on_submit():
+    result = get_user_db_from_email(form.email.data, form.password.data)
+    if result:
+      cache.reset_auth_attempt()
+      return signin_user_db(result)
+    if result is None:
+      form.email.errors.append('Email or Password do not match')
+    if result is False:
+      return flask.redirect(flask.url_for('welcome'))
+  if not form.errors:
+    form.next_url.data = next_url
 
   if form and form.errors:
     cache.bump_auth_attempt()
@@ -227,7 +227,8 @@ def signin():
     html_class='auth',
     next_url=next_url,
     form=form,
-    form_type='signin' if config.CONFIG_DB.has_email_authentication else '',
+    form_type='signin',
+    # form_type='signin' if config.CONFIG_DB.has_email_authentication else '',
     **urls_for_oauth(next_url)
   )
 
@@ -246,9 +247,11 @@ class SignUpForm(flask_wtf.FlaskForm):
 
 @app.route('/signup/', methods=['GET', 'POST'])
 def signup():
-  next_url = util.get_next_url()
+  # next_url = util.get_next_url()
+  next_url = None
   form = None
-  if config.CONFIG_DB.has_email_authentication:
+  # if config.CONFIG_DB.has_email_authentication:
+  if True:
     form = form_with_recaptcha(SignUpForm())
     save_request_params()
     if form.validate_on_submit():
@@ -271,7 +274,7 @@ def signup():
   if form and form.errors:
     cache.bump_auth_attempt()
 
-  title = 'Sign up' if config.CONFIG_DB.has_email_authentication else 'Sign in'
+  title = 'Sign up' if True else 'Sign in'
   return flask.render_template(
     'auth/auth.html',
     title=title,

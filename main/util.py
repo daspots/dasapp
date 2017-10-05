@@ -154,17 +154,6 @@ def generate_next_url(next_cursor, base_url=None, cursor_name='cursor'):
   return '%s?%s' % (base_url, urllib.urlencode(args))
 
 
-def generate_prev_url(next_cursor, base_url=None, cursor_name='cursor'):
-  if isinstance(next_cursor, dict):
-    next_cursor = next_cursor.get('prev')
-  if not next_cursor:
-    return None
-  base_url = base_url or flask.request.base_url
-  args = flask.request.args.to_dict()
-  args[cursor_name] = next_cursor
-  return '%s?%s' % (base_url, urllib.urlencode(args))
-
-
 
 def uuid():
   return uuid4().hex
