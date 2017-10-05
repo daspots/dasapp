@@ -21,7 +21,7 @@
     <div class="row">
     {%- for recommender_db in recommender_dbs %}
       <div class="col-6 col-sm-6">
-        <div class="box">
+        <div class="box shadow">
           <img class="thumbnailImage" src="{{recommender_db.image_url}}">
           <h1 class="thumbnailTitle">
             <!-- <a href="{{url_for('recommender_view', recommender_id=recommender_db.key.id())}}"> -->
@@ -29,11 +29,21 @@
             <!-- </a> -->
           </h1>
           <p class="pLeft">{{recommender_db.bio}}</p>
+
+
           <i>
             <a class="linkRecommended" href="{{url_for('list_recommenders', recommender=recommender_db.name_lower)}}">
               All recommendations by: {{recommender_db.name}}
             </a>
           </i>
+          <p>
+            <li class="iconList">
+             <a href="{{recommender_db.website_url}}">
+               <img src="p/img/link-color.png" class="postIcon">
+             </a>
+           </li>
+
+            </p>
 <!--           <p role="button" onclick="followFunction(this, '{{recommender_db.key.id()}}')"
                 class="{{recommender_db.bootstrap_class_list}}">
               {{recommender_db.follow_text}}

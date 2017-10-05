@@ -4,8 +4,21 @@
       {{current_user.name}}
     </a>
     <ul class="dropdown-menu">
-        <li><a class="user-menu" href="{{url_for('profile')}}">PROFILE</a></li>
       # if current_user.admin
+        <li class="navbarList {{'active' if html_class == 'post-create'}}">
+          <a class="navbarListElement" href="{{url_for('post_create')}}">CREATE POST</a>
+        </li>
+        <li class="navbarList {{'active' if html_class == 'post-list'}}">
+          <a class="navbarListElement" href="{{url_for('post_list')}}">POST LIST</a>
+        </li>
+        <li class="navbarList {{'active' if html_class == 'recommender-create'}}">
+          <a class="navbarListElement" href="{{url_for('recommender_create')}}"></i> CREATE RECOMMENDER</a>
+        </li>
+        <li class="navbarList {{'active' if html_class == 'recommender-list'}}">
+          <a class="navbarListElement" href="{{url_for('recommender_list')}}"> RECOMMENDER LIST</a>
+        </li>
+        <li><a class="user-menu" href="{{url_for('profile')}}">PROFILE</a></li>
+
         <li class="divider"></li>
         <li><a class="user-menu" href="{{url_for('admin')}}">ADMIN</a></li>
         <li class="divider"></li>

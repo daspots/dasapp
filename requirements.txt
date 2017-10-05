@@ -6,4 +6,5 @@ flask-wtf==0.14.2
 flask==0.12.2
 pyjwt==1.5.0
 unidecode==0.4.20
+sendgrid==5.2.0
 webargs==1.7.0

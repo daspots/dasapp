@@ -268,8 +268,9 @@ def signup():
         )
         user_db.put()
         task.activate_user_notification(user_db)
+
         cache.bump_auth_attempt()
-        return flask.redirect(flask.url_for('welcome'))
+        return flask.redirect(flask.url_for('signin'))
 
   if form and form.errors:
     cache.bump_auth_attempt()
