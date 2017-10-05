@@ -7,18 +7,16 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="{{url_for('welcome')}}">{{config.CONFIG_DB.brand_name}}</a>
+      <a class="navbar-brand" href="{{url_for('welcome')}}"><img class="navbar-brand" src="p/img/logo_web.png"></a>
     </div>
+
     <nav class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
-        <li class="navbarList {{'active' if html_class == 'recommender-overview'}}">
-          <a class="navbarListElement" href="{{url_for('recommender_overview')}}">
-            Recommenders
-          </a>
-        </li>
+
+        # if current_user.admin
         <li class="navbarList  {{'active' if html_class == 'starred'}}">
-          <a href="{{url_for('post_list_u')}}">
-            <i class="fa fa-star"></i> Starred
+          <a class="navbarListElement" href="{{url_for('post_list_u')}}">
+            Starred
           </a>
         </li>
         <li class="navbarList  {{'active' if html_class == 'search'}} visible-sm-block visible-xs-block">
@@ -41,11 +39,17 @@
         </li>
         # endif
         # include 'bit/contact_menu.html'
-
-
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
+      <li class="navbarList {{'active' if html_class == 'recommender_overview'}}">
+        <a class="navbarListElement" href="{{url_for('about')}}">ABOUT</a>
+       </li>
+       <li class="navbarList {{'active' if html_class == 'recommender_overview'}}">
+        <a class="navbarListElementColor" href="{{url_for('recommender_overview')}}">
+            MEET OUR SPOTTERS
+        </a>
+       </li>
 
          <li class="visible-md-block visible-lg-block ">
             <form class="navbar-form" role="search"  action="{{ url_for('search') }}" method="post" name="search">
