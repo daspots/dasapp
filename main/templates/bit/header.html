@@ -36,13 +36,13 @@
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-       <li class="navbarList {{'active' if html_class == 'recommender_overview'}}">
-        <a class="navbarListElement" href="{{url_for('about')}}">ABOUT</a>
-       </li>
-       <li class="navbarList {{'active' if html_class == 'recommender_overview'}}">
-        <a class="navbarListElementColor" href="{{url_for('recommender_overview')}}">
+        <li class="navbarList {{'active' if html_class == 'recommender_overview'}}">
+        <a class="navbarList" href="{{url_for('recommender_overview')}}">
             MEET OUR SPOTTERS
         </a>
+       </li>
+       <li class="navbarList {{'active' if html_class == 'recommender_overview'}}">
+        <a class="navbarListElement" href="{{url_for('about')}}">ABOUT</a>
        </li>
 <!--        <li class="navbar-form"  action="{{ url_for('search') }}" method="post" name="search">
           <div class="input-group add-on">

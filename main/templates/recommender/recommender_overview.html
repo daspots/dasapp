@@ -2,22 +2,24 @@
 
 # block header
 
+<div class="jumbotronMission">
   <div class="container">
   <div class="row">
-    <div class="col-sm-6 col-md-4"></div>
-    <div class="col-sm-6 col-md-4">
-      <h1 class="h1CenterMedium">PEOPLE WHO LIVE FOR FOOD</h1>
-      <p class="pCenterBig">Recommendations from people who are passionate about food. We are here to help you work every last one of your taste buds.</p>
+    <div class="col-sm-6 col-md-2"></div>
+    <div class="col-sm-6 col-md-8">
+      <h1 class="h1CenterBig">MEET OUR SPOTTERS</h1>
+      <p class="pCenterBig">On DASPOTS only recommendations from people who are passionate about food - they grow it, make it, serve it, style it, enjoy it and everything in between. We are here to help you work every last one of your taste buds.
+      </p>
+    <div class="col-sm-6 col-md-2"></div>
     </div>
-    <div class="col-sm-6 col-md-4"></div>
   </div>
   </div>
+</div>
 
 # endblock
 
 # block content
   <div class="container">
-
     <div class="row">
     {%- for recommender_db in recommender_dbs %}
       <div class="col-6 col-sm-6">
@@ -34,10 +36,8 @@
               All recommendations by: {{recommender_db.name}}
             </a>
           </i>
-<!--           <p role="button" onclick="followFunction(this, '{{recommender_db.key.id()}}')"
-                class="{{recommender_db.bootstrap_class_list}}">
-              {{recommender_db.follow_text}}
-          </p> -->
+          <!-- <p role="button" onclick="followFunction(this, '{{recommender_db.key.id()}}')" class="{{recommender_db.bootstrap_class_list}}">
+          {{recommender_db.follow_text}} </p> -->
         </div>
       </div>
       {%- endfor %}
