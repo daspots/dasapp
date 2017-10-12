@@ -14,6 +14,7 @@ config =
     "#{paths.static.ext}/bootstrap/js/tooltip.js"
     "#{paths.static.ext}/bootstrap-tagsinput/dist/bootstrap-tagsinput.js"
     "#{paths.static.ext}/typeahead.js/dist/typeahead.bundle.js"
+    "#{paths.static.ext}/gifffer/build/gifffer.min.js"
 
   ]
   style: [

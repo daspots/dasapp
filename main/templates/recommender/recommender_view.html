@@ -7,26 +7,36 @@
 <div class="recommender">
   <div class="page-header">
     <h1>{{title}}
-      <small>
-          <span role="button" onclick="followFunction(this, '{{recommender_db.key.id()}}')"
-                class="{{bootstrap_class_list}}">
-            {{follow_text}}
-          </span>
 
-      </small>
+      <!--<small>-->
+          <!--<span role="button" onclick="followFunction(this, '{{recommender_db.key.id()}}')"-->
+                <!--class="{{bootstrap_class_list}}">-->
+            <!--{{follow_text}}-->
+          <!--</span>-->
+
+      <!--</small>-->
     </h1>
 
   </div>
+  <div class="row">
+    {% for url  in url_list %}
+     <div class="col-6 col-sm-6">
+      <img src="{{url}}">
+     </div>
+   {% endfor %}
+  </div>
   <p>{{recommender_db.bio}}</p>
   <p><a href="{{recommender_db.website_url}}">{{recommender_db.website_url}}</a></p>
-  <img src="{{recommender_db.image_url}}">
-  <p><a href="{{url_for('list_recommenders', recommender=recommender_db.name_lower)}}">All Recommendations</a> </p>
+  <!--<img src="{{recommender_db.image_url}}">-->
+  <p>
+      <a href="{{url_for('list_recommenders', recommender=recommender_db.name_lower)}}">
+          All recommendations by: {{recommender_db.name}}
+      </a>
+  </p>
   <hr>
   <p>
-    <a href="{{url_for('recommender_list')}}">Back</a>
+    <a href="{{url_for('recommender_overview')}}">Back</a>
   </p>
-  {% for url  in url_list %}
-  <p><img src="{{url}}"></p>
- {% endfor %}
+
 </div>
 # endblock

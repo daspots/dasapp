@@ -1,10 +1,12 @@
 # coding: utf-8
 
 import logging
-
+import sendgrid
 import flask
 from google.appengine.api import mail
 from google.appengine.ext import deferred
+from sendgrid.helpers import mail
+from settings import *
 
 import config
 import util
@@ -14,20 +16,35 @@ import util
 # Helpers
 ###############################################################################
 def send_mail_notification(subject, body, to=None, **kwargs):
-  if not config.CONFIG_DB.feedback_email:
-    return
+  print 'smn1'
+  print 'smn2'
+  sg = sendgrid.SendGridAPIClient(apikey=SENDGRID_API_KEY)
   brand_name = config.CONFIG_DB.brand_name
-  sender = '%s <%s>' % (brand_name, config.CONFIG_DB.feedback_email)
-  subject = '[%s] %s' % (brand_name, subject)
+  from_email = mail.Email("signup@daspots.com")
+  content = mail.Content('text/plain', body)
+  if to is not None:
+    to_mail = mail.Email(to)
+  else:
+    to_mail = mail.Email(config.CONFIG_DB.feedback_email)
+  subject = 'Welcome to DASPOTS'
   if config.DEVELOPMENT:
     logging.info(
       '\n'
       '######### Deferring to send this email: #############################'
       '\nFrom: %s\nTo: %s\nSubject: %s\n\n%s\n'
       '#####################################################################',
-      sender, to or sender, subject, body
+      from_email, to_mail, subject, body
     )
-  deferred.defer(mail.send_mail, sender, to or sender, subject, body, **kwargs)
+  mail_to_send = mail.Mail(from_email, subject, to_mail, content)
+  logging.info('sending mail %s, to: %s', body, str(to_mail))
+  try:
+    sg.client.mail.send.post(request_body=mail_to_send.get())
+  except Exception as e:
+    print 'error'
+    print str(e)
+
+      # sys.exit(1)
+
 
 
 ###############################################################################
@@ -116,11 +133,12 @@ Best regards,
 
 
 def activate_user_notification(user_db):
+  print 'activate_u_n1'
   if not user_db.email:
     return
   user_db.token = util.uuid()
   user_db.put()
-
+  print 'activate_u_n2'
   to = user_db.email
   body = '''Welcome to %(brand)s.
 

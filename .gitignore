@@ -3,3 +3,4 @@ node_modules/
 temp/
 main/lib/
 main/lib.zip
+main/settings.py

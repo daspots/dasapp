@@ -7,7 +7,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="{{url_for('welcome')}}"><img class="navbar-brand" src="p/img/logo_web.png"></a>
+      <a class="navbar-brand" href="{{url_for('welcome')}}"><img class="navbar-brand" src="/p/img/logo_web.png"></a>
     </div>
 
     <nav class="collapse navbar-collapse">
@@ -24,19 +24,7 @@
             <i class="fa fa-search"></i> Search
           </a>
         </li>
-        # if current_user.admin
-        <li class="navbarList {{'active' if html_class == 'post-create'}}">
-          <a class="navbarListElement" href="{{url_for('post_create')}}">Create Post</a>
-        </li>
-        <li class="navbarList {{'active' if html_class == 'post-list'}}">
-          <a class="navbarListElement" href="{{url_for('post_list')}}">Post List</a>
-        </li>
-        <li class="navbarList {{'active' if html_class == 'recommender-create'}}">
-          <a class="navbarListElement" href="{{url_for('recommender_create')}}"></i> Create Recommender</a>
-        </li>
-        <li class="navbarList {{'active' if html_class == 'recommender-list'}}">
-          <a class="navbarListElement" href="{{url_for('recommender_list')}}"> Recommender List</a>
-        </li>
+
         # endif
         # include 'bit/contact_menu.html'
       </ul>

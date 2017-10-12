@@ -19,3 +19,6 @@ $ -> $('html.resource-view').each ->
 $ -> $('html.post-create').each ->
   init_resource_upload()
 
+$ -> $('html.recommender-create').each ->
+  init_resource_upload()
+
