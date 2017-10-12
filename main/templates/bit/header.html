@@ -14,11 +14,11 @@
       <ul class="nav navbar-nav">
 
         # if current_user.admin
-        <li class="navbarList  {{'active' if html_class == 'starred'}}">
-          <a class="navbarListElement" href="{{url_for('post_list_u')}}">
-            Starred
-          </a>
-        </li>
+        <!--<li class="navbarList  {{'active' if html_class == 'starred'}}">-->
+          <!--<a class="navbarListElement" href="{{url_for('post_list_u')}}">-->
+            <!--Starred-->
+          <!--</a>-->
+        <!--</li>-->
         <li class="navbarList  {{'active' if html_class == 'search'}} visible-sm-block visible-xs-block">
           <a href="{{url_for('search')}}">
             <i class="fa fa-search"></i> Search

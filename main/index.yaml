@@ -31,6 +31,19 @@ indexes:
 - kind: User
   properties:
   - name: active
+  - name: admin
+  - name: modified
+
+- kind: User
+  properties:
+  - name: active
+  - name: admin
+  - name: modified
+    direction: desc
+
+- kind: User
+  properties:
+  - name: active
   - name: modified
 
 - kind: User
