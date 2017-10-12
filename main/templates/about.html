@@ -1,17 +1,17 @@
 # extends 'base.html'
+
 # block content
 
-<!--  Jumbotron -->
-<div class="jumbotronMission">
+<!--  Jumbotron Great People -->
+<div class="jumbotronPeople">
   <div class="container">
   <div class="row">
-    <div class="col-sm-6 col-md-2"></div>
-    <div class="col-sm-6 col-md-8">
-      <h1 class="h1CenterBig">OUR MISSION</h1>
-      <p class="pCenterBig">We are here to help you work every last one of your taste buds.
-      </p>
-    <div class="col-sm-6 col-md-2"></div>
+    <div class="col-sm-6 col-md-4"></div>
+    <div class="col-sm-6 col-md-4">
+      <h1 class="h1CenterMedium">OUR MISSION</h1>
+      <p class="pCenterBig"> WE ARE HERE TO HELP YOU WORK EVERY LAST ONE OF YOUR TASTE BUDS.</p>
     </div>
+    <div class="col-sm-6 col-md-4"></div>
   </div>
   </div>
 </div>
@@ -20,14 +20,15 @@
 <div class="jumbotronPeople">
   <div class="container">
   <div class="row">
-    <div class="col-sm-6 col-md-5">
-      <h1 class="h1LeftBig">PLACES RECOMMENDED BY PEOPLE WHO LIVE FOR FOOD</h1>
+    <div class="col-sm-6 col-md-4">
+      <h1 class="h1LeftBig">RECOMMENDED BY PEOPLE WHO LIVE FOR FOOD</h1>
       <p class="pLeftBig">
-      On DASPOTS only recommendations from people who are passionate about food - they grow it, make it, serve it, style it, enjoy it and everything in between. They work in the industry, they care about great ingredients and they leave no bad vibes. We are a team of food experts helping you work every last one of your taste buds.
+      Our 'Spotters' are passionate about food - they grow it, make it, serve it, style it, enjoy it and everything in between. They work in the industry, they care about great ingredients and they leave no bad vibes. We are a team of food experts helping you work every last one of your taste buds.
       </p>
-      <p class="linkLeft"><a class="linkLeftBlack" href="{{url_for('recommender_overview')}}">MEET THE SPOTTERS</a></p>
+      <a href="{{url_for('welcome')}}"> <button class="linkLeft">DISCOVER PLACES</button></a>
     </div>
-    <div class="col-sm-6 col-md-7"></div>
+    <div class="col-sm-6 col-md-4"></div>
+    <div class="col-sm-6 col-md-4"></div>
   </div>
   </div>
 </div>
@@ -36,11 +37,12 @@
 <div class="jumbotronPeople">
   <div class="container">
   <div class="row">
-    <div class="col-sm-6 col-md-7"></div>
-    <div class="col-sm-6 col-md-5">
+    <div class="col-sm-6 col-md-4"></div>
+    <div class="col-sm-6 col-md-4"></div>
+    <div class="col-sm-6 col-md-4">
       <h1 class="h1RightBig">ONLY GENUINELY GOOD PLACES</h1>
       <p class="pRightBig">Discovering great places to grab a bite and have a drink in New York should be fun and easy. That's why we are here. No five-star restaurants we can't afford, no ' bleh, I don't get what the fuzz is about' places. Just the cool, undiscovered and authentic places recommended by people who love food as much as you.</p>
-      <p class="linkRight"><a href="{{url_for('welcome')}}" class="linkRightBlack" >DISCOVER OUR SPOTS</a></p>
+      <a href="{{url_for('recommender_overview')}}"><button class="linkRight" ">MEET OUR PEOPLE</button></a>
     </div>
   </div>
   </div>
