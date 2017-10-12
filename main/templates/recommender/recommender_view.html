@@ -3,40 +3,39 @@
 # block content
 
 # include 'bit/popup_loginform_follow.html'
-
-<div class="recommender">
-  <div class="page-header">
-    <h1>{{title}}
-
-      <!--<small>-->
-          <!--<span role="button" onclick="followFunction(this, '{{recommender_db.key.id()}}')"-->
-                <!--class="{{bootstrap_class_list}}">-->
-            <!--{{follow_text}}-->
-          <!--</span>-->
-
-      <!--</small>-->
-    </h1>
-
-  </div>
+<div class="container">
   <div class="row">
-    {% for url  in url_list %}
-     <div class="col-6 col-sm-6">
-      <img src="{{url}}">
-     </div>
-   {% endfor %}
-  </div>
-  <p>{{recommender_db.bio}}</p>
-  <p><a href="{{recommender_db.website_url}}">{{recommender_db.website_url}}</a></p>
-  <!--<img src="{{recommender_db.image_url}}">-->
-  <p>
-      <a href="{{url_for('list_recommenders', recommender=recommender_db.name_lower)}}">
-          All recommendations by: {{recommender_db.name}}
-      </a>
-  </p>
-  <hr>
-  <p>
-    <a href="{{url_for('recommender_overview')}}">Back</a>
-  </p>
+    <div class="col-sm-6 col-md-2"></div>
+    <div class="col-sm-6 col-md-8">
+    <img src="{{recommender_db.image_url}}">
+      <div class="recommender">
+        <div class="page-header">
+        <!--  name recommender -->
+        <h1 class="h1CenterBig">{{title}}</h1>
+        <!--  follow button -->
+        <!--<span role="button" onclick="followFunction(this, '{{recommender_db.key.id()}}')"  class="{{recommender_db.bootstrap_class_list}}">-->
+                  <!--{{follow_text}}-->
+        <!--</span>-->
+        </div>
+        <!--  bio recommender -->
+        <p class="pCenterBig">{{recommender_db.bio}}</p>
+        <div class="inline">
+        <!--  website recommender -->
+        <p class="linkNewsletter"><a class="linkNewsletterBlack" href="{{recommender_db.website_url}}">{{recommender_db.website_url}}</a></p>
+        <!--  get all recommendations -->
+        <p class="linkNewsletter"><a class="linkNewsletterBlack" href="{{url_for('list_recommenders', recommender=recommender_db.name_lower)}}">All Recommendations</a></p>
+        <!--  get back button -->
+        </div>
+        <p>
+          <a href="{{url_for('recommender_list')}}">Back</a>
+        </p>
 
+        {% for url  in url_list %}
+        <p><img src="{{url}}"></p>
+       {% endfor %}
+      </div>
+    </div>
+    <div class="col-sm-6 col-md-2"></div>
+  </div>
 </div>
 # endblock
