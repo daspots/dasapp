@@ -23,6 +23,12 @@
         <li><a class="user-menu" href="{{url_for('admin')}}">ADMIN</a></li>
         <li class="divider"></li>
       # endif
+       <li class="navbarList {{'active' if html_class == 'recommender_overview'}}">
+        <a class="navbarListElementColor" href="{{url_for('recommender_overview')}}">
+            MEET OUR SPOTTERS
+        </a>
+       </li>
+
       <li><a class="user-menu" href="{{url_for('signout')}}">SIGN OUT</a></li>
     </ul>
   </li>

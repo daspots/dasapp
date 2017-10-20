@@ -33,11 +33,6 @@
       <li class="navbarList {{'active' if html_class == 'recommender_overview'}}">
         <a class="navbarListElement" href="{{url_for('about')}}">ABOUT</a>
        </li>
-       <li class="navbarList {{'active' if html_class == 'recommender_overview'}}">
-        <a class="navbarListElementColor" href="{{url_for('recommender_overview')}}">
-            MEET OUR SPOTTERS
-        </a>
-       </li>
 
          <li class="visible-md-block visible-lg-block ">
             <form class="navbar-form" role="search"  action="{{ url_for('search') }}" method="post" name="search">

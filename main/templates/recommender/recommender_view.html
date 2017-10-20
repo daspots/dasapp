@@ -12,6 +12,8 @@
         <div class="page-header">
         <!--  name recommender -->
         <h1 class="h1CenterBig">{{title}}</h1>
+          <br>
+        <p class="linkNewsletter"><a class="linkNewsletterBlack" href="{{url_for('list_recommenders', recommender=recommender_db.name_lower)}}">All Recommendations</a></p>
         <!--  follow button -->
         <!--<span role="button" onclick="followFunction(this, '{{recommender_db.key.id()}}')"  class="{{recommender_db.bootstrap_class_list}}">-->
                   <!--{{follow_text}}-->
@@ -20,19 +22,17 @@
         <!--  bio recommender -->
         <p class="pCenterBig">{{recommender_db.bio}}</p>
         <div class="inline">
+         <br>
         <!--  website recommender -->
         <p class="linkNewsletter"><a class="linkNewsletterBlack" href="{{recommender_db.website_url}}">{{recommender_db.website_url}}</a></p>
         <!--  get all recommendations -->
-        <p class="linkNewsletter"><a class="linkNewsletterBlack" href="{{url_for('list_recommenders', recommender=recommender_db.name_lower)}}">All Recommendations</a></p>
+
         <!--  get back button -->
         </div>
-        <p>
-          <a href="{{url_for('recommender_list')}}">Back</a>
-        </p>
 
-        {% for url  in url_list %}
-        <p><img src="{{url}}"></p>
-       {% endfor %}
+        <!--{% for url  in url_list %}-->
+        <!--<p><img src="{{url}}"></p>-->
+       <!--{% endfor %}-->
       </div>
     </div>
     <div class="col-sm-6 col-md-2"></div>
