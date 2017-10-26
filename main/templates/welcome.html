@@ -8,7 +8,13 @@
       <div class="col-sm-6 col-md-2"></div>
       <div class="col-sm-6 col-md-8">
         <img src="/p/img/logo_web.gif" class="logoWelcome">
-        <p class="pCenterBigBlack">PLACES RECOMMENDED BY PEOPLE WHO ARE PASSIONATE ABOUT FOOD. <br> WE ARE HERE TO HELP YOU WORK EVERY LAST ONE OF YOUR TASTE BUDS.</p>
+        <p class="pCenterBigBlack">PLACES RECOMMENDED BY PEOPLE WHO ARE PASSIONATE ABOUT FOOD. </p>
+        <p class="linkNewsletter">
+            <a class="linkNewsletterBlack" href="{{url_for('recommender_overview')}}">
+                MEET THE SPOTTERS
+            </a>
+        </p>
+
       </div>
       <div class="col-sm-6 col-md-2"></div>
     </div>
@@ -61,10 +67,10 @@
               {% endif %}></i>
               </li> -->
               <!-- link getdirections -->
-               <li class="iconList"><a href="{{post_db.website}}"><img src="p/img/link-color.png" class="postIcon">
+               <li class="iconList"><a href="{{post_db.website}}"><img src="/p/img/link-color.png" class="postIcon">
               <!-- {{post_db.adress}} --></a></li>
               <!-- link website -->
-              <li class="iconList"><a href="{{post_db.google_maps_directions}}"><img src="p/img/getdirections-color.png" class="postIcon"><!-- {{post_db.title}} --></a></li>
+              <li class="iconList"><a href="{{post_db.google_maps_directions}}"><img src="/p/img/getdirections-color.png" class="postIcon"><!-- {{post_db.title}} --></a></li>
               </ul>
             </label>
             <!-- content accordion -->
