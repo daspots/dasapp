@@ -10,6 +10,7 @@ class Post(model.Base):
   content = ndb.StringProperty(default='')
   image_ids_string = ndb.StringProperty(default='')
   keywords = ndb.StringProperty(default='')
+  location_keywords = ndb.StringProperty(default='')
   blob_key = ndb.BlobKeyProperty()
   name = ndb.StringProperty()
   bucket_name = ndb.StringProperty()
@@ -22,6 +23,7 @@ class Post(model.Base):
   website = ndb.StringProperty(default='')
   adress = ndb.StringProperty(default='')
   keyword_list = ndb.StringProperty(repeated=True)
+  location_keyword_list = ndb.StringProperty(repeated=True)
   starred = ndb.BooleanProperty(default=False)
 
   @ndb.ComputedProperty

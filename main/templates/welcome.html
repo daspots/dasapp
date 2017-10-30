@@ -34,10 +34,11 @@
         <!-- UI thumbnail -->
         <div class="box">
           <!-- keywords -->
-          <p>
-            {% for keyword in post_db.keyword_list %}
+          <p class="thumbnailKeyword">
+            <i class="fa fa-map-marker" aria-hidden="true"></i>
+            {% for keyword in post_db.location_keyword_list %}
              {% if loop.index <= 3 %}
-              <a class="thumbnailKeyword" href="{{url_for('post_list_q', query=keyword)}}">#{{keyword}}</a>
+              <a href="{{url_for('post_list_q', query=keyword)}}">#{{keyword}}</a>
              {% endif %}
             {% endfor %}
           </p>
@@ -47,7 +48,13 @@
           <h1 class="thumbnailTitle">{{post_db.title}}</h1>
           <!-- link recommender -->
           <a class="linkRecommended" href="{{post_db.recommender_url}}">Recommended by: {{post_db.recommender}}</a>
-
+          <p class="thumbnailKeyword">
+            {% for keyword in post_db.keyword_list %}
+             {% if loop.index <= 3 %}
+              <a href="{{url_for('post_list_q', query=keyword)}}">#{{keyword}}</a>
+             {% endif %}
+            {% endfor %}
+          </p>
           <!-- start accordion -->
           <div class="tab">
             <input id="{{post_db.key.id()}}" class="hidden" type="checkbox" name="tabs">

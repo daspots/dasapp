@@ -27,6 +27,7 @@ class PostUpdateForm(flask_wtf.FlaskForm):
     title = wtforms.StringField('Name', [wtforms.validators.required()])
     content = wtforms.TextAreaField('Content', [wtforms.validators.required()])
     keywords = wtforms.StringField('Keywords', [wtforms.validators.required()])
+    location_keywords = wtforms.StringField('Location(s)', [wtforms.validators.required()])
     image = wtforms.StringField('Image', [wtforms.validators.optional()])
     recommender = wtforms.SelectField('Recommended By', choices=[])
     website = wtforms.StringField('Website', [wtforms.validators.optional()])
@@ -51,6 +52,18 @@ def get_keywords():
     return json.dumps(keywords)
 
 
+def create_new_keywords(new_keywords, post_db_key, is_location=False):
+    for keyword in new_keywords:
+        model.Keyword(keyword=keyword,
+                      post_keys=[post_db_key],
+                      is_location=is_location,
+                      ).put()
+
+
+def split_keywords(keywords):
+    return [k for k in keywords.data.split(',') if k != '']
+
+
 @app.route('/post/create/', methods=['GET', 'POST'])
 @auth.admin_required
 def post_create():
@@ -64,16 +77,24 @@ def post_create():
     else:
         first_img_id = None
 
-    keyword_list = [k for k in form.keywords.data.split(',') if k != '' ]
-    keywords = model.Keyword.query(model.Keyword.keyword.IN(keyword_list)).fetch()
-    keywords_str = [keyword.keyword for keyword in keywords]
-    new_keywords = [item for item in keyword_list if item not in keywords_str]
+    keyword_list = split_keywords(form.keywords)
+    loc_keyword_list = split_keywords(form.location_keywords)
+
+    # differentiate between existing and new keywords
+    existing_keywords = model.Keyword.query(
+            model.Keyword.keyword.IN(keyword_list + loc_keyword_list)
+        ).fetch()
+    existing_keywords_str = [keyword.keyword for keyword in existing_keywords]
+
+    new_keywords = [item for item in keyword_list if item not in existing_keywords_str]
+    new_loc_keywords = [item for item in loc_keyword_list if item not in existing_keywords_str]
 
     post_db = model.Post(
       user_key=auth.current_user_key(),
       title=form.title.data,
       content=form.content.data,
       keywords=form.keywords.data,
+      location_keywords=form.location_keywords.data,
       image_ids_string=form.image.data,
       img_ids=img_ids_list,
       image_url=get_img_url(first_img_id),
@@ -82,21 +103,16 @@ def post_create():
       website=form.website.data,
       adress=form.adress.data,
       keyword_list=keyword_list,
+      location_keyword_list=loc_keyword_list,
 
     )
 
     post_db_key = post_db.put()
 
-    for keyword in new_keywords:
-        model.Keyword(keyword=keyword,
-                      post_keys=[post_db_key]
-                      ).put()
+    create_new_keywords(new_keywords, post_db_key, is_location=False)
+    create_new_keywords(new_loc_keywords, post_db_key, is_location=True)
 
-    for keyword in keywords:
-        if keyword.keyword not in new_keywords:
-            keyword.post_keys.append(post_db_key)
-            keyword.put()
-
+    add_to_keywords(existing_keywords, new_keywords + new_loc_keywords, post_db_key)
 
     flask.flash('New post was successfully created!', category='success')
     return flask.redirect(flask.url_for('post_list', order='-created'))
@@ -114,6 +130,58 @@ def post_create():
       gs_bucket_name=config.CONFIG_DB.bucket_name or None,
     ),
   )
+
+
+def add_to_keywords(existing_keywords, all_new_keywords, post_db_key):
+    # Add post to existing keywords
+    for keyword in existing_keywords:
+        if keyword.keyword not in all_new_keywords:
+            keyword.post_keys.append(post_db_key)
+            keyword.put()
+
+
+@app.route('/post/<int:post_id>/update/', methods=['GET', 'POST'])
+@auth.admin_required
+def post_update(post_id):
+  post_db = model.Post.get_by_id(post_id)
+  if not post_db or post_db.user_key != auth.current_user_key():
+    flask.abort(404)
+
+  form = PostUpdateForm(obj=post_db)
+  form.recommender.choices = get_recommenders()
+
+  if form.validate_on_submit():
+    form.populate_obj(post_db)
+    post_db.keyword_list = split_keywords(form.keywords)
+    post_db.location_keyword_list = split_keywords(form.location_keywords)
+
+    # differentiate between existing and new keywords
+    existing_keywords = model.Keyword.query(
+        model.Keyword.keyword.IN(post_db.keyword_list + post_db.location_keyword_list)
+    ).fetch()
+    existing_keywords_str = [keyword.keyword for keyword in existing_keywords]
+
+    new_keywords = [item for item in post_db.keyword_list if item not in existing_keywords_str]
+    new_loc_keywords = [item for item in post_db.location_keyword_list if item not in existing_keywords_str]
+
+    post_db_key = post_db.put()
+
+    create_new_keywords(new_keywords, post_db_key, is_location=False)
+    create_new_keywords(new_loc_keywords, post_db_key, is_location=True)
+
+    # Add post to existing keywords
+    add_to_keywords(existing_keywords, new_keywords + new_loc_keywords, post_db_key)
+
+    flask.flash('Post was successfully updated!', category='success')
+    return flask.redirect(flask.url_for('post_list', order='-created'))
+
+  return flask.render_template(
+      'post_create.html',
+      html_class='post-update',
+      title=post_db.title,
+      form=form,
+      post_db=post_db,
+    )
 
 
 @app.route('/post/')
@@ -174,28 +242,6 @@ def post_view(post_id):
       url_list=[get_img_url(id) for id in post_db.img_ids]
     )
 
-
-@app.route('/post/<int:post_id>/update/', methods=['GET', 'POST'])
-@auth.admin_required
-def post_update(post_id):
-  post_db = model.Post.get_by_id(post_id)
-  if not post_db or post_db.user_key != auth.current_user_key():
-    flask.abort(404)
-
-  form = PostUpdateForm(obj=post_db)
-  form.recommender.choices = get_recommenders()
-
-  if form.validate_on_submit():
-    form.populate_obj(post_db)
-    post_db.put()
-    return flask.redirect(flask.url_for('post_list', order='-modified'))
-  return flask.render_template(
-      'resource/resource_upload.html',
-      html_class='post-update',
-      title=post_db.title,
-      form=form,
-      contact_db=post_db,
-    )
 
 @app.route('/post/r/<recommender>')
 def list_recommenders(recommender):
