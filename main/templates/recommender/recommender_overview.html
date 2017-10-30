@@ -1,17 +1,20 @@
 # extends 'base.html'
 
+<!-- jumbotron title -->
 # block header
-
-<div class="jumbotronMission">
+<div class="container-fluid">
+  <div class="jumbotronRecommender">
   <div class="container">
   <div class="row">
-    <div class="col-sm-6 col-md-2"></div>
-    <div class="col-sm-6 col-md-8">
-      <h1 class="h1CenterBig">MEET OUR SPOTTERS</h1>
-      <p class="pCenterBig">On DASPOTS only recommendations from people who are passionate about food - they grow it, make it, serve it, style it, enjoy it and everything in between. We are here to help you work every last one of your taste buds.
-      </p>
-    <div class="col-sm-6 col-md-2"></div>
+    <div class="col-sm-6 col-md-6">   
+      <h1 class="h1LeftBig">MEET THE SPOTTERS</h1>   
+<!--       <p class="pLeftBig">
+      On DASPOTS only recommendations from people who are passionate about food - they grow it, make it, serve it, style it, enjoy it and everything in between.
+      </p> -->
+      <br>
     </div>
+    <div class="col-sm-6 col-md-6"></div>
+  </div>
   </div>
   </div>
 </div>
@@ -35,7 +38,7 @@
 
           <i>
             <a class="linkRecommended" href="{{url_for('list_recommenders', recommender=recommender_db.name_lower)}}">
-              All recommendations by: {{recommender_db.name}}
+              SEE ALL SPOTS BY {{recommender_db.name}}
             </a>
           </i>
           <p>
