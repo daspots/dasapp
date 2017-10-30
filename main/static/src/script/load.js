@@ -35,7 +35,24 @@ $('#search_page').typeahead(null, {
 
 
 $('#keywords').tagsinput({
-    confirmKeys: [13, 32, 44],
+    confirmKeys: [13, 44],
+    typeaheadjs: [{
+          minLength: 1,
+          highlight: true,
+
+    },{
+        minlength: 1,
+        name: 'keywords',
+        displayKey: 'name',
+        valueKey: 'name',
+        source: keywords.ttAdapter()
+    }],
+    freeInput: true,
+
+});
+
+$('#location_keywords').tagsinput({
+    confirmKeys: [13, 44],
     typeaheadjs: [{
           minLength: 1,
           highlight: true,
