@@ -2,24 +2,25 @@
 
 <!-- jumbotron title -->
 # block header
- <div class="jumbotronHeader">
-    <div class="container">
-    <div class="row">
-      <div class="col-sm-6 col-md-2"></div>
-      <div class="col-sm-6 col-md-8">
-        <img src="/p/img/logo_web.gif" class="logoWelcome">
-        <p class="pCenterBigBlack">PLACES RECOMMENDED BY PEOPLE WHO ARE PASSIONATE ABOUT FOOD. </p>
-        <p class="linkNewsletter">
-            <a class="linkNewsletterBlack" href="{{url_for('recommender_overview')}}">
-                MEET THE SPOTTERS
-            </a>
-        </p>
-
-      </div>
-      <div class="col-sm-6 col-md-2"></div>
+<div class="container-fluid">
+  <div class="jumbotronHeader">
+  <div class="container">
+  <div class="row">
+    <div class="col-sm-6 col-md-5">
+      <h1 class="h1LeftBig">DASPOTS</h1>
+      <p class="pLeftBig">
+      Find favorite places from people who are passionate about food - they work in the industry, they care about great ingredients and they leave no bad vibes.
+      </p>
+      <a class="linkLeft" href="{{url_for('recommender_overview')}}">MEET THE SPOTTERS</a>
+      <br>
+      <br>
+      <br>
     </div>
-    </div>
+    <div class="col-sm-6 col-md-7"></div>
   </div>
+  </div>
+  </div>
+</div>
 # endblock
 
 # block content
@@ -38,7 +39,7 @@
             <i class="fa fa-map-marker" aria-hidden="true"></i>
             {% for keyword in post_db.location_keyword_list %}
              {% if loop.index <= 3 %}
-              <a href="{{url_for('post_list_q', query=keyword)}}">#{{keyword}}</a>
+              <a href="{{url_for('post_list_q', query=keyword)}}">{{keyword}} </a>
              {% endif %}
             {% endfor %}
           </p>
@@ -51,7 +52,7 @@
           <p class="thumbnailKeyword">
             {% for keyword in post_db.keyword_list %}
              {% if loop.index <= 3 %}
-              <a href="{{url_for('post_list_q', query=keyword)}}">#{{keyword}}</a>
+              <a href="{{url_for('post_list_q', query=keyword)}}">#{{keyword}} </a>
              {% endif %}
             {% endfor %}
           </p>
