@@ -17,7 +17,7 @@
         <li class="navbarList {{'active' if html_class == 'recommender-list'}}">
           <a class="navbarListElement" href="{{url_for('recommender_list')}}"> RECOMMENDER LIST</a>
         </li>
-        <li><a class="user-menu" href="{{url_for('profile')}}">PROFILE</a></li>
+
 
         <li class="divider"></li>
         <li><a class="user-menu" href="{{url_for('admin')}}">ADMIN</a></li>
@@ -28,7 +28,12 @@
             MEET OUR SPOTTERS
         </a>
        </li>
-
+       <li class="navbarList  {{'active' if html_class == 'starred'}}">
+          <a class="navbarListElement" href="{{url_for('post_list_u')}}">
+            MY SPOTS
+          </a>
+       </li>
+      <li><a class="user-menu" href="{{url_for('profile')}}">SETTINGS</a></li>
       <li><a class="user-menu" href="{{url_for('signout')}}">SIGN OUT</a></li>
     </ul>
   </li>

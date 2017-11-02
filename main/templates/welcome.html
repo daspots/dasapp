@@ -70,11 +70,11 @@
 
 
             <!-- icon list -->
-            <input id="{{post_db.key.id()}}" class="hidden draaiknopje" type="checkbox" name="tabs">
-            <label for="{{post_db.key.id()}}">
-              <ul class="additionalLinks" style="margin-left:0px;padding-left:0px;padding-top:10px">
+            <br>
+
+              <ul class="additionalLinks" style="margin-left:0px;padding-left:0px;padding-top:10px;display:inline-block;">
               <!-- bookmark -->
-              <!-- <li class="iconList"><i onclick="starFunction(this, '{{post_db.key.id()}}')" role="button"
+              <li class="iconList"><i onclick="starFunction(this, '{{post_db.key.id()}}')" role="button"
                {% if post_db.starred %}
                  class="fa blue fa-star
                {% else %}
@@ -85,18 +85,24 @@
               {% else %}
                 not-logged-in"
               {% endif %}></i>
-              </li> -->
+              </li>
               <!-- link getdirections -->
                <li class="iconList"><a href="{{post_db.website}}"><img src="/p/img/link-color.png" class="postIcon">
               <!-- {{post_db.adress}} --></a></li>
               <!-- link website -->
               <li class="iconList"><a href="{{post_db.google_maps_directions}}"><img src="/p/img/getdirections-color.png" class="postIcon"><!-- {{post_db.title}} --></a></li>
               </ul>
-            </label>
-            <!-- content accordion -->
-            <div class="tab-content">
+              <ul style="display:inline-block;float:right;">
+                <input id="{{post_db.key.id()}}" class="hidden draaiknopje" type="checkbox" name="tabs">
+                <label for="{{post_db.key.id()}}">
+
+                </label>
+                            <div class="tab-content">
               <p class="pLeft">{{post_db.content}}</p>
             </div>
+              </ul>
+            <!-- content accordion -->
+
           <!-- end accordion -->
         </div>
          <!-- end UI thumbnail -->
