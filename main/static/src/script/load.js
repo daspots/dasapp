@@ -72,7 +72,6 @@ $('.draaiknopje').click(function () {
 	setTimeout(function() {
 		$('.grid').masonry('layout');
 	}, 100);
-	console.log('ble')
 });
 
 window.onload = function() {
