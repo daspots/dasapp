@@ -7,10 +7,7 @@
   <div class="container">
   <div class="row">
     <div class="col-sm-6 col-md-6">   
-      <h1 class="h1LeftBig">MEET THE SPOTTERS</h1>   
-<!--       <p class="pLeftBig">
-      On DASPOTS only recommendations from people who are passionate about food - they grow it, make it, serve it, style it, enjoy it and everything in between.
-      </p> -->
+      <h1 class="h1LeftBigWhiteUp">MEET THE SPOTTERS</h1>   
       <br>
     </div>
     <div class="col-sm-6 col-md-6"></div>
@@ -22,27 +19,32 @@
 
 # block content
   <div class="container">
-
     <div class="row">
     {%- for recommender_db in recommender_dbs %}
       <div class="col-6 col-sm-6">
         <div class="box shadow">
+
+          <!-- image -->
           <img class="thumbnailImage" src="{{recommender_db.image_url}}">
+
+          <!-- name recommender -->
           <h1 class="thumbnailTitle">
             <!-- <a href="{{url_for('recommender_view', recommender_id=recommender_db.key.id())}}"> -->
               {{recommender_db.name}}
             <!-- </a> -->
           </h1>
+
+          <!-- bio recommender -->
           <p class="pLeft">{{recommender_db.bio}}</p>
 
+          <!-- all spots recommender -->
+          <a class="linkRecommendedBy" href="{{url_for('list_recommenders', recommender=recommender_db.name_lower)}}">
+          SEE ALL SPOTS BY {{recommender_db.name}}
+          </a>
 
-          <i>
-            <a class="linkRecommended" href="{{url_for('list_recommenders', recommender=recommender_db.name_lower)}}">
-              SEE ALL SPOTS BY {{recommender_db.name}}
-            </a>
-          </i>
+          <!-- external link -->
           <p>
-            <li class="iconList">
+          <li class="iconList">
              <a href="{{recommender_db.website_url}}">
                <img src="p/img/link-color.png" class="postIcon">
              </a>
