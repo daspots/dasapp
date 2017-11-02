@@ -55,7 +55,7 @@
           <p class="thumbnailHashtag">
             {% for keyword in post_db.keyword_list %}
              {% if loop.index <= 3 %}
-              <a class="thumbnailHashtag" href="{{url_for('post_list_q', query=keyword)}}">#{{keyword}} </a>
+              <a class="thumbnailHashtag" href="{{url_for('post_list_q', query=keyword)}}">#{{keyword}}</a>
              {% endif %}
             {% endfor %}
           </p>
