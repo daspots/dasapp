@@ -29,12 +29,43 @@
 
 <!-- UI post -->
   <div class="container" id="restaurant">
-    <div class="grid">
-    <div class="grid-sizer col-6 col-sm-3"></div>
+    <div class="row">
     {%- for post_db in post_dbs %}
-      <div class="grid-item col-6 col-sm-3">
+      <div class="col-6 col-sm-3">
         <!-- UI thumbnail -->
         <div class="box">
+
+          <!-- location -->
+<!--           <p class="thumbnailLocation">
+            <i class="fa fa-map-marker" aria-hidden="true"></i>
+            {% for keyword in post_db.location_keyword_list %}
+             {% if loop.index <= 3 %}
+              <a href="{{url_for('post_list_q', query=keyword)}}">{{keyword}} </a>
+             {% endif %}
+            {% endfor %}
+          </p> -->
+
+          <!-- image -->
+          <img class="thumbnailImage" data-gifffer="{{post_db.image_url}}">
+          <ul class="additionalLinks" style="margin-left:0px;padding-left:0px;padding-top:10px">
+
+          <!-- Name spot -->
+              <li class="iconList"><h1 class="thumbnailTitle">{{post_db.title}}</h1></li>
+
+          <!-- bookmark -->
+<!--               <li class="iconList" style="float: right; margin-top: 20px; margin-right: 10px;"><i onclick="starFunction(this, '{{post_db.key.id()}}')" role="button"
+               {% if post_db.starred %}
+                 class="fa blue fa-star
+               {% else %}
+                class="fa blue fa-star-o
+               {% endif %}
+               {%  if current_user.id > 0 %}
+                  "
+              {% else %}
+                not-logged-in"
+              {% endif %}></i>
+              </li> -->
+          </ul>
 
           <!-- location -->
           <p class="thumbnailLocation">
@@ -45,12 +76,6 @@
              {% endif %}
             {% endfor %}
           </p>
-
-          <!-- image -->
-          <img class="thumbnailImage" data-gifffer="{{post_db.image_url}}">
-
-          <!-- Name spot -->
-          <h1 class="thumbnailTitle">{{post_db.title}}</h1>
 
           <!-- link hashtags -->
           <p class="thumbnailHashtag">
@@ -70,39 +95,22 @@
 
 
             <!-- icon list -->
-            <br>
-
-              <ul class="additionalLinks" style="margin-left:0px;padding-left:0px;padding-top:10px;display:inline-block;">
-              <!-- bookmark -->
-              <li class="iconList"><i onclick="starFunction(this, '{{post_db.key.id()}}')" role="button"
-               {% if post_db.starred %}
-                 class="fa blue fa-star
-               {% else %}
-                class="fa blue fa-star-o
-               {% endif %}
-               {%  if current_user.id > 0 %}
-                  "
-              {% else %}
-                not-logged-in"
-              {% endif %}></i>
-              </li>
+            <input id="{{post_db.key.id()}}" class="hidden" type="checkbox" name="tabs">
+            <label for="{{post_db.key.id()}}">
+              <ul class="additionalLinks" style="margin-left:0px;padding-left:0px;padding-top:10px">
+              
               <!-- link getdirections -->
-               <li class="iconList"><a href="{{post_db.website}}"><img src="/p/img/link-color.png" class="postIcon">
+               <li class="iconList"><a href="{{post_db.website}}"><img src="/p/img/ic_open_in_new_black_24px.png" class="postIcon">
               <!-- {{post_db.adress}} --></a></li>
-              <!-- link website -->
-              <li class="iconList"><a href="{{post_db.google_maps_directions}}"><img src="/p/img/getdirections-color.png" class="postIcon"><!-- {{post_db.title}} --></a></li>
-              </ul>
-              <ul style="display:inline-block;float:right;">
-                <input id="{{post_db.key.id()}}" class="hidden draaiknopje" type="checkbox" name="tabs">
-                <label for="{{post_db.key.id()}}">
 
-                </label>
-                            <div class="tab-content">
+              <!-- link website -->
+              <li class="iconList"><a href="{{post_db.google_maps_directions}}"><img src="/p/img/ic_directions_black_24px.png" class="postIcon"><!-- {{post_db.title}} --></a></li>
+              </ul>
+            </label>
+            <!-- content accordion -->
+            <div class="tab-content">
               <p class="pLeft">{{post_db.content}}</p>
             </div>
-              </ul>
-            <!-- content accordion -->
-
           <!-- end accordion -->
         </div>
          <!-- end UI thumbnail -->
