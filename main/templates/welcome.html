@@ -43,9 +43,11 @@
 
                         <!-- location -->
             <div>
+              <i class="fa fa-map-marker map-marker" aria-hidden="true"></i>
             {% for keyword in post_db.location_keyword_list %}
              {% if loop.index <= 3 %}
-              <i class="fa fa-map-marker" aria-hidden="true" style="padding-left:7px"><a class="thumbnailLocation" href="{{url_for('post_list_q', query=keyword)}}">{{keyword}} </a></i>
+
+              <a class="thumbnailLocation" href="{{url_for('post_list_q', query=keyword)}}">{{keyword}} </a>
              {% endif %}
             {% endfor %}
             </div>
@@ -70,7 +72,7 @@
 
 
           <!-- link hashtags -->
-          <div>
+          <div class="addPadding">
             {% for keyword in post_db.keyword_list %}
              {% if loop.index <= 3 %}
               <a class="thumbnailHashtag" href="{{url_for('post_list_q', query=keyword)}}">#{{keyword}} &nbsp</a>
