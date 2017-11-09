@@ -41,6 +41,14 @@
 
           <ul class="additionalLinks" style="margin-left:0px;padding-left:0px;padding-top:3px">
 
+                        <!-- location -->
+            <div>
+            {% for keyword in post_db.location_keyword_list %}
+             {% if loop.index <= 3 %}
+              <i class="fa fa-map-marker" aria-hidden="true" style="padding-left:7px"><a class="thumbnailLocation" href="{{url_for('post_list_q', query=keyword)}}">{{keyword}} </a></i>
+             {% endif %}
+            {% endfor %}
+            </div>
           <!-- Name spot -->
               <li class="iconList"><h1 class="thumbnailTitle">{{post_db.title}}</h1></li>
 
@@ -59,14 +67,7 @@
               </li> -->
           </ul>
 
-            <!-- location -->
-            <div>
-            {% for keyword in post_db.location_keyword_list %}
-             {% if loop.index <= 3 %}
-              <i class="fa fa-map-marker" aria-hidden="true" style="padding-left:7px"><a class="thumbnailLocation" href="{{url_for('post_list_q', query=keyword)}}">{{keyword}} </a></i>
-             {% endif %}
-            {% endfor %}
-            </div>
+
 
           <!-- link hashtags -->
           <div>
