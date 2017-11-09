@@ -1,9 +1,30 @@
 # import 'macro/forms.html' as forms
 
-<form method="POST" action="." novalidate>
-  {{form.csrf_token}}
-  {{forms.email_field(form.email, autofocus=True, class='form-control input-lg')}}
-  {{forms.recaptcha_field(form.recaptcha)}}
+<form method="POST" action="{{ url_for('signin') }}" novalidate>
+  {{signin_form.csrf_token}}
+  {{forms.hidden_field(signin_form.next_url)}}
+  {{signin_form.remember(class='hide')}}
+  {{forms.email_field(signin_form.email, autofocus=True, class='form-control input-lg')}}
+  {{forms.password_visible_field(signin_form.password, size='lg')}}
+  {{forms.recaptcha_field(signin_form.recaptcha)}}
+  <div class="controls">
+    <button type="submit" class="btn btn-block btn-lg btn-primary btn-loading" {{forms.data_loading_text()}}>
+      Sign in
+    </button>
+  </div>
+  <div class="form-group">
+    <div class="btn-group btn-group-justified form-control-static">
+      <a class="btn btn-link btn-xs ellipsis" href="{{url_for('user_forgot')}}">Forgot password?</a>
+    </div>
+  </div>
+</form>
+
+
+
+<form method="POST" action="{{ url_for('signup') }}" novalidate>
+  {{signup_form.csrf_token}}
+  {{forms.email_field(signup_form.email, autofocus=True, class='form-control input-lg')}}
+  {{forms.recaptcha_field(signup_form.recaptcha)}}
   <div class="controls">
     <button type="submit" class="btn btn-block btn-lg btn-primary btn-loading" {{forms.data_loading_text()}}>
       Sign up

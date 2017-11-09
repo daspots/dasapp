@@ -103,9 +103,10 @@ window.onload = function() {
       columnWidth: '.grid-sizer',
       percentPosition: true
     });
-
-    document.getElementById("thumbnailImage").style.height = "auto";
-    document.getElementById("thumbnailImage").style.width = "100%";
+    if ($("#thumbnailImage").length > 0) {
+        document.getElementById("thumbnailImage").style.height = "auto";
+        document.getElementById("thumbnailImage").style.width = "100%";
+    }
 }
 
 

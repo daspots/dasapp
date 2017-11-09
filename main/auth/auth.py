@@ -202,8 +202,6 @@ class SignInForm(flask_wtf.FlaskForm):
 @app.route('/signin/', methods=['GET', 'POST'])
 def signin():
   next_url = util.get_next_url()
-  # form = None
-  # if config.CONFIG_DB.has_email_authentication:
   form = form_with_recaptcha(SignInForm())
   save_request_params()
   if form.validate_on_submit():
@@ -247,42 +245,40 @@ class SignUpForm(flask_wtf.FlaskForm):
 
 @app.route('/signup/', methods=['GET', 'POST'])
 def signup():
-  # next_url = util.get_next_url()
-  next_url = None
-  form = None
-  # if config.CONFIG_DB.has_email_authentication:
-  if True:
-    form = form_with_recaptcha(SignUpForm())
-    save_request_params()
-    if form.validate_on_submit():
-      user_db = model.User.get_by('email', form.email.data)
-      if user_db:
-        form.email.errors.append('This email is already taken.')
+  next_url = util.get_next_url()
+  signup_form = form_with_recaptcha(SignUpForm())
+  signin_form = form_with_recaptcha(SignInForm())
+  save_request_params()
+  if signup_form.validate_on_submit():
+    user_db = model.User.get_by('email', signup_form.email.data)
+    if user_db:
+      signup_form.email.errors.append('This email is already taken.')
 
-      if not form.errors:
-        user_db = create_user_db(
-          None,
-          util.create_name_from_email(form.email.data),
-          form.email.data,
-          form.email.data,
-        )
-        user_db.put()
-        task.activate_user_notification(user_db)
+    if not signup_form.errors:
+      user_db = create_user_db(
+        None,
+        util.create_name_from_email(signup_form.email.data),
+        signup_form.email.data,
+        signup_form.email.data,
+      )
+      user_db.put()
+      task.activate_user_notification(user_db)
 
-        cache.bump_auth_attempt()
-        return flask.redirect(flask.url_for('signin'))
+      cache.bump_auth_attempt()
+      return flask.redirect(flask.url_for('signin'))
 
-  if form and form.errors:
+  if signup_form and signup_form.errors:
     cache.bump_auth_attempt()
 
-  title = 'Sign up' if True else 'Sign in'
+  title = 'Sign up'
   return flask.render_template(
     'auth/auth.html',
     title=title,
     html_class='auth',
     next_url=next_url,
-    form=form,
-    **urls_for_oauth(next_url)
+    signup_form=signup_form,
+    signin_form=signin_form,
+    # **urls_for_oauth(next_url)
   )
 
 
