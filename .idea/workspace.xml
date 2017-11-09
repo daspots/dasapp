@@ -2,16 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="864a03cf-aef5-4c19-b8ed-137a070b673e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/main/static/src/style/buttons.less" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main/auth/auth.py" afterPath="$PROJECT_DIR$/main/auth/auth.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main/static/dev/script/script.js" afterPath="$PROJECT_DIR$/main/static/dev/script/script.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main/static/dev/style/style.css" afterPath="$PROJECT_DIR$/main/static/dev/style/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main/static/src/script/load.js" afterPath="$PROJECT_DIR$/main/static/src/script/load.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main/static/src/style/style.less" afterPath="$PROJECT_DIR$/main/static/src/style/style.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main/templates/auth/auth.html" afterPath="$PROJECT_DIR$/main/templates/auth/auth.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main/templates/auth/signup_form.html" afterPath="$PROJECT_DIR$/main/templates/auth/signup_form.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main/templates/bit/user_menu.html" afterPath="$PROJECT_DIR$/main/templates/bit/user_menu.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.idea/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -24,21 +15,41 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="signup_form.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/main/templates/auth/signup_form.html">
+      <file leaf-file-name="welcome.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/main/templates/welcome.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="5" column="40" lean-forward="true" selection-start-line="5" selection-start-column="40" selection-end-line="5" selection-end-column="40" />
+            <state relative-caret-position="175">
+              <caret line="72" column="15" lean-forward="false" selection-start-line="72" selection-start-column="15" selection-end-line="72" selection-end-column="15" />
+              <folding>
+                <element signature="n#style#0;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="true" />
+                <marker date="1510265853496" expanded="true" signature="2367:2640" ph="..." />
+                <marker date="1510265853496" expanded="true" signature="2704:3846" ph="..." />
+                <marker date="1510265853496" expanded="true" signature="3048:3647" ph="..." />
+                <marker date="1510265853496" expanded="true" signature="3099:3148" ph="..." />
+                <marker date="1510265853496" expanded="true" signature="3149:3626" ph="..." />
+                <marker date="1510265853496" expanded="true" signature="3243:3389" ph="..." />
+                <marker date="1510265853496" expanded="true" signature="3273:3384" ph="..." />
+                <marker date="1510265853496" expanded="true" signature="3724:3798" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="icons.less" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/main/static/src/style/icons.less">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="486">
+              <caret line="36" column="14" lean-forward="false" selection-start-line="36" selection-start-column="14" selection-end-line="36" selection-end-column="14" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="buttons.less" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/main/static/src/style/buttons.less">
+      <file leaf-file-name="misc.less" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/main/static/src/style/misc.less">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="5" column="48" lean-forward="false" selection-start-line="5" selection-start-column="48" selection-end-line="5" selection-end-column="48" />
+            <state relative-caret-position="506">
+              <caret line="42" column="0" lean-forward="true" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -47,18 +58,18 @@
       <file leaf-file-name="style.less" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main/static/src/style/style.less">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="546">
-              <caret line="52" column="35" lean-forward="false" selection-start-line="52" selection-start-column="35" selection-end-line="52" selection-end-column="35" />
+            <state relative-caret-position="1060">
+              <caret line="53" column="1" lean-forward="false" selection-start-line="53" selection-start-column="1" selection-end-line="53" selection-end-column="1" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user_menu.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/main/templates/bit/user_menu.html">
+      <file leaf-file-name="style.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/main/templates/bit/style.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="460">
-              <caret line="41" column="48" lean-forward="false" selection-start-line="41" selection-start-column="48" selection-end-line="41" selection-end-column="48" />
+            <state relative-caret-position="400">
+              <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -68,7 +79,7 @@
         <entry file="file://$PROJECT_DIR$/main/static/src/script/load.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="490">
-              <caret line="108" column="4" lean-forward="true" selection-start-line="108" selection-start-column="4" selection-end-line="108" selection-end-column="4" />
+              <caret line="109" column="1" lean-forward="false" selection-start-line="109" selection-start-column="1" selection-end-line="109" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -84,41 +95,37 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="style.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/main/templates/bit/style.html">
+      <file leaf-file-name="links.less" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/main/static/src/style/links.less">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="424">
+              <caret line="42" column="16" lean-forward="false" selection-start-line="42" selection-start-column="16" selection-end-line="42" selection-end-column="16" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="profile.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/main/control/profile.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1740">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="auth.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/main/auth/auth.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="460">
-              <caret line="279" column="15" lean-forward="false" selection-start-line="279" selection-start-column="4" selection-end-line="279" selection-end-column="15" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="auth.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="auth.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main/templates/auth/auth.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="320">
-              <caret line="16" column="17" lean-forward="true" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
+              <caret line="16" column="17" lean-forward="false" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
+              <folding>
+                <marker date="1510265853493" expanded="true" signature="214:2868" ph="..." />
+                <marker date="1510265853493" expanded="true" signature="309:2857" ph="..." />
+                <marker date="1510265853493" expanded="true" signature="669:2702" ph="..." />
+                <marker date="1510265853493" expanded="true" signature="2755:2844" ph="..." />
+                <marker date="1510265853493" expanded="true" signature="2927:3152" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="fonts.less" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/main/static/src/style/fonts.less">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="406">
+              <caret line="119" column="0" lean-forward="false" selection-start-line="119" selection-start-column="0" selection-end-line="119" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -176,13 +183,15 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="dev_singup_screen" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/main/model/star.py" />
+        <option value="$PROJECT_DIR$/main/static/dev/script/script.js" />
         <option value="$PROJECT_DIR$/main/api/v1/star.py" />
         <option value="$PROJECT_DIR$/main/util.py" />
         <option value="$PROJECT_DIR$/main/control/helpers.py" />
@@ -197,6 +206,7 @@
         <option value="$PROJECT_DIR$/main/static/src/script/follow_code.js" />
         <option value="$PROJECT_DIR$/main/templates/popup_loginform_follow.html" />
         <option value="$PROJECT_DIR$/main/control/recommender.py" />
+        <option value="$PROJECT_DIR$/main/static/src/style/style.less" />
         <option value="$PROJECT_DIR$/main/static/dev/script/ext.js" />
         <option value="$PROJECT_DIR$/main/templates/recommender/recommender_overview.html" />
         <option value="$PROJECT_DIR$/main/static/src/style/recommender-overview.less" />
@@ -219,21 +229,18 @@
         <option value="$PROJECT_DIR$/main/appengine_config.py" />
         <option value="$PROJECT_DIR$/main/control/post.py" />
         <option value="$PROJECT_DIR$/main/templates/recommender/recommender_view.html" />
-        <option value="$PROJECT_DIR$/main/static/src/style/links.less" />
         <option value="$PROJECT_DIR$/bower.json" />
         <option value="$PROJECT_DIR$/gulp/config.coffee" />
         <option value="$PROJECT_DIR$/main/static/src/style/accordion.less" />
         <option value="$PROJECT_DIR$/main/templates/bit/header.html" />
-        <option value="$PROJECT_DIR$/main/static/src/style/misc.less" />
-        <option value="$PROJECT_DIR$/main/templates/welcome.html" />
-        <option value="$PROJECT_DIR$/main/templates/auth/signin_form.html" />
-        <option value="$PROJECT_DIR$/main/auth/auth.py" />
         <option value="$PROJECT_DIR$/main/templates/bit/user_menu.html" />
-        <option value="$PROJECT_DIR$/main/templates/auth/signup_form.html" />
         <option value="$PROJECT_DIR$/main/static/src/script/load.js" />
-        <option value="$PROJECT_DIR$/main/static/src/style/buttons.less" />
-        <option value="$PROJECT_DIR$/main/static/src/style/style.less" />
-        <option value="$PROJECT_DIR$/main/templates/auth/auth.html" />
+        <option value="$PROJECT_DIR$/main/static/src/style/fonts.less" />
+        <option value="$PROJECT_DIR$/main/templates/bit/style.html" />
+        <option value="$PROJECT_DIR$/main/static/src/style/icons.less" />
+        <option value="$PROJECT_DIR$/main/templates/welcome.html" />
+        <option value="$PROJECT_DIR$/main/static/src/style/links.less" />
+        <option value="$PROJECT_DIR$/main/static/src/style/misc.less" />
       </list>
     </option>
   </component>
@@ -298,6 +305,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dasapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dasapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bit" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -739,12 +768,12 @@
       <option name="project" value="LOCAL" />
       <updated>1509645504132</updated>
     </task>
-    <task id="LOCAL-00035" summary="Merge remote-tracking branch 'remotes/origin/master' into dev_singup_screen&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;main/static/dev/script/script.js">
-      <created>1510258475066</created>
+    <task id="LOCAL-00035" summary="Some small layout changes">
+      <created>1510265845773</created>
       <option name="number" value="00035" />
       <option name="presentableId" value="LOCAL-00035" />
       <option name="project" value="LOCAL" />
-      <updated>1510258475066</updated>
+      <updated>1510265845773</updated>
     </task>
     <option name="localTasksCounter" value="36" />
     <servers />
@@ -768,12 +797,26 @@
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Salesforce" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug Logs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930845" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930845" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Execute Anonymous" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27991217" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21367522" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Salesforce" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -827,8 +870,8 @@
     <MESSAGE value="extra space between tags" />
     <MESSAGE value="Improved expendable posts with masonery" />
     <MESSAGE value="removed unnecessary console.log" />
-    <MESSAGE value="Merge remote-tracking branch 'remotes/origin/master' into dev_singup_screen&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;main/static/dev/script/script.js" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge remote-tracking branch 'remotes/origin/master' into dev_singup_screen&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;main/static/dev/script/script.js" />
+    <MESSAGE value="Some small layout changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Some small layout changes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -858,6 +901,78 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/main/task.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2158">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/magic.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-840">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/auth/auth.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="284" column="15" lean-forward="false" selection-start-line="284" selection-start-column="15" selection-end-line="284" selection-end-column="15" />
+          <folding>
+            <marker date="1510265853449" expanded="true" signature="5011:5047" ph="..." />
+            <marker date="1510265853449" expanded="true" signature="7308:7339" ph="..." />
+            <marker date="1510265853449" expanded="true" signature="7342:7518" ph="..." />
+            <marker date="1510265853449" expanded="true" signature="7557:7656" ph="..." />
+            <marker date="1510265853449" expanded="true" signature="7659:7828" ph="..." />
+            <marker date="1510265853449" expanded="true" signature="7872:7938" ph="..." />
+            <marker date="1510265853449" expanded="true" signature="7970:8918" ph="..." />
+            <marker date="1510265853449" expanded="true" signature="7981:8917" ph="..." />
+            <marker date="1510265853449" expanded="true" signature="8964:9184" ph="..." />
+            <marker date="1510265853449" expanded="true" signature="9232:9452" ph="..." />
+            <marker date="1510265853449" expanded="true" signature="9271:9452" ph="..." />
+            <marker date="1510265853449" expanded="true" signature="9301:9429" ph="'...'" />
+            <marker date="1510265853449" expanded="true" signature="9481:9593" ph="..." />
+            <marker date="1510265853449" expanded="true" signature="9516:9592" ph="..." />
+            <marker date="1510265853449" expanded="true" signature="9637:10064" ph="..." />
+            <marker date="1510265853449" expanded="true" signature="9644:9846" ph="..." />
+            <marker date="1510265853449" expanded="true" signature="9877:10064" ph="..." />
+            <marker date="1510265853449" expanded="true" signature="10097:10280" ph="..." />
+            <marker date="1510265853449" expanded="true" signature="10283:10463" ph="..." />
+            <marker date="1510265853449" expanded="true" signature="10543:11465" ph="..." />
+            <marker date="1510265853449" expanded="true" signature="10609:10866" ph="..." />
+            <marker date="1510265853449" expanded="true" signature="10716:10866" ph="..." />
+            <marker date="1510265853449" expanded="true" signature="11152:11205" ph="..." />
+            <marker date="1510265853449" expanded="true" signature="11510:12061" ph="..." />
+            <marker date="1510265853449" expanded="true" signature="11667:11731" ph="..." />
+            <marker date="1510265853449" expanded="true" signature="11852:11942" ph="..." />
+            <marker date="1510265853449" expanded="true" signature="12243:12516" ph="..." />
+            <marker date="1510265853449" expanded="true" signature="12260:12435" ph="'''...'''" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/lib/wtforms/ext/appengine/db.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2140">
+          <caret line="22" column="15" lean-forward="false" selection-start-line="22" selection-start-column="10" selection-end-line="22" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/static/src/script/gifffer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bower_components/gifffer/build/gifffer.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="700">
+          <caret line="35" column="117" lean-forward="false" selection-start-line="35" selection-start-column="117" selection-end-line="35" selection-end-column="117" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/main/static/ext/gifffer/build/gifffer.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="40">
@@ -1023,118 +1138,82 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main/templates/welcome.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="39" column="56" lean-forward="false" selection-start-line="39" selection-start-column="56" selection-end-line="39" selection-end-column="56" />
-          <folding>
-            <element signature="n#style#0;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#i#0;n#div#0;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#ul#0;n#label#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main/static/src/style/base.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="446">
-          <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main/static/src/style/misc.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/main/templates/bit/header.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
+        <state relative-caret-position="-105">
           <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main/templates/base.html">
+    <entry file="file://$PROJECT_DIR$/main/templates/bit/user_menu.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="377">
-          <caret line="30" column="31" lean-forward="false" selection-start-line="30" selection-start-column="31" selection-end-line="30" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main/static/src/style/links.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="35" column="24" lean-forward="false" selection-start-line="35" selection-start-column="24" selection-end-line="35" selection-end-column="24" />
+        <state relative-caret-position="460">
+          <caret line="41" column="48" lean-forward="false" selection-start-line="41" selection-start-column="48" selection-end-line="41" selection-end-column="48" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main/static/src/style/accordion.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
+        <state relative-caret-position="-276">
           <caret line="53" column="18" lean-forward="false" selection-start-line="53" selection-start-column="18" selection-end-line="53" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main/control/user.py">
+    <entry file="file://$PROJECT_DIR$/main/static/src/style/base.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="444">
+          <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main/control/__init__.py">
+    <entry file="file://$PROJECT_DIR$/main/templates/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="375">
+          <caret line="30" column="31" lean-forward="false" selection-start-line="30" selection-start-column="31" selection-end-line="30" selection-end-column="31" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main/control/admin.py">
+    <entry file="file://$PROJECT_DIR$/main/static/src/script/load.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="490">
+          <caret line="109" column="1" lean-forward="false" selection-start-line="109" selection-start-column="1" selection-end-line="109" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main/templates/auth/signin_form.html">
+    <entry file="file://$PROJECT_DIR$/main/templates/auth/auth.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="2" column="29" lean-forward="false" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="29" />
-          <folding />
+        <state relative-caret-position="320">
+          <caret line="16" column="17" lean-forward="false" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
+          <folding>
+            <marker date="1510265853493" expanded="true" signature="214:2868" ph="..." />
+            <marker date="1510265853493" expanded="true" signature="309:2857" ph="..." />
+            <marker date="1510265853493" expanded="true" signature="669:2702" ph="..." />
+            <marker date="1510265853493" expanded="true" signature="2755:2844" ph="..." />
+            <marker date="1510265853493" expanded="true" signature="2927:3152" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main/templates/bit/contact_menu.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main/templates/bit/style.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main/templates/bit/script.html">
+    <entry file="file://$PROJECT_DIR$/main/templates/auth/signup_form.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
-          <caret line="5" column="57" lean-forward="false" selection-start-line="5" selection-start-column="57" selection-end-line="5" selection-end-column="57" />
+          <caret line="5" column="40" lean-forward="false" selection-start-line="5" selection-start-column="40" selection-end-line="5" selection-end-column="40" />
+          <folding>
+            <marker date="1510265853494" expanded="true" signature="1045:1446" ph="..." />
+            <marker date="1510265853494" expanded="true" signature="1086:1233" ph="..." />
+            <marker date="1510265853494" expanded="true" signature="1196:1224" ph="..." />
+            <marker date="1510265853494" expanded="true" signature="1260:1438" ph="..." />
+            <marker date="1510265853494" expanded="true" signature="1298:1429" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/templates/about.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="9" column="28" lean-forward="false" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="28" />
           <folding />
         </state>
       </provider>
@@ -1147,66 +1226,68 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main/templates/bit/user_menu.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="41" column="48" lean-forward="false" selection-start-line="41" selection-start-column="48" selection-end-line="41" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main/static/src/script/load.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="490">
-          <caret line="108" column="4" lean-forward="true" selection-start-line="108" selection-start-column="4" selection-end-line="108" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main/templates/about.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="9" column="28" lean-forward="false" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main/static/src/style/buttons.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="5" column="48" lean-forward="false" selection-start-line="5" selection-start-column="48" selection-end-line="5" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/main/static/src/style/style.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="546">
-          <caret line="52" column="35" lean-forward="false" selection-start-line="52" selection-start-column="35" selection-end-line="52" selection-end-column="35" />
+        <state relative-caret-position="1060">
+          <caret line="53" column="1" lean-forward="false" selection-start-line="53" selection-start-column="1" selection-end-line="53" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main/templates/auth/signup_form.html">
+    <entry file="file://$PROJECT_DIR$/main/templates/bit/style.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="5" column="40" lean-forward="true" selection-start-line="5" selection-start-column="40" selection-end-line="5" selection-end-column="40" />
+        <state relative-caret-position="400">
+          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main/auth/auth.py">
+    <entry file="file://$PROJECT_DIR$/main/static/src/style/icons.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="279" column="15" lean-forward="false" selection-start-line="279" selection-start-column="4" selection-end-line="279" selection-end-column="15" />
+        <state relative-caret-position="486">
+          <caret line="36" column="14" lean-forward="false" selection-start-line="36" selection-start-column="14" selection-end-line="36" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main/templates/auth/auth.html">
+    <entry file="file://$PROJECT_DIR$/main/templates/welcome.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="16" column="17" lean-forward="true" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
+        <state relative-caret-position="175">
+          <caret line="72" column="15" lean-forward="false" selection-start-line="72" selection-start-column="15" selection-end-line="72" selection-end-column="15" />
+          <folding>
+            <element signature="n#style#0;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <marker date="1510265853496" expanded="true" signature="2367:2640" ph="..." />
+            <marker date="1510265853496" expanded="true" signature="2704:3846" ph="..." />
+            <marker date="1510265853496" expanded="true" signature="3048:3647" ph="..." />
+            <marker date="1510265853496" expanded="true" signature="3099:3148" ph="..." />
+            <marker date="1510265853496" expanded="true" signature="3149:3626" ph="..." />
+            <marker date="1510265853496" expanded="true" signature="3243:3389" ph="..." />
+            <marker date="1510265853496" expanded="true" signature="3273:3384" ph="..." />
+            <marker date="1510265853496" expanded="true" signature="3724:3798" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/static/src/style/links.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="424">
+          <caret line="42" column="16" lean-forward="false" selection-start-line="42" selection-start-column="16" selection-end-line="42" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/static/src/style/fonts.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="406">
+          <caret line="119" column="0" lean-forward="false" selection-start-line="119" selection-start-column="0" selection-end-line="119" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/static/src/style/misc.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="506">
+          <caret line="42" column="0" lean-forward="true" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
           <folding />
         </state>
       </provider>
