@@ -34,7 +34,7 @@ label {
 .tab-content {
   max-height: 0;
   overflow: hidden;
-  background-color: white;
+  background: white;
   -webkit-transition: max-height 0.1s;
   -o-transition: max-height 0.1s;
   transition: max-height 0.1s;
@@ -71,11 +71,13 @@ label::after {
 }
 
 input[type=checkbox] + label::after {
-  content: "+";
+  content: url("/p/img/ic_keyboard_arrow_down_black_24px.png");
+  margin-top: 10px;
 }
 
 input[type=radio] + label::after {
-  content: "\25BC";
+  content: url("/p/img/ic_keyboard_arrow_down_black_24px.png");
+  margin-top: 10px;
 }
 
 input[type=checkbox]:checked + label::after {
