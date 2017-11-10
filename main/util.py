@@ -58,6 +58,9 @@ def get_next_url(next_url=''):
     if any(url in next_url for url in do_not_redirect_urls):
       return flask.url_for('welcome')
     return is_trusted_url(next_url)
+
+  if flask.request.referrer is None:
+    return None
   return is_trusted_url(flask.request.referrer)
 
 
