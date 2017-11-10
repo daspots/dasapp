@@ -55,18 +55,18 @@
               <li class="iconList"><h1 class="thumbnailTitle">{{post_db.title}}</h1></li>
 
           <!-- bookmark -->
-<!--               <li class="iconList" style="float: right; margin-top: 20px; margin-right: 10px;"><i onclick="starFunction(this, '{{post_db.key.id()}}')" role="button"
+            <li class="iconList" style="float: right; margin-top: 20px; margin-right: 10px;"><i onclick="starFunction(this, '{{post_db.key.id()}}')" role="button"
                {% if post_db.starred %}
-                 class="fa blue fa-star
+                 class="fa saveStar fa-star
                {% else %}
-                class="fa blue fa-star-o
+                class="fa saveStar fa-star-o
                {% endif %}
                {%  if current_user.id > 0 %}
                   "
               {% else %}
                 not-logged-in"
               {% endif %}></i>
-              </li> -->
+              </li>
           </ul>
 
 

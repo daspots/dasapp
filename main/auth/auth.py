@@ -242,6 +242,47 @@ class SignUpForm(flask_wtf.FlaskForm):
   )
   recaptcha = flask_wtf.RecaptchaField()
 
+
+@app.route('/signup/', methods=['GET', 'POST'])
+def signup():
+  next_url = util.get_next_url()
+  form = form_with_recaptcha(SignUpForm())
+  save_request_params()
+  if form.validate_on_submit():
+    user_db = model.User.get_by('email', form.email.data)
+    if user_db:
+      form.email.errors.append('This email is already taken.')
+
+    if not form.errors:
+      user_db = create_user_db(
+        None,
+        util.create_name_from_email(form.email.data),
+        form.email.data,
+        form.email.data,
+      )
+      user_db.put()
+      task.activate_user_notification(user_db)
+
+      cache.bump_auth_attempt()
+      return flask.redirect(flask.url_for('signin'))
+
+  if form and form.errors:
+    cache.bump_auth_attempt()
+
+  title = 'Sign up' if True else 'Sign in'
+  return flask.render_template(
+    'auth/auth.html',
+    title=title,
+    html_class='auth',
+    next_url=next_url,
+    form=form,
+    **urls_for_oauth(next_url)
+  )
+
+
+###############################################################################
+# Sign in or Sign up stuff
+###############################################################################
 @app.route('/signinorup')
 def signinorup():
   next_url = util.get_next_url()
@@ -281,41 +322,8 @@ def signinorup():
     # **urls_for_oauth(next_url)
   )
 
-@app.route('/signup/', methods=['GET', 'POST'])
-def signup():
-  next_url = util.get_next_url()
-  form = form_with_recaptcha(SignUpForm())
-  save_request_params()
-  if form.validate_on_submit():
-    user_db = model.User.get_by('email', form.email.data)
-    if user_db:
-      form.email.errors.append('This email is already taken.')
 
-    if not form.errors:
-      user_db = create_user_db(
-        None,
-        util.create_name_from_email(form.email.data),
-        form.email.data,
-        form.email.data,
-      )
-      user_db.put()
-      task.activate_user_notification(user_db)
 
-      cache.bump_auth_attempt()
-      return flask.redirect(flask.url_for('signin'))
-
-  if form and form.errors:
-    cache.bump_auth_attempt()
-
-  title = 'Sign up' if True else 'Sign in'
-  return flask.render_template(
-    'auth/auth.html',
-    title=title,
-    html_class='auth',
-    next_url=next_url,
-    form=form,
-    **urls_for_oauth(next_url)
-  )
 
 ###############################################################################
 # Sign out stuff
