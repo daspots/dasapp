@@ -1,19 +1,26 @@
-# extends 'base.html'
+ # extends 'base.html'
 
 <!-- jumbotron title -->
 # block header
- <div class="jumbotronHeader">
-    <div class="container">
-    <div class="row">
-      <div class="col-sm-6 col-md-2"></div>
-      <div class="col-sm-6 col-md-8">
-        <img src="/p/img/logo_web.gif" class="logoWelcome">
-        <p class="pCenterBigBlack">PLACES RECOMMENDED BY PEOPLE WHO ARE PASSIONATE ABOUT FOOD. <br> WE ARE HERE TO HELP YOU WORK EVERY LAST ONE OF YOUR TASTE BUDS.</p>
-      </div>
-      <div class="col-sm-6 col-md-2"></div>
+<div class="container-fluid">
+  <div class="jumbotronHeader">
+  <div class="container">
+  <div class="row">
+    <div class="col-sm-6 col-md-5">
+      <h1 class="h1LeftBig">DASPOTS</h1>
+      <p class="pLeftBig">
+      Find favorite places from people who are passionate about food - they work in the industry, they care about great ingredients and they leave no bad vibes.
+      </p>
+      <a class="linkLeft" href="{{url_for('recommender_overview')}}">MEET THE INSIDERS</a>
+      <br>
+      <br>
+      <br>
     </div>
-    </div>
+    <div class="col-sm-6 col-md-7"></div>
   </div>
+  </div>
+  </div>
+</div>
 # endblock
 
 # block content
@@ -22,33 +29,39 @@
 
 <!-- UI post -->
   <div class="container" id="restaurant">
-    <div class="row">
+    <div class="grid">
+    <div class="grid-sizer col-sm-3"></div>
     {%- for post_db in post_dbs %}
-      <div class="col-6 col-sm-3">
+      <div class="grid-item col-sm-3">
         <!-- UI thumbnail -->
         <div class="box">
-          <!-- keywords -->
-          <p>
-            {% for keyword in post_db.keyword_list %}
+
+          <!-- image -->
+          <div class="img-wrapper">
+            <div class="img-wrapper2">
+              <img class="img-fluid" data-gifffer="{{post_db.image_url}}">
+            </div>
+          </div>
+          <ul class="additionalLinks" style="margin-left:0px;padding-left:0px;padding-top:3px">
+
+            <!-- location -->
+            <div>
+              <i class="fa fa-map-marker map-marker" aria-hidden="true"></i>
+            {% for keyword in post_db.location_keyword_list %}
              {% if loop.index <= 3 %}
-              <a class="thumbnailKeyword" href="{{url_for('post_list_q', query=keyword)}}">#{{keyword}}</a>
+
+              <a class="thumbnailLocation" href="{{url_for('post_list_q', query=keyword)}}">{{keyword}} </a>
              {% endif %}
             {% endfor %}
-          </p>
-          <!-- image -->
-          <img class="thumbnailImage" data-gifffer="{{post_db.image_url}}">
-          <!-- name place -->
-          <h1 class="thumbnailTitle">{{post_db.title}}</h1>
-          <!-- link recommender -->
-          <a class="linkRecommended" href="{{post_db.recommender_url}}">Recommended by: {{post_db.recommender}}</a>
+            </div>
 
-          <!-- start accordion -->
-          <div class="tab">
-            <input id="{{post_db.key.id()}}" class="hidden" type="checkbox" name="tabs">
-            <label for="{{post_db.key.id()}}">
-              <ul class="additionalLinks" style="margin-left:0px;padding-left:0px";>
-              <!-- bookmark -->
-              <!-- <li class="iconList"><i onclick="starFunction(this, '{{post_db.key.id()}}')" role="button"
+          <!-- Name spot -->
+              <li class="iconList">
+                <h1 class="thumbnailTitle">{{post_db.title}}</h1>
+              </li>
+
+          <!-- bookmark -->
+          <!-- <li class="iconList" style="float: right; margin-top: 20px; margin-right: 10px;"><i onclick="starFunction(this, '{{post_db.key.id()}}')" role="button"
                {% if post_db.starred %}
                  class="fa blue fa-star
                {% else %}
@@ -60,31 +73,57 @@
                 not-logged-in"
               {% endif %}></i>
               </li> -->
+          </ul>
+
+          <!-- link hashtags -->
+          <div class="addPadding">
+            {% for keyword in post_db.keyword_list %}
+             {% if loop.index <= 3 %}
+              <a class="thumbnailHashtag" href="{{url_for('post_list_q', query=keyword)}}">#{{keyword}} </a>
+             {% endif %}
+            {% endfor %}
+          </div>
+
+          <!-- start accordion -->
+          <div class="tab">
+
+            <!-- link recommender -->
+            <br>
+            <a class="linkRecommendedBy" href="{{post_db.recommender_url}}">BY {{post_db.recommender}}</a>
+
+
+            <!-- icon list -->
+            <input id="{{post_db.key.id()}}" class="hidden draaiknopje" type="checkbox" name="tabs">
+            <label for="{{post_db.key.id()}}">
+              <ul class="additionalLinks" style="margin-left:0px;padding-left:0px;padding-top:10px">
+              
               <!-- link getdirections -->
-               <li class="iconList"><a href="{{post_db.website}}"><img src="p/img/link-color.png" class="postIcon">
+               <li class="iconList"><a href="{{post_db.website}}"><img src="/p/img/ic_open_in_new_black_24px.png" class="postIcon">
               <!-- {{post_db.adress}} --></a></li>
+
               <!-- link website -->
-              <li class="iconList"><a href="{{post_db.google_maps_directions}}"><img src="p/img/getdirections-color.png" class="postIcon"><!-- {{post_db.title}} --></a></li>
+              <li class="iconList"><a href="{{post_db.google_maps_directions}}"><img src="/p/img/ic_directions_black_24px.png" class="postIcon"><!-- {{post_db.title}} --></a></li>
               </ul>
             </label>
+
             <!-- content accordion -->
             <div class="tab-content">
               <p class="pLeft">{{post_db.content}}</p>
             </div>
           <!-- end accordion -->
         </div>
-
-         <!-- end UI thumbnail -->
+         <!-- end box -->
         </div>
       <!-- end col -->
       </div>
       {%- endfor %}
+
     <!-- end row -->
     </div>
-    {% if next_url %}
-      <a href="{{next_url}}"> next</a>
-    {% endif %}
 
+    {% if next_url %}
+      <a href="{{next_url}}">next</a>
+    {% endif %}
   <!-- end container -->
   </div>
 

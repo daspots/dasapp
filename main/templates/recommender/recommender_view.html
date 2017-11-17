@@ -7,35 +7,24 @@
   <div class="row">
     <div class="col-sm-6 col-md-2"></div>
     <div class="col-sm-6 col-md-8">
-    <img src="{{recommender_db.image_url}}">
-      <div class="recommender">
-        <div class="page-header">
-        <!--  name recommender -->
-        <h1 class="h1CenterBig">{{title}}</h1>
-        <!--  follow button -->
-        <!--<span role="button" onclick="followFunction(this, '{{recommender_db.key.id()}}')"  class="{{recommender_db.bootstrap_class_list}}">-->
-                  <!--{{follow_text}}-->
-        <!--</span>-->
-        </div>
-        <!--  bio recommender -->
-        <p class="pCenterBig">{{recommender_db.bio}}</p>
-        <div class="inline">
-        <!--  website recommender -->
-        <p class="linkNewsletter"><a class="linkNewsletterBlack" href="{{recommender_db.website_url}}">{{recommender_db.website_url}}</a></p>
-        <!--  get all recommendations -->
-        <p class="linkNewsletter"><a class="linkNewsletterBlack" href="{{url_for('list_recommenders', recommender=recommender_db.name_lower)}}">All Recommendations</a></p>
-        <!--  get back button -->
-        </div>
-        <p>
-          <a href="{{url_for('recommender_list')}}">Back</a>
-        </p>
+        <center>
+          <img src="{{recommender_db.image_url}}">
+        </center>
+          <h1 class="h1CenterBig">{{title}}</h1>
+      <br>
+          <p class="pCenterBig">
+            <a class="linkCenter" href="{{url_for('list_recommenders', recommender=recommender_db.name_lower)}}">
+            ALL SPOTS BY {{title}}</a>
 
-        {% for url  in url_list %}
-        <p><img src="{{url}}"></p>
-       {% endfor %}
-      </div>
+          </p>
+
+        <hr>
+        <p class="pCenterBig">{{recommender_db.bio}}<br><br>
+        <br>
+          <a class="linkCenter" href="{{recommender_db.website_url}}">{{recommender_db.website_url}}</a></p>
     </div>
     <div class="col-sm-6 col-md-2"></div>
   </div>
 </div>
+
 # endblock

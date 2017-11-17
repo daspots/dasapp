@@ -16,26 +16,26 @@
   </head>
 
 <body>
-<div class="jumbotronHeader">
+
  <div class="container">
    <div class="row">
      <div class="col-sm-6 col-md-2"></div>
      <div class="col-sm-6 col-md-8">
-       <img src="/p/img/logo_web.gif" class="logoWelcome">
-       <p class="pCenterBigBlack">PLACES RECOMMENDED BY PEOPLE WHO ARE PASSIONATE ABOUT FOOD. WE ARE HERE TO HELP YOU WORK EVERY LAST ONE OF YOUR TASTE BUDS.<br>
-       COMING SOON.</p>
+       <img src="/p/img/logo_favorite_web.gif" class="logoWelcome">
+       <p class="pCenterBig">COMING SOON.</p>
      </div>
      <div class="col-sm-6 col-md-2"></div>
    </div>
  </div>
-</div>
-<div class="jumbotronHeader">
+
    <div class="container">
     <div class="row">
-      <div class="col-sm-6 col-md-6">
+      <div class="col-sm-6 col-md-1"></div>
+      <div class="col-sm-6 col-md-4">
       <!--  header sign up -->
-      <p class="pCenterBigBlack">AN EMAIL IN YOUR INBOX WHEN WE'RE READY!</p>
-      <!--  begin sign up form -->
+      <h1 class="headerCenter">AN EMAIL IN YOUR INBOX WHEN WE'RE READY!</h1>
+      <br>
+        <!--  begin sign up form -->
       <div id="mc_embed_signup">
       <form action="//daspots.us15.list-manage.com/subscribe/post?u=4622d3d5d95e5aa0dc90e3e26&amp;id=36ef085c76" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
       <!--  email input -->
@@ -43,13 +43,13 @@
           <input type="email" value="" name="EMAIL" class="input" id="mce-EMAIL" placeholder="What is your email...">
         </div>
       <!--  first name input -->
-        <div class="mc-field-group">
+<!--         <div class="mc-field-group">
           <input type="text" value="" name="FNAME" class="input" id="mce-FNAME" placeholder="Your first name...">
-        </div>
+        </div> -->
       <!--  last name input -->
-        <div class="mc-field-group">
+<!--         <div class="mc-field-group">
           <input type="text" value="" name="LNAME" class="input" id="mce-LNAME" placeholder="Your last name...">
-        </div>
+        </div> -->
       <!--  respons -->
         <div id="mce-responses" class="clear">
           <div class="response" id="mce-error-response" style="display:none"></div>
@@ -62,19 +62,35 @@
         </div>
         <!--  end sign up form -->
       </div>
+      <div class="col-sm-6 col-md-2"></div>
         <!--  begin get a sneak preview -->
-      <div class="col-sm-6 col-md-6">
-       <p class="pCenterBigBlack">GET A SNEAK PREVIEW OF WHAT'S TO COME</p>
+
+      <div class="col-sm-6 col-md-4">
+       <h1 class="headerCenter">A SNEAK PREVIEW OF WHAT'S TO COME</h1>
+        <br>
         <!--  link website WRONG LINK -->
-        <p class="linkNewsletter"><a class="linkNewsletterBlack" href="{{url_for('welcome')}}">WEBSITE</a></p>
+        <a href="{{url_for('welcome')}}"><button class="linkSocialMedia" >WEBSITE</button></a>
         <!--  link instagram -->
-        <p class="linkNewsletter"><a class="linkNewsletterBlack" href="https://www.instagram.com/daspots/">INSTAGRAM</a></p>
+        <a href="https://www.instagram.com/daspots/"><button class="linkSocialMedia">INSTAGRAM</button></a>
         <!--  link facebook -->
-        <p class="linkNewsletter"><a class="linkNewsletterBlack" href="https://www.facebook.com/favorite.places.saved/?ref=br_rs">FACEBOOK</a></p>
+<!--         <a href="https://www.facebook.com/favorite.places.saved/?ref=br_rs"><button class="linkSocialMedia">FACEBOOK</button></a> -->
       </div>
+      <div class="col-sm-6 col-md-1"></div>
     </div>
   </div>
-</div>
+
+<br>
+<br>
+<br>
+
+ <div class="container">
+   <div class="row">
+     <div class="col-sm-6 col-md-12">
+     <p class="copyright"> &#169; DASPOTS, All rights reserved </p>
+     </div>
+   </div>
+ </div>
+
 <!--script-->
 <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';}(jQuery));var $mcj = jQuery.noConflict(true);
 </script>

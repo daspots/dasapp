@@ -1,13 +1,16 @@
 # extends 'base.html'
 # import 'macro/utils.html' as utils
 # import 'macro/forms.html' as forms
-
 # block content
 
+  <div class="container">
   <div class="row">
-    <div class="col-md-6 col-lg-6">
+    <div class="col-sm-6 col-md-2"></div>
+    <div class="col-sm-6 col-md-8">
       <form method="POST" enctype="multipart/form-data" action=".">
         <fieldset>
+
+          <!--  inputfields -->
           {{form.csrf_token}}
           {{forms.text_field(form.title, autofocus=True)}}
           {{forms.hidden_field(form.image)}}
@@ -16,31 +19,40 @@
           {{forms.text_field(form.adress)}}
           {{forms.select_field(form.recommender)}}
           {{forms.text_field(form.keywords)}}
-
+          {{forms.text_field(form.location_keywords)}}
 
           <!--<form id="upload" class="form-horizontal" method="POST" action="{{upload_url}}" enctype='multipart/form-data'>-->
+
+          <!--  upload pictures -->
             <fieldset>
               <div class='control-group pretty-file'>
-                <div class='controls'>
-                  <input class="file" name="file[]" data-get-upload-url="{{get_upload_url}}" type="file" multiple="multiple">
+                <div class="mc-field-group">
+                  <input class="file" name="file[]" data-get-upload-url="{{get_upload_url}}" type="file" multiple="multiple" placeholder="Upload a picture">
                   <div class="input-group">
-                    <span class="input-group-addon">Choose Files</span>
-                    <input type="text" class="form-control">
-                    <span class="input-group-btn">
-                      <button class="btn btn-default" type="button">Browse</button>
-                    </span>
+                    <input type="text" class="input" placeholder="Tab to upload a picture">
                   </div>
                 </div>
               </div>
             </fieldset>
-          <!--</form>-->
-          <hr>
-          <div class="drop-area">
-            drop files here
-          </div>
+          
+          <!--  <div class="drop-area">drop files here</div> -->
+      </form>
+          <br>
+          <br>
+          <!--  create post -->
+          <button type="submit">
+            # if contact_db
+            Update Post
+            # else
+            Create Post
+            # endif
+          </button>
     </div>
+    <div class="col-sm-6 col-md-2"></div>
   </div>
-  <div class="row resource-uploads">
+  </div>
+
+<!--   <div class="row resource-uploads">
     <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6 hide">
       <div class="thumbnail">
         <div class="preview" style="background-image: url(http://files.vladstudio.com/joy/alien_and_chameleon/wall/vladstudio_alien_and_chameleon_480x272_signed.jpg)"></div>
@@ -52,23 +64,12 @@
       </div>
     </div>
   </div>
-   <div class="col-md-4">
+   <div class="col-md-4"> -->
 
-      <button type="submit" class="btn btn-primary btn-block">
-        # if contact_db
-          Update Post
-        # else
-          Create Post
-        # endif
-      </button>
+
+
           {{form.upload_url}}
         </fieldset>
       </form>
     </div>
-
-<br><br>
-
-
-
-
 # endblock

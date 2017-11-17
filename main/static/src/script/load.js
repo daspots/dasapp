@@ -35,7 +35,7 @@ $('#search_page').typeahead(null, {
 
 
 $('#keywords').tagsinput({
-    confirmKeys: [13, 32, 44],
+    confirmKeys: [13, 44],
     typeaheadjs: [{
           minLength: 1,
           highlight: true,
@@ -49,6 +49,29 @@ $('#keywords').tagsinput({
     }],
     freeInput: true,
 
+});
+
+$('#location_keywords').tagsinput({
+    confirmKeys: [13, 44],
+    typeaheadjs: [{
+          minLength: 1,
+          highlight: true,
+
+    },{
+        minlength: 1,
+        name: 'keywords',
+        displayKey: 'name',
+        valueKey: 'name',
+        source: keywords.ttAdapter()
+    }],
+    freeInput: true,
+
+});
+
+$('.draaiknopje').click(function () {
+	setTimeout(function() {
+		$('.grid').masonry('layout');
+	}, 100);
 });
 
 window.onload = function() {
@@ -74,4 +97,16 @@ window.onload = function() {
         'top': '16px'
       }
     });
+
+    $('.grid').masonry({
+      itemSelector: '.grid-item', // use a separate class for itemSelector, other than .col-
+      columnWidth: '.grid-sizer',
+      percentPosition: true
+    });
+
+    document.getElementById("thumbnailImage").style.height = "auto";
+    document.getElementById("thumbnailImage").style.width = "100%";
 }
+
+
+
