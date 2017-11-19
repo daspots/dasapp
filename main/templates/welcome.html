@@ -28,11 +28,10 @@
 # include 'bit/popup_loginform_star.html'
 
 <!-- UI post -->
-  <div class="container" id="restaurant">
-    <div class="grid">
-    <div class="grid-sizer col-sm-3"></div>
+  <div class="container-fixed" id="restaurant">
+    <div class="row">
     {%- for post_db in post_dbs %}
-      <div class="grid-item col-sm-3">
+      <div class="col-sm-3">
         <!-- UI thumbnail -->
         <div class="box">
 
@@ -42,6 +41,7 @@
               <img class="img-fluid" data-gifffer="{{post_db.image_url}}">
             </div>
           </div>
+
           <ul class="additionalLinks" style="margin-left:0px;padding-left:0px;padding-top:3px">
 
             <!-- location -->
@@ -94,6 +94,7 @@
 
             <!-- icon list -->
             <input id="{{post_db.key.id()}}" class="hidden draaiknopje" type="checkbox" name="tabs">
+            
             <label for="{{post_db.key.id()}}">
               <ul class="additionalLinks" style="margin-left:0px;padding-left:0px;padding-top:10px">
               
