@@ -3,7 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="864a03cf-aef5-4c19-b8ed-137a070b673e" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main/static/src/script/load.js" afterPath="$PROJECT_DIR$/main/static/src/script/load.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main/control/welcome.py" afterPath="$PROJECT_DIR$/main/control/welcome.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main/static/dev/script/ext.js" afterPath="$PROJECT_DIR$/main/static/dev/script/ext.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main/static/dev/script/script.js" afterPath="$PROJECT_DIR$/main/static/dev/script/script.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main/static/dev/style/style.css" afterPath="$PROJECT_DIR$/main/static/dev/style/style.css" />
     </list>
     <ignored path="$PROJECT_DIR$/.idea/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -80,11 +83,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="load.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="load.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main/static/src/script/load.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="265">
-              <caret line="106" column="0" lean-forward="true" selection-start-line="106" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
+            <state relative-caret-position="2120">
+              <caret line="106" column="0" lean-forward="false" selection-start-line="106" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="welcome.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/main/control/welcome.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="26" column="14" lean-forward="true" selection-start-line="26" selection-start-column="14" selection-end-line="26" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -104,7 +117,7 @@
         <entry file="file://$PROJECT_DIR$/main/templates/welcome.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="242">
-              <caret line="30" column="47" lean-forward="true" selection-start-line="30" selection-start-column="47" selection-end-line="30" selection-end-column="47" />
+              <caret line="30" column="47" lean-forward="false" selection-start-line="30" selection-start-column="47" selection-end-line="30" selection-end-column="47" />
               <folding />
             </state>
           </provider>
@@ -138,16 +151,6 @@
                 <marker date="1511808004016" expanded="true" signature="2760:2849" ph="..." />
                 <marker date="1511808004016" expanded="true" signature="2932:3157" ph="..." />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="utils.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/main/templates/macro/utils.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -232,7 +235,6 @@
         <option value="$PROJECT_DIR$/main/static/src/style/recommender-overview.less" />
         <option value="$PROJECT_DIR$/main/templates/newsletter.html" />
         <option value="$PROJECT_DIR$/main/static/src/style/newsletter.less" />
-        <option value="$PROJECT_DIR$/main/control/welcome.py" />
         <option value="$PROJECT_DIR$/bower_components/gifffer/build/gifffer.min.js" />
         <option value="$PROJECT_DIR$/main/static/ext/gifffer/build/gifffer.min.js" />
         <option value="$PROJECT_DIR$/main/templates/landing_page.html" />
@@ -262,6 +264,7 @@
         <option value="$PROJECT_DIR$/main/templates/recommender/recommender_overview.html" />
         <option value="$PROJECT_DIR$/main/templates/about.html" />
         <option value="$PROJECT_DIR$/main/static/src/script/load.js" />
+        <option value="$PROJECT_DIR$/main/control/welcome.py" />
       </list>
     </option>
   </component>
@@ -309,6 +312,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dasapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dasapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="control" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -668,7 +689,14 @@
       <option name="project" value="LOCAL" />
       <updated>1510435273463</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="fixed javascript">
+      <created>1511810685222</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1511810685222</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -739,7 +767,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixed search bars" />
     <MESSAGE value="Fixed security for admin only pages" />
     <MESSAGE value="Fixed security for admin only post pages" />
     <MESSAGE value="Fixed security for admin only recommender pages" />
@@ -764,7 +791,8 @@
     <MESSAGE value="Improved expendable posts with masonery" />
     <MESSAGE value="removed unnecessary console.log" />
     <MESSAGE value="small layout changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="small layout changes" />
+    <MESSAGE value="fixed javascript" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed javascript" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -794,42 +822,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/main/auth/auth.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5400">
-          <caret line="289" column="16" lean-forward="false" selection-start-line="289" selection-start-column="16" selection-end-line="289" selection-end-column="16" />
-          <folding>
-            <marker date="1511808003783" expanded="true" signature="7395:7571" ph="..." />
-            <marker date="1511808003783" expanded="true" signature="7610:7709" ph="..." />
-            <marker date="1511808003783" expanded="true" signature="7712:7881" ph="..." />
-            <marker date="1511808003783" expanded="true" signature="7925:7991" ph="..." />
-            <marker date="1511808003783" expanded="true" signature="8023:8971" ph="..." />
-            <marker date="1511808003783" expanded="true" signature="8034:8970" ph="..." />
-            <marker date="1511808003783" expanded="true" signature="9017:9237" ph="..." />
-            <marker date="1511808003783" expanded="true" signature="9285:9505" ph="..." />
-            <marker date="1511808003783" expanded="true" signature="9324:9505" ph="..." />
-            <marker date="1511808003783" expanded="true" signature="9354:9482" ph="'...'" />
-            <marker date="1511808003783" expanded="true" signature="9534:9646" ph="..." />
-            <marker date="1511808003783" expanded="true" signature="9569:9645" ph="..." />
-            <marker date="1511808003783" expanded="true" signature="9690:10117" ph="..." />
-            <marker date="1511808003783" expanded="true" signature="9697:9899" ph="..." />
-            <marker date="1511808003783" expanded="true" signature="9930:10117" ph="..." />
-            <marker date="1511808003783" expanded="true" signature="10150:10333" ph="..." />
-            <marker date="1511808003783" expanded="true" signature="10336:10516" ph="..." />
-            <marker date="1511808003783" expanded="true" signature="10596:11518" ph="..." />
-            <marker date="1511808003783" expanded="true" signature="10662:10919" ph="..." />
-            <marker date="1511808003783" expanded="true" signature="10769:10919" ph="..." />
-            <marker date="1511808003783" expanded="true" signature="11205:11258" ph="..." />
-            <marker date="1511808003783" expanded="true" signature="11563:12114" ph="..." />
-            <marker date="1511808003783" expanded="true" signature="11720:11784" ph="..." />
-            <marker date="1511808003783" expanded="true" signature="11905:11995" ph="..." />
-            <marker date="1511808003783" expanded="true" signature="12161:12696" ph="..." />
-            <marker date="1511808003783" expanded="true" signature="12296:12569" ph="..." />
-            <marker date="1511808003783" expanded="true" signature="12313:12488" ph="'''...'''" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/main/lib/wtforms/ext/appengine/db.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2140">
@@ -855,13 +847,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="40">
           <caret line="139" column="168" lean-forward="false" selection-start-line="139" selection-start-column="168" selection-end-line="139" selection-end-column="168" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main/control/welcome.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="25" column="34" lean-forward="false" selection-start-line="25" selection-start-column="34" selection-end-line="25" selection-end-column="34" />
         </state>
       </provider>
     </entry>
@@ -1149,15 +1134,31 @@
     <entry file="file://$PROJECT_DIR$/main/templates/welcome.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="242">
-          <caret line="30" column="47" lean-forward="true" selection-start-line="30" selection-start-column="47" selection-end-line="30" selection-end-column="47" />
+          <caret line="30" column="47" lean-forward="false" selection-start-line="30" selection-start-column="47" selection-end-line="30" selection-end-column="47" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main/static/src/script/load.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="265">
-          <caret line="106" column="0" lean-forward="true" selection-start-line="106" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
+        <state relative-caret-position="2120">
+          <caret line="106" column="0" lean-forward="false" selection-start-line="106" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/templates/macro/utils.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/control/welcome.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="26" column="14" lean-forward="true" selection-start-line="26" selection-start-column="14" selection-end-line="26" selection-end-column="14" />
           <folding />
         </state>
       </provider>
