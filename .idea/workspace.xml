@@ -3,10 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="864a03cf-aef5-4c19-b8ed-137a070b673e" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main/control/welcome.py" afterPath="$PROJECT_DIR$/main/control/welcome.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main/static/dev/script/ext.js" afterPath="$PROJECT_DIR$/main/static/dev/script/ext.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main/static/dev/script/script.js" afterPath="$PROJECT_DIR$/main/static/dev/script/script.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main/static/dev/style/style.css" afterPath="$PROJECT_DIR$/main/static/dev/style/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main/control/post.py" afterPath="$PROJECT_DIR$/main/control/post.py" />
     </list>
     <ignored path="$PROJECT_DIR$/.idea/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,44 +16,6 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="auth.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/main/auth/auth.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5400">
-              <caret line="289" column="16" lean-forward="false" selection-start-line="289" selection-start-column="16" selection-end-line="289" selection-end-column="16" />
-              <folding>
-                <marker date="1511808003783" expanded="true" signature="7395:7571" ph="..." />
-                <marker date="1511808003783" expanded="true" signature="7610:7709" ph="..." />
-                <marker date="1511808003783" expanded="true" signature="7712:7881" ph="..." />
-                <marker date="1511808003783" expanded="true" signature="7925:7991" ph="..." />
-                <marker date="1511808003783" expanded="true" signature="8023:8971" ph="..." />
-                <marker date="1511808003783" expanded="true" signature="8034:8970" ph="..." />
-                <marker date="1511808003783" expanded="true" signature="9017:9237" ph="..." />
-                <marker date="1511808003783" expanded="true" signature="9285:9505" ph="..." />
-                <marker date="1511808003783" expanded="true" signature="9324:9505" ph="..." />
-                <marker date="1511808003783" expanded="true" signature="9354:9482" ph="'...'" />
-                <marker date="1511808003783" expanded="true" signature="9534:9646" ph="..." />
-                <marker date="1511808003783" expanded="true" signature="9569:9645" ph="..." />
-                <marker date="1511808003783" expanded="true" signature="9690:10117" ph="..." />
-                <marker date="1511808003783" expanded="true" signature="9697:9899" ph="..." />
-                <marker date="1511808003783" expanded="true" signature="9930:10117" ph="..." />
-                <marker date="1511808003783" expanded="true" signature="10150:10333" ph="..." />
-                <marker date="1511808003783" expanded="true" signature="10336:10516" ph="..." />
-                <marker date="1511808003783" expanded="true" signature="10596:11518" ph="..." />
-                <marker date="1511808003783" expanded="true" signature="10662:10919" ph="..." />
-                <marker date="1511808003783" expanded="true" signature="10769:10919" ph="..." />
-                <marker date="1511808003783" expanded="true" signature="11205:11258" ph="..." />
-                <marker date="1511808003783" expanded="true" signature="11563:12114" ph="..." />
-                <marker date="1511808003783" expanded="true" signature="11720:11784" ph="..." />
-                <marker date="1511808003783" expanded="true" signature="11905:11995" ph="..." />
-                <marker date="1511808003783" expanded="true" signature="12161:12696" ph="..." />
-                <marker date="1511808003783" expanded="true" signature="12296:12569" ph="..." />
-                <marker date="1511808003783" expanded="true" signature="12313:12488" ph="'''...'''" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="recommender_overview.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main/templates/recommender/recommender_overview.html">
           <provider selected="true" editor-type-id="text-editor">
@@ -93,12 +52,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="welcome.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="welcome.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main/control/welcome.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="136">
-              <caret line="26" column="14" lean-forward="true" selection-start-line="26" selection-start-column="14" selection-end-line="26" selection-end-column="14" />
+              <caret line="26" column="14" lean-forward="false" selection-start-line="26" selection-start-column="14" selection-end-line="26" selection-end-column="14" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="post.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/main/control/post.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="973">
+              <caret line="135" column="0" lean-forward="true" selection-start-line="135" selection-start-column="0" selection-end-line="135" selection-end-column="0" />
+              <folding>
+                <element signature="e#1#13#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -248,7 +219,6 @@
         <option value="$PROJECT_DIR$/main/static/src/style/base.less" />
         <option value="$PROJECT_DIR$/main/static/src/style/jumbotron.less" />
         <option value="$PROJECT_DIR$/main/appengine_config.py" />
-        <option value="$PROJECT_DIR$/main/control/post.py" />
         <option value="$PROJECT_DIR$/main/templates/recommender/recommender_view.html" />
         <option value="$PROJECT_DIR$/bower.json" />
         <option value="$PROJECT_DIR$/gulp/config.coffee" />
@@ -265,6 +235,7 @@
         <option value="$PROJECT_DIR$/main/templates/about.html" />
         <option value="$PROJECT_DIR$/main/static/src/script/load.js" />
         <option value="$PROJECT_DIR$/main/control/welcome.py" />
+        <option value="$PROJECT_DIR$/main/control/post.py" />
       </list>
     </option>
   </component>
@@ -696,7 +667,14 @@
       <option name="project" value="LOCAL" />
       <updated>1511810685222</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="Changed order of posts">
+      <created>1511811581758</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1511811581758</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -767,7 +745,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixed security for admin only pages" />
     <MESSAGE value="Fixed security for admin only post pages" />
     <MESSAGE value="Fixed security for admin only recommender pages" />
     <MESSAGE value="Fixed security for resource pages" />
@@ -792,7 +769,8 @@
     <MESSAGE value="removed unnecessary console.log" />
     <MESSAGE value="small layout changes" />
     <MESSAGE value="fixed javascript" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed javascript" />
+    <MESSAGE value="Changed order of posts" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed order of posts" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -822,13 +800,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/main/lib/wtforms/ext/appengine/db.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2140">
-          <caret line="22" column="15" lean-forward="false" selection-start-line="22" selection-start-column="10" selection-end-line="22" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/main/static/src/script/gifffer.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -988,13 +959,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
           <caret line="18" column="10" lean-forward="false" selection-start-line="18" selection-start-column="10" selection-end-line="18" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main/control/post.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5000">
-          <caret line="263" column="45" lean-forward="false" selection-start-line="263" selection-start-column="45" selection-end-line="263" selection-end-column="45" />
         </state>
       </provider>
     </entry>
@@ -1158,8 +1122,54 @@
     <entry file="file://$PROJECT_DIR$/main/control/welcome.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
-          <caret line="26" column="14" lean-forward="true" selection-start-line="26" selection-start-column="14" selection-end-line="26" selection-end-column="14" />
+          <caret line="26" column="14" lean-forward="false" selection-start-line="26" selection-start-column="14" selection-end-line="26" selection-end-column="14" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/auth/auth.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5400">
+          <caret line="289" column="16" lean-forward="false" selection-start-line="289" selection-start-column="16" selection-end-line="289" selection-end-column="16" />
+          <folding>
+            <marker date="1511808003783" expanded="true" signature="7395:7571" ph="..." />
+            <marker date="1511808003783" expanded="true" signature="7610:7709" ph="..." />
+            <marker date="1511808003783" expanded="true" signature="7712:7881" ph="..." />
+            <marker date="1511808003783" expanded="true" signature="7925:7991" ph="..." />
+            <marker date="1511808003783" expanded="true" signature="8023:8971" ph="..." />
+            <marker date="1511808003783" expanded="true" signature="8034:8970" ph="..." />
+            <marker date="1511808003783" expanded="true" signature="9017:9237" ph="..." />
+            <marker date="1511808003783" expanded="true" signature="9285:9505" ph="..." />
+            <marker date="1511808003783" expanded="true" signature="9324:9505" ph="..." />
+            <marker date="1511808003783" expanded="true" signature="9354:9482" ph="'...'" />
+            <marker date="1511808003783" expanded="true" signature="9534:9646" ph="..." />
+            <marker date="1511808003783" expanded="true" signature="9569:9645" ph="..." />
+            <marker date="1511808003783" expanded="true" signature="9690:10117" ph="..." />
+            <marker date="1511808003783" expanded="true" signature="9697:9899" ph="..." />
+            <marker date="1511808003783" expanded="true" signature="9930:10117" ph="..." />
+            <marker date="1511808003783" expanded="true" signature="10150:10333" ph="..." />
+            <marker date="1511808003783" expanded="true" signature="10336:10516" ph="..." />
+            <marker date="1511808003783" expanded="true" signature="10596:11518" ph="..." />
+            <marker date="1511808003783" expanded="true" signature="10662:10919" ph="..." />
+            <marker date="1511808003783" expanded="true" signature="10769:10919" ph="..." />
+            <marker date="1511808003783" expanded="true" signature="11205:11258" ph="..." />
+            <marker date="1511808003783" expanded="true" signature="11563:12114" ph="..." />
+            <marker date="1511808003783" expanded="true" signature="11720:11784" ph="..." />
+            <marker date="1511808003783" expanded="true" signature="11905:11995" ph="..." />
+            <marker date="1511808003783" expanded="true" signature="12161:12696" ph="..." />
+            <marker date="1511808003783" expanded="true" signature="12296:12569" ph="..." />
+            <marker date="1511808003783" expanded="true" signature="12313:12488" ph="'''...'''" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/control/post.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="973">
+          <caret line="135" column="0" lean-forward="true" selection-start-line="135" selection-start-column="0" selection-end-line="135" selection-end-column="0" />
+          <folding>
+            <element signature="e#1#13#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
