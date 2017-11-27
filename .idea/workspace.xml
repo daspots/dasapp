@@ -65,8 +65,8 @@
       <file leaf-file-name="post.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main/control/post.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="973">
-              <caret line="135" column="0" lean-forward="true" selection-start-line="135" selection-start-column="0" selection-end-line="135" selection-end-column="0" />
+            <state relative-caret-position="3416">
+              <caret line="209" column="46" lean-forward="true" selection-start-line="209" selection-start-column="46" selection-end-line="209" selection-end-column="46" />
               <folding>
                 <element signature="e#1#13#0" expanded="true" />
               </folding>
@@ -674,7 +674,14 @@
       <option name="project" value="LOCAL" />
       <updated>1511811581758</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="Added search index">
+      <created>1511817719516</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1511817719516</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -745,7 +752,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixed security for admin only post pages" />
     <MESSAGE value="Fixed security for admin only recommender pages" />
     <MESSAGE value="Fixed security for resource pages" />
     <MESSAGE value="Posts are deletable - this also removes images and &quot;cleans&quot; tags - post is removed from tag if there are more post related to tag OR tag is removed if only 1 post is related to tag" />
@@ -770,7 +776,8 @@
     <MESSAGE value="small layout changes" />
     <MESSAGE value="fixed javascript" />
     <MESSAGE value="Changed order of posts" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed order of posts" />
+    <MESSAGE value="Added search index" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added search index" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1165,8 +1172,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main/control/post.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="973">
-          <caret line="135" column="0" lean-forward="true" selection-start-line="135" selection-start-column="0" selection-end-line="135" selection-end-column="0" />
+        <state relative-caret-position="3416">
+          <caret line="209" column="46" lean-forward="true" selection-start-line="209" selection-start-column="46" selection-end-line="209" selection-end-column="46" />
           <folding>
             <element signature="e#1#13#0" expanded="true" />
           </folding>

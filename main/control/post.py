@@ -201,6 +201,14 @@ def post_update(post_id):
     # Add post to existing keywords
     add_to_keywords(existing_keywords, new_keywords + new_loc_keywords, post_db_key)
 
+    # Delete and recreate document in search index
+    search.Index('spots').delete(str(post_id))
+    search_document = create_document(post_db_key.id(),
+                                      post_db.title,
+                                      ' '.join(post_db.keyword_list + post_db.location_keyword_list),
+                                      post_db.content)
+    _ = add_document_to_index(search_document)
+
     flask.flash('Post was successfully updated!', category='success')
     return flask.redirect(flask.url_for('post_list', order='-created'))
 
@@ -249,6 +257,10 @@ def post_remove(post_id):
             keyword.key.delete()
         else:
             keyword.put()
+
+    # Remove the search index
+    index = search.Index('spots')
+    index.delete(str(post_id))
 
     post.key.delete()
     flask.flash('Post removed', category='success')
