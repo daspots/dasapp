@@ -20,7 +20,7 @@ def landing():
 @app.route('/welcome')
 def welcome():
   post_dbs, post_cursor = model.Post.get_dbs(
-      query=model.Post.query(),
+      query=model.Post.query().order(-model.Post.created),
       limit=30,
   )
   post_dbs = add_starred_to_posts(

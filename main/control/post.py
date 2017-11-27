@@ -10,6 +10,7 @@ import json
 
 from google.appengine.ext import blobstore
 from google.appengine.ext import ndb
+from google.appengine.api import search
 
 from helpers import add_starred_to_posts
 from main import app
@@ -64,6 +65,27 @@ def split_keywords(keywords):
     return [k for k in keywords.data.split(',') if k != '']
 
 
+def create_document(id, title, keywords, text_value):
+    document = search.Document(
+        # Setting the doc_id is optional. If omitted, the search service will
+        # create an identifier.
+        doc_id=str(id),
+        fields=[
+            search.TextField(name='post_text', value=text_value),
+            search.TextField(name='title', value=title),
+            search.TextField(name='keywords', value=keywords),
+            search.AtomField(name='docid', value=str(id))
+        ])
+    return document
+
+
+def add_document_to_index(document):
+    index = search.Index('spots')
+    results = index.put(document)
+    document_ids = [document.id for document in results]
+    return document_ids
+
+
 @app.route('/post/create/', methods=['GET', 'POST'])
 @auth.admin_required
 def post_create():
@@ -113,6 +135,13 @@ def post_create():
     create_new_keywords(new_loc_keywords, post_db_key, is_location=True)
 
     add_to_keywords(existing_keywords, new_keywords + new_loc_keywords, post_db_key)
+
+    # add content to index:
+    search_document = create_document(post_db_key.id(),
+                                      post_db.title,
+                                      ' '.join(keyword_list + loc_keyword_list),
+                                      post_db.content)
+    _ = add_document_to_index(search_document)
 
     flask.flash('New post was successfully created!', category='success')
     return flask.redirect(flask.url_for('post_list', order='-created'))
@@ -172,6 +201,14 @@ def post_update(post_id):
     # Add post to existing keywords
     add_to_keywords(existing_keywords, new_keywords + new_loc_keywords, post_db_key)
 
+    # Delete and recreate document in search index
+    search.Index('spots').delete(str(post_id))
+    search_document = create_document(post_db_key.id(),
+                                      post_db.title,
+                                      ' '.join(post_db.keyword_list + post_db.location_keyword_list),
+                                      post_db.content)
+    _ = add_document_to_index(search_document)
+
     flask.flash('Post was successfully updated!', category='success')
     return flask.redirect(flask.url_for('post_list', order='-created'))
 
@@ -220,6 +257,10 @@ def post_remove(post_id):
             keyword.key.delete()
         else:
             keyword.put()
+
+    # Remove the search index
+    index = search.Index('spots')
+    index.delete(str(post_id))
 
     post.key.delete()
     flask.flash('Post removed', category='success')
