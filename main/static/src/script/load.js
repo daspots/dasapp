@@ -97,9 +97,7 @@ window.onload = function() {
         'top': '16px'
       }
     });
-
-
-
+}
 
 
 

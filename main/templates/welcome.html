@@ -28,7 +28,7 @@
 # include 'bit/popup_loginform_star.html'
 
 <!-- UI post -->
-  <div class="container-fixed" id="restaurant">
+  <div class="container" id="restaurant">
     <div class="row">
     {%- for post_db in post_dbs %}
       <div class="col-sm-3">
@@ -37,7 +37,7 @@
 
           <!-- image -->
             <div class="image-wrapper">
-              <img class="img-gif" data-gifffer="{{post_db.image_url}}">
+              <img class="img-fluid" data-gifffer="{{post_db.image_url}}">
             </div>
 
           <ul class="additionalLinks" style="margin-left:0px;padding-left:0px;padding-top:3px">
