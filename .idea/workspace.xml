@@ -3,7 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="864a03cf-aef5-4c19-b8ed-137a070b673e" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main/control/post.py" afterPath="$PROJECT_DIR$/main/control/post.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main/static/dev/script/script.js" afterPath="$PROJECT_DIR$/main/static/dev/script/script.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main/static/dev/style/style.css" afterPath="$PROJECT_DIR$/main/static/dev/style/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main/static/min/script/script.js" afterPath="$PROJECT_DIR$/main/static/min/script/script.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main/static/min/style/style.css" afterPath="$PROJECT_DIR$/main/static/min/style/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main/static/src/script/load.js" afterPath="$PROJECT_DIR$/main/static/src/script/load.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main/static/src/style/misc.less" afterPath="$PROJECT_DIR$/main/static/src/style/misc.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main/templates/bit/script.html" afterPath="$PROJECT_DIR$/main/templates/bit/script.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.idea/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,28 +22,14 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="recommender_overview.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/main/templates/recommender/recommender_overview.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="9" column="52" lean-forward="false" selection-start-line="9" selection-start-column="52" selection-end-line="9" selection-end-column="52" />
-              <folding>
-                <marker date="1511808004159" expanded="true" signature="1490:1727" ph="..." />
-                <marker date="1511808004159" expanded="true" signature="1490:1740" ph="..." />
-                <marker date="1511808004159" expanded="true" signature="1490:1771" ph="..." />
-                <marker date="1511808004159" expanded="true" signature="1490:1779" ph="..." />
-                <marker date="1511808004159" expanded="true" signature="1495:1710" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="about.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main/templates/about.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="380">
               <caret line="19" column="10" lean-forward="false" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="10" />
-              <folding />
+              <folding>
+                <marker date="1512487750127" expanded="true" signature="1283:1296" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -45,8 +37,38 @@
       <file leaf-file-name="load.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main/static/src/script/load.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2120">
-              <caret line="106" column="0" lean-forward="false" selection-start-line="106" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
+            <state relative-caret-position="503">
+              <caret line="111" column="0" lean-forward="false" selection-start-line="111" selection-start-column="0" selection-end-line="111" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="welcome.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/main/templates/welcome.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="38" column="29" lean-forward="false" selection-start-line="38" selection-start-column="29" selection-end-line="38" selection-end-column="29" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="script.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/main/templates/bit/script.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="160">
+              <caret line="8" column="79" lean-forward="true" selection-start-line="8" selection-start-column="79" selection-end-line="8" selection-end-column="79" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="follow_code.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/main/static/src/script/follow_code.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="280">
+              <caret line="23" column="25" lean-forward="false" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -55,18 +77,18 @@
       <file leaf-file-name="welcome.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main/control/welcome.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="26" column="14" lean-forward="false" selection-start-line="26" selection-start-column="14" selection-end-line="26" selection-end-column="14" />
+            <state relative-caret-position="180">
+              <caret line="16" column="27" lean-forward="false" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="post.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="post.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main/control/post.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3416">
-              <caret line="209" column="46" lean-forward="true" selection-start-line="209" selection-start-column="46" selection-end-line="209" selection-end-column="46" />
+            <state relative-caret-position="187">
+              <caret line="212" column="39" lean-forward="false" selection-start-line="212" selection-start-column="26" selection-end-line="212" selection-end-column="39" />
               <folding>
                 <element signature="e#1#13#0" expanded="true" />
               </folding>
@@ -77,51 +99,29 @@
       <file leaf-file-name="accordion.less" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main/static/src/style/accordion.less">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="625">
-              <caret line="91" column="0" lean-forward="false" selection-start-line="91" selection-start-column="0" selection-end-line="91" selection-end-column="0" />
+            <state relative-caret-position="503">
+              <caret line="88" column="1" lean-forward="false" selection-start-line="88" selection-start-column="1" selection-end-line="88" selection-end-column="1" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="welcome.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/main/templates/welcome.html">
+      <file leaf-file-name="masonry.pkgd.min.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/main/static/src/script/masonry.pkgd.min.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="30" column="47" lean-forward="false" selection-start-line="30" selection-start-column="47" selection-end-line="30" selection-end-column="47" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ic_open_in_new_black_24px.png" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/main/static/img/ic_open_in_new_black_24px.png">
-          <provider selected="true" editor-type-id="images">
-            <state />
           </provider>
         </entry>
       </file>
       <file leaf-file-name="misc.less" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main/static/src/style/misc.less">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="53" column="20" lean-forward="false" selection-start-line="53" selection-start-column="20" selection-end-line="53" selection-end-column="20" />
+            <state relative-caret-position="3">
+              <caret line="46" column="22" lean-forward="true" selection-start-line="46" selection-start-column="22" selection-end-line="46" selection-end-column="22" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="auth.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/main/templates/auth/auth.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="440">
-              <caret line="22" column="114" lean-forward="false" selection-start-line="22" selection-start-column="114" selection-end-line="22" selection-end-column="114" />
-              <folding>
-                <marker date="1511808004016" expanded="true" signature="405:2862" ph="..." />
-                <marker date="1511808004016" expanded="true" signature="674:2707" ph="..." />
-                <marker date="1511808004016" expanded="true" signature="2760:2849" ph="..." />
-                <marker date="1511808004016" expanded="true" signature="2932:3157" ph="..." />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -138,7 +138,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>traject</find>
       <find>A</find>
       <find>D</find>
       <find>DASP</find>
@@ -168,6 +167,7 @@
       <find>restaurant</find>
       <find>restauran</find>
       <find>key</find>
+      <find>url</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$</dir>
@@ -178,14 +178,13 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="dev_singup_screen" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/main/model/star.py" />
         <option value="$PROJECT_DIR$/main/static/dev/script/script.js" />
         <option value="$PROJECT_DIR$/main/api/v1/star.py" />
         <option value="$PROJECT_DIR$/main/util.py" />
@@ -229,13 +228,14 @@
         <option value="$PROJECT_DIR$/main/templates/bit/style.html" />
         <option value="$PROJECT_DIR$/main/static/src/style/icons.less" />
         <option value="$PROJECT_DIR$/main/static/src/style/links.less" />
-        <option value="$PROJECT_DIR$/main/static/src/style/misc.less" />
-        <option value="$PROJECT_DIR$/main/templates/welcome.html" />
         <option value="$PROJECT_DIR$/main/templates/recommender/recommender_overview.html" />
         <option value="$PROJECT_DIR$/main/templates/about.html" />
-        <option value="$PROJECT_DIR$/main/static/src/script/load.js" />
-        <option value="$PROJECT_DIR$/main/control/welcome.py" />
         <option value="$PROJECT_DIR$/main/control/post.py" />
+        <option value="$PROJECT_DIR$/main/control/welcome.py" />
+        <option value="$PROJECT_DIR$/main/templates/welcome.html" />
+        <option value="$PROJECT_DIR$/main/templates/bit/script.html" />
+        <option value="$PROJECT_DIR$/main/static/src/script/load.js" />
+        <option value="$PROJECT_DIR$/main/static/src/style/misc.less" />
       </list>
     </option>
   </component>
@@ -260,6 +260,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -300,13 +301,100 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="control" />
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dasapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dasapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bit" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dasapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dasapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dasapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dasapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dasapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dasapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="script" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -681,7 +769,14 @@
       <option name="project" value="LOCAL" />
       <updated>1511817719516</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="changed URL's and added masonery again">
+      <created>1512489018393</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1512489018393</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -695,8 +790,8 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930845" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930845" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Execute Anonymous" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.41383097" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22168803" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28430295" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22435898" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -752,7 +847,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixed security for admin only recommender pages" />
     <MESSAGE value="Fixed security for resource pages" />
     <MESSAGE value="Posts are deletable - this also removes images and &quot;cleans&quot; tags - post is removed from tag if there are more post related to tag OR tag is removed if only 1 post is related to tag" />
     <MESSAGE value="Recommenders are deletable" />
@@ -777,7 +871,8 @@
     <MESSAGE value="fixed javascript" />
     <MESSAGE value="Changed order of posts" />
     <MESSAGE value="Added search index" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added search index" />
+    <MESSAGE value="changed URL's and added masonery again" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed URL's and added masonery again" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -807,27 +902,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/main/static/src/script/gifffer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bower_components/gifffer/build/gifffer.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="700">
-          <caret line="35" column="117" lean-forward="false" selection-start-line="35" selection-start-column="117" selection-end-line="35" selection-end-column="117" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main/static/ext/gifffer/build/gifffer.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="139" column="168" lean-forward="false" selection-start-line="139" selection-start-column="168" selection-end-line="139" selection-end-column="168" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/main/static/img/favicon-16x16.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -955,13 +1029,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main/static/src/script/masonry.pkgd.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gulp/config.coffee">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -1001,12 +1068,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="440">
           <caret line="22" column="114" lean-forward="false" selection-start-line="22" selection-start-column="114" selection-end-line="22" selection-end-column="114" />
-          <folding>
-            <marker date="1511808004016" expanded="true" signature="405:2862" ph="..." />
-            <marker date="1511808004016" expanded="true" signature="674:2707" ph="..." />
-            <marker date="1511808004016" expanded="true" signature="2760:2849" ph="..." />
-            <marker date="1511808004016" expanded="true" signature="2932:3157" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1067,13 +1128,14 @@
     <entry file="file://$PROJECT_DIR$/main/templates/recommender/recommender_overview.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
-          <caret line="9" column="52" lean-forward="false" selection-start-line="9" selection-start-column="52" selection-end-line="9" selection-end-column="52" />
+          <caret line="9" column="10" lean-forward="false" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="10" />
           <folding>
-            <marker date="1511808004159" expanded="true" signature="1490:1727" ph="..." />
-            <marker date="1511808004159" expanded="true" signature="1490:1740" ph="..." />
-            <marker date="1511808004159" expanded="true" signature="1490:1771" ph="..." />
-            <marker date="1511808004159" expanded="true" signature="1490:1779" ph="..." />
-            <marker date="1511808004159" expanded="true" signature="1495:1710" ph="..." />
+            <marker date="1512487750128" expanded="true" signature="1520:1925" ph="..." />
+            <marker date="1512487750128" expanded="true" signature="1520:1938" ph="..." />
+            <marker date="1512487750128" expanded="true" signature="1520:1969" ph="..." />
+            <marker date="1512487750128" expanded="true" signature="1520:1977" ph="..." />
+            <marker date="1512487750128" expanded="true" signature="1623:1680" ph="..." />
+            <marker date="1512487750128" expanded="true" signature="1688:1925" ph="..." />
           </folding>
         </state>
       </provider>
@@ -1082,39 +1144,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="380">
           <caret line="19" column="10" lean-forward="false" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main/static/src/style/misc.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="53" column="20" lean-forward="false" selection-start-line="53" selection-start-column="20" selection-end-line="53" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main/static/src/style/accordion.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="625">
-          <caret line="91" column="0" lean-forward="false" selection-start-line="91" selection-start-column="0" selection-end-line="91" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main/templates/welcome.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="30" column="47" lean-forward="false" selection-start-line="30" selection-start-column="47" selection-end-line="30" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main/static/src/script/load.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2120">
-          <caret line="106" column="0" lean-forward="false" selection-start-line="106" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
-          <folding />
+          <folding>
+            <marker date="1512487750127" expanded="true" signature="1283:1296" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1122,15 +1154,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main/control/welcome.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="26" column="14" lean-forward="false" selection-start-line="26" selection-start-column="14" selection-end-line="26" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1138,45 +1161,88 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5400">
           <caret line="289" column="16" lean-forward="false" selection-start-line="289" selection-start-column="16" selection-end-line="289" selection-end-column="16" />
-          <folding>
-            <marker date="1511808003783" expanded="true" signature="7395:7571" ph="..." />
-            <marker date="1511808003783" expanded="true" signature="7610:7709" ph="..." />
-            <marker date="1511808003783" expanded="true" signature="7712:7881" ph="..." />
-            <marker date="1511808003783" expanded="true" signature="7925:7991" ph="..." />
-            <marker date="1511808003783" expanded="true" signature="8023:8971" ph="..." />
-            <marker date="1511808003783" expanded="true" signature="8034:8970" ph="..." />
-            <marker date="1511808003783" expanded="true" signature="9017:9237" ph="..." />
-            <marker date="1511808003783" expanded="true" signature="9285:9505" ph="..." />
-            <marker date="1511808003783" expanded="true" signature="9324:9505" ph="..." />
-            <marker date="1511808003783" expanded="true" signature="9354:9482" ph="'...'" />
-            <marker date="1511808003783" expanded="true" signature="9534:9646" ph="..." />
-            <marker date="1511808003783" expanded="true" signature="9569:9645" ph="..." />
-            <marker date="1511808003783" expanded="true" signature="9690:10117" ph="..." />
-            <marker date="1511808003783" expanded="true" signature="9697:9899" ph="..." />
-            <marker date="1511808003783" expanded="true" signature="9930:10117" ph="..." />
-            <marker date="1511808003783" expanded="true" signature="10150:10333" ph="..." />
-            <marker date="1511808003783" expanded="true" signature="10336:10516" ph="..." />
-            <marker date="1511808003783" expanded="true" signature="10596:11518" ph="..." />
-            <marker date="1511808003783" expanded="true" signature="10662:10919" ph="..." />
-            <marker date="1511808003783" expanded="true" signature="10769:10919" ph="..." />
-            <marker date="1511808003783" expanded="true" signature="11205:11258" ph="..." />
-            <marker date="1511808003783" expanded="true" signature="11563:12114" ph="..." />
-            <marker date="1511808003783" expanded="true" signature="11720:11784" ph="..." />
-            <marker date="1511808003783" expanded="true" signature="11905:11995" ph="..." />
-            <marker date="1511808003783" expanded="true" signature="12161:12696" ph="..." />
-            <marker date="1511808003783" expanded="true" signature="12296:12569" ph="..." />
-            <marker date="1511808003783" expanded="true" signature="12313:12488" ph="'''...'''" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main/control/post.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3416">
-          <caret line="209" column="46" lean-forward="true" selection-start-line="209" selection-start-column="46" selection-end-line="209" selection-end-column="46" />
+        <state relative-caret-position="187">
+          <caret line="212" column="39" lean-forward="false" selection-start-line="212" selection-start-column="26" selection-end-line="212" selection-end-column="39" />
           <folding>
             <element signature="e#1#13#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/control/welcome.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="16" column="27" lean-forward="false" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/static/src/script/gifffer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/static/src/script/masonry.pkgd.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/static/src/style/accordion.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="503">
+          <caret line="88" column="1" lean-forward="false" selection-start-line="88" selection-start-column="1" selection-end-line="88" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/static/src/script/follow_code.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="23" column="25" lean-forward="false" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/templates/welcome.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="38" column="29" lean-forward="false" selection-start-line="38" selection-start-column="29" selection-end-line="38" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/static/src/style/misc.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3">
+          <caret line="46" column="22" lean-forward="true" selection-start-line="46" selection-start-column="22" selection-end-line="46" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/static/src/script/load.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="503">
+          <caret line="111" column="0" lean-forward="false" selection-start-line="111" selection-start-column="0" selection-end-line="111" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/templates/bit/script.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="8" column="79" lean-forward="true" selection-start-line="8" selection-start-column="79" selection-end-line="8" selection-end-column="79" />
+          <folding />
         </state>
       </provider>
     </entry>

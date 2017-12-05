@@ -11,9 +11,14 @@ from helpers import add_starred_to_posts
 ###############################################################################
 # Welcome
 ###############################################################################
-
-
 @app.route('/')
+def landing_page():
+    # For now we redirect to eat new york, will be changed in the future
+    # depending on location
+    return flask.redirect(flask.url_for('welcome'), code=302)
+
+
+@app.route('/eat-new-york')
 def welcome():
   post_dbs, post_cursor = model.Post.get_dbs(
       query=model.Post.query().order(-model.Post.created),
