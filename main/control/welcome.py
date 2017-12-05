@@ -12,12 +12,8 @@ from helpers import add_starred_to_posts
 # Welcome
 ###############################################################################
 
+
 @app.route('/')
-def landing():
-    return flask.render_template('landing_page.html')
-
-
-@app.route('/welcome')
 def welcome():
   post_dbs, post_cursor = model.Post.get_dbs(
       query=model.Post.query().order(-model.Post.created),

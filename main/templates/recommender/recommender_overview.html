@@ -6,25 +6,32 @@
   <div class="jumbotronRecommender">
   <div class="container">
   <div class="row">
-    <div class="col-sm-6 col-md-6">   
-      <h1 class="h1LeftBigWhiteUp">MEET THE INSIDERS</h1>
+    <div class="col-sm-6 col-md-5">
+      <br>
+      <br>
+      <h1 class="h1LeftBigBlack">MEET THE INSIDERS</h1>
+      <p class="pLeftBigBlack">
+      On DASPOTS only recommendations from people who work in the industry, care about great ingredients and leave no bad vibes.
+      </p>
+      <br>
     </div>
-    <div class="col-sm-6 col-md-6"></div>
+    <div class="col-sm-6 col-md-7"></div>
   </div>
   </div>
   </div>
 </div>
+
 # endblock
 
 # block content
   <div class="container">
     <div class="row">
     {%- for recommender_db in recommender_dbs %}
-      <div class="col-6 col-sm-6">
+      <div class="col-6 col-sm-4">
         <div class="box shadow">
 
           <!-- image -->
-          <img class="recommenderImage" src="{{recommender_db.image_url}}">
+          <img class="recommenderImage"  {{recommender_db.image_url}}">
 
           <!-- name recommender -->
           <div>
@@ -45,7 +52,8 @@
           <!-- bio recommender -->
           <br>
           <p class="pLeft">{{recommender_db.bio}}</p>
-                    <!-- external link -->
+          
+          <!-- external link -->
           <a class="linkWebsite" href="{{recommender_db.website_url}}">            {{recommender_db.website_url}}
           </a>
 

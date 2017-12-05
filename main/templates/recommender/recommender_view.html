@@ -1,27 +1,34 @@
 # extends 'base.html'
-
 # block content
-
 # include 'bit/popup_loginform_follow.html'
+
 <div class="container">
   <div class="row">
     <div class="col-sm-6 col-md-2"></div>
     <div class="col-sm-6 col-md-8">
+        <!-- image -->
         <center>
-          <img src="{{recommender_db.image_url}}">
+          <img class="recommenderImage" src="{{recommender_db.image_url}}">
+          <br>
         </center>
-          <h1 class="h1CenterBig">{{title}}</h1>
-      <br>
-          <p class="pCenterBig">
-            <a class="linkCenter" href="{{url_for('list_recommenders', recommender=recommender_db.name_lower)}}">
-            ALL SPOTS BY {{title}}</a>
-
-          </p>
+        <!-- title -->
+        <h1 class="h1CenterBig">{{title}}</h1>
+        <!-- <bio> -->
+        <p class="pCenterBig">
+        <!-- all spots recommender -->
+        <a class="linkRecommendedByCenter" href="{{url_for('list_recommenders', recommender=recommender_db.name_lower)}}">
+        SEE ALL SPOTS BY {{title}}</a>
+        </p>
 
         <hr>
-        <p class="pCenterBig">{{recommender_db.bio}}<br><br>
+
+        <!-- bio recommender -->
+        <p class="pCenterBig">{{recommender_db.bio}}
         <br>
-          <a class="linkCenter" href="{{recommender_db.website_url}}">{{recommender_db.website_url}}</a></p>
+        <br>
+        <!-- external link -->
+        <a class="linkWebsiteCenter" href="{{recommender_db.website_url}}">{{recommender_db.website_url}}</a>
+        </p>
     </div>
     <div class="col-sm-6 col-md-2"></div>
   </div>

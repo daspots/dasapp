@@ -29,4 +29,11 @@ def newsletter():
       'newsletter.html',
         html_class='main-list',
       )
+
+@app.route('/work_with_us')
+def work_with_us():
+    return flask.render_template(
+      'work_with_us.html',
+        html_class='main-list',
+      )
  

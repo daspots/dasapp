@@ -1,62 +1,54 @@
- # extends 'base.html'
+# extends 'base.html'
 
 <!-- jumbotron title -->
 # block header
-<div class="container-fluid">
-  <div class="jumbotronHeader">
-  <div class="container">
+<div class="container">
   <div class="row">
-    <div class="col-sm-6 col-md-5">
-      <h1 class="h1LeftBig">DASPOTS</h1>
-      <p class="pLeftBig">
+    <div class="col-md-4">
+      <h1 class="h1LeftBigBlack">DASPOTS <br>
+      FAVORITE PLACES SAVED</h1> 
+      <p class="pLeftBigBlack">
       Find favorite places from people who are passionate about food - they work in the industry, they care about great ingredients and they leave no bad vibes.
       </p>
-      <a class="linkLeft" href="{{url_for('recommender_overview')}}">MEET THE INSIDERS</a>
-      <br>
-      <br>
-      <br>
+      <a class="linkCenter" href="{{url_for('recommender_overview')}}">MEET THE INSIDERS</a>
     </div>
-    <div class="col-sm-6 col-md-7"></div>
-  </div>
-  </div>
+    <div class="col-md-8">
+      <img src="/p/img/Greenpoint F&L_1000x561.jpg">
+    </div>
   </div>
 </div>
+
 # endblock
-
 # block content
-
 # include 'bit/popup_loginform_star.html'
 
-<!-- UI post -->
+  <!-- city -->
+  <div class="container">
+    <p class="pCenter">NEW YORK</p>
+  </div>
+  <!-- UI post -->
   <div class="container" id="restaurant">
     <div class="row">
     {%- for post_db in post_dbs %}
-      <div class="col-sm-3">
+      <div class="col-md-3">
         <!-- UI thumbnail -->
         <div class="box">
-
-          <!-- image -->
-            <div class="image-wrapper">
-              <img class="img-fluid" data-gifffer="{{post_db.image_url}}">
-            </div>
-
-          <ul class="additionalLinks" style="margin-left:0px;padding-left:0px;padding-top:3px">
-
-            <!-- location -->
-            <div>
-              <i class="fa fa-map-marker map-marker" aria-hidden="true"></i>
-            {% for keyword in post_db.location_keyword_list %}
-             {% if loop.index <= 3 %}
-
-              <a class="thumbnailLocation" href="{{url_for('post_list_q', query=keyword)}}">{{keyword}} </a>
-             {% endif %}
-            {% endfor %}
-            </div>
-
-          <!-- Name spot -->
-              <li class="iconList">
-                <h1 class="thumbnailTitle">{{post_db.title}}</h1>
-              </li>
+        <!-- image -->
+        <img class="img-fluid" data-gifffer="{{post_db.image_url}}">
+        <ul class="additionalLinks" style="margin-left:0px;padding-left:0px;padding-top:3px">
+        <!-- location -->
+        <div>
+          <i class="fa fa-map-marker map-marker" aria-hidden="true"></i>
+          {% for keyword in post_db.location_keyword_list %}
+          {% if loop.index <= 3 %}
+            <a class="thumbnailLocation" href="{{url_for('post_list_q', query=keyword)}}">{{keyword}}</a>
+          {% endif %}
+          {% endfor %}
+        </div>
+        <!-- Name spot -->
+        <li class="iconList">
+          <h1 class="thumbnailTitle">{{post_db.title}}</h1>
+        </li>
 
           <!-- bookmark -->
           <!-- <li class="iconList" style="float: right; margin-top: 20px; margin-right: 10px;"><i onclick="starFunction(this, '{{post_db.key.id()}}')" role="button"
@@ -92,6 +84,7 @@
 
             <!-- icon list -->
             <input id="{{post_db.key.id()}}" class="hidden draaiknopje" type="checkbox" name="tabs">
+            
             <label for="{{post_db.key.id()}}">
               <ul class="additionalLinks" style="margin-left:0px;padding-left:0px;padding-top:10px">
               

@@ -1,4 +1,3 @@
-
 // Following code adds typeahead keywords to search bars
 
 var keywords = new Bloodhound({
@@ -69,9 +68,9 @@ $('#location_keywords').tagsinput({
 });
 
 $('.draaiknopje').click(function () {
-	setTimeout(function() {
-		$('.grid').masonry('layout');
-	}, 100);
+  setTimeout(function() {
+    $('.grid').masonry('layout');
+  }, 100);
 });
 
 window.onload = function() {
@@ -105,8 +104,3 @@ $('.grid').masonry({
       percentPosition: true
     });
  }
-
-
-
-
-
