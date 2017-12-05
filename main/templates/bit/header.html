@@ -15,7 +15,7 @@
       <ul class="nav navbar-nav">
         # if current_user.admin
         <li class="navbarList  {{'active' if html_class == 'search'}} visible-sm-block visible-xs-block">
-          <a href="{{url_for('search')}}">
+          <a href="{{url_for('search_page')}}">
             <i class="fa fa-search"></i> Search
           </a>
         </li>
@@ -23,8 +23,8 @@
         # include 'bit/contact_menu.html'
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <!-- <li class="visible-md-block visible-lg-block ">
-          <form class="navbar-form" role="search"  action="{{ url_for('search') }}" method="post" name="search">
+        <li class="visible-md-block visible-lg-block ">
+          <form class="navbar-form" role="search"  action="{{ url_for('search_page') }}" method="post" name="search">
             <div class="input-group add-on">
             {{ g.search_form.search(class="form-control", placeholder="Search", type="text") }}
             {{ g.search_form.hidden_tag() }}
@@ -33,7 +33,7 @@
             </div>
             </div>
           </form>
-        </li> -->
+        </li>
         <li><a class="navbarListElement" href="{{url_for('about')}}">ABOUT</a></li>
         <li><a class="navbarListElement" href="{{url_for('work_with_us')}}">WORK WITH US</a></li>
         # include 'bit/user_menu.html'

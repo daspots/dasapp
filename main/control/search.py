@@ -7,7 +7,7 @@ from google.appengine.ext import ndb
 
 from helpers import add_starred_to_posts
 from main import app
-
+from google.appengine.api import search
 
 class SearchForm(flask_wtf.FlaskForm):
     search = wtforms.StringField('search')
@@ -21,7 +21,7 @@ def before_request():
 
 
 @app.route('/search', methods=['POST'])
-def search():
+def search_page():
     form = SearchFormForSearchPage()
     if form.search_page.data:
         # the search request comes from the mobile search page
@@ -61,15 +61,16 @@ def no_posts_found():
 
 @app.route('/post/q/<query>')
 def post_list_q(query):
-    keywords_to_search = query.split('+')
 
-    keywords = model.Keyword.query(model.Keyword.keyword.IN(keywords_to_search)).fetch()
-    post_keys = []
-    for keyword in keywords:
-        post_keys.extend(keyword.post_keys)
+    query = query.replace('+', ' ')
+    index = search.Index('spots')
+    search_results = index.search(query)
 
-    post_dbs = [post for post in ndb.get_multi(post_keys) if post is not None]
+    all_docs = [ndb.Key('Post', int(doc.doc_id)) for doc in search_results]
+
+    post_dbs = [post for post in ndb.get_multi(all_docs) if post is not None]
     post_dbs = add_starred_to_posts(post_dbs)
+
     if len(post_dbs) == 0:
         return flask.redirect(flask.url_for('no_posts_found'))
 
