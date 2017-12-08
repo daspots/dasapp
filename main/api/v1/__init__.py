@@ -6,3 +6,4 @@ from .user import *
 from .resource import *
 from .star import *
 from .follow_api import *
+from .post_api import *

@@ -33,6 +33,7 @@ def welcome():
       title='Welcome',
       post_dbs=post_dbs,
       next_url=util.generate_next_url(post_cursor),
+      search_query='*',
       # prev_url=util.generate_prev_url(post_cursor),
     )
 

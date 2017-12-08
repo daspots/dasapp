@@ -44,7 +44,8 @@
 
           <!-- all spots recommender -->
           <div>
-          <a class="linkRecommendedBy" href="{{url_for('list_recommenders', recommender=recommender_db.name_lower)}}">
+          {% set q = "recommender=" ~ recommender_db.name_lower %}
+          <a class="linkRecommendedBy" href="{{url_for('post_list_q', query=q)}}">
           SEE ALL SPOTS BY {{recommender_db.name}}
           </a>
           </div>

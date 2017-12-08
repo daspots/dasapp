@@ -12,8 +12,8 @@
       </p>
       <a class="linkCenter" href="{{url_for('recommender_overview')}}">MEET THE INSIDERS</a>
     </div>
-    <div class="col-md-8">
-      <img src="/p/img/Greenpoint F&L_1000x561.jpg">
+    <div class="col-md-8 col-sm-3">
+      <img src="/p/img/Greenpoint F&L_1000x561.jpg" class="thumbnailImage">
     </div>
   </div>
 </div>
@@ -25,14 +25,17 @@
   <!-- city -->
   <div class="container">
     <p class="pCenter">NEW YORK</p>
+
   </div>
   <!-- UI post -->
-  <div class="container" id="restaurant">
-    <div class="grid">
+  <div class="container-fluid" id="restaurant">
+    <div class="row">
+        <div class="col-6 col-lg-8">
+            <div class="grid">
     <div class="grid-sizer col-6 col-sm-3"></div>
 
     {%- for post_db in post_dbs %}
-       <div class="grid-item col-6 col-sm-3">
+       <div class="grid-item col-1 col-sm-3">
         <!-- UI thumbnail -->
         <div class="box">
         <!-- image -->
@@ -113,7 +116,21 @@
 
     <!-- end row -->
     </div>
+   </div>
+    <!-- Google Map Code -->
 
+      {% if search_query is not defined %}
+        {% set search_query = '*' %}
+      {% endif %}
+
+      <script>
+          var query = '{{ search_query }}';
+      </script>
+        <div class="col-4">
+            <div class="map" style="margin-right:10px;"></div>
+            <br>
+        </div>
+    </div>
     {% if next_url %}
       <a href="{{next_url}}">next</a>
     {% endif %}

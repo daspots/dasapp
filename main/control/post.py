@@ -7,13 +7,21 @@ import wtforms
 import util
 import config
 import json
+import logging
+
 
 from google.appengine.ext import blobstore
 from google.appengine.ext import ndb
 from google.appengine.api import search
+from google.appengine.api import urlfetch
 
 from helpers import add_starred_to_posts
+from settings import GEOCODING_API_KEY
 from main import app
+
+
+import requests_toolbelt.adapters.appengine
+requests_toolbelt.adapters.appengine.monkeypatch()
 
 
 def get_recommenders():
@@ -65,16 +73,36 @@ def split_keywords(keywords):
     return [k for k in keywords.data.split(',') if k != '']
 
 
-def create_document(id, title, keywords, text_value):
+def get_lat_long(address):
+    url = 'https://maps.googleapis.com/maps/api/geocode/json?address=%s&key=%s' % (address, GEOCODING_API_KEY)
+    result = urlfetch.fetch(url.replace(' ', '+'))
+    geocode_result = json.loads(result.content)
+    lat_long = geocode_result['results'][0]['geometry']['location']
+    return (lat_long['lat'], lat_long['lng'])
+
+
+def create_document(post_db, id):
+
+    try:
+        lat, long = get_lat_long(post_db.adress)
+    except:
+        lat, long = (0, 0)
+
     document = search.Document(
         # Setting the doc_id is optional. If omitted, the search service will
         # create an identifier.
         doc_id=str(id),
         fields=[
-            search.TextField(name='post_text', value=text_value),
-            search.TextField(name='title', value=title),
-            search.TextField(name='keywords', value=keywords),
-            search.AtomField(name='docid', value=str(id))
+            search.TextField(name='post_text', value=post_db.content),
+            search.TextField(name='title', value=post_db.title),
+            search.TextField(name='keywords', value=post_db.keywords.replace(',', ' ')),
+            search.TextField(name='location', value=post_db.location_keywords.replace(',', ' ')),
+            search.TextField(name='recommender', value=post_db.recommender),
+            search.AtomField(name='website', value=post_db.website),
+            search.AtomField(name='image_url', value=post_db.image_url),
+            search.TextField(name='address', value=post_db.adress),
+            search.AtomField(name='docid', value=str(id)),
+            search.GeoField(name='place', value=search.GeoPoint(latitude=lat, longitude=long))
         ])
     return document
 
@@ -137,10 +165,7 @@ def post_create():
     add_to_keywords(existing_keywords, new_keywords + new_loc_keywords, post_db_key)
 
     # add content to index:
-    search_document = create_document(post_db_key.id(),
-                                      post_db.title,
-                                      ' '.join(keyword_list + loc_keyword_list),
-                                      post_db.content)
+    search_document = create_document(post_db, post_db_key.id())
     _ = add_document_to_index(search_document)
 
     flask.flash('New post was successfully created!', category='success')
@@ -173,9 +198,10 @@ def add_to_keywords(existing_keywords, all_new_keywords, post_db_key):
 @auth.admin_required
 def post_update(post_id):
   post_db = model.Post.get_by_id(post_id)
-  if not post_db or post_db.user_key != auth.current_user_key():
+  if not post_db:
+      # or post_db.user_key != auth.current_user_key():
     flask.abort(404)
-
+  logging.warning('updating' + str(post_id))
   form = PostUpdateForm(obj=post_db)
   form.recommender.choices = get_recommenders()
 
@@ -203,10 +229,7 @@ def post_update(post_id):
 
     # Delete and recreate document in search index
     search.Index('spots').delete(str(post_id))
-    search_document = create_document(post_db_key.id(),
-                                      post_db.title,
-                                      ' '.join(post_db.keyword_list + post_db.location_keyword_list),
-                                      post_db.content)
+    search_document = create_document(post_db, post_db_key.id())
     _ = add_document_to_index(search_document)
 
     flask.flash('Post was successfully updated!', category='success')
@@ -283,19 +306,6 @@ def post_view(post_id):
       url_list=[get_img_url(id) for id in post_db.img_ids]
     )
 
-
-@app.route('/post/r/<recommender>')
-def list_recommenders(recommender):
-    post_dbs = model.Post.query(model.Post.recommender_lower == recommender.lower()).fetch()
-    post_dbs = add_starred_to_posts(post_dbs)
-    return flask.render_template(
-        'welcome.html',
-        html_class='main-list',
-        title='recommender',
-        post_dbs=post_dbs,
-        next_url=None
-    )
-
 @app.route('/post/u')
 @auth.login_required
 def post_list_u():
@@ -317,3 +327,7 @@ def post_list_u():
         post_dbs=post_dbs,
         next_url=''
     )
+
+@app.route('/maptest')
+def map():
+    return flask.render_template('map.html')

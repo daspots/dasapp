@@ -79,5 +79,6 @@ def post_list_q(query):
         html_class='main-list',
         title='Post List',
         post_dbs=post_dbs,
-        next_url=''
+        next_url='',
+        search_query=query
     )
