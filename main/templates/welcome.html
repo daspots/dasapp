@@ -2,37 +2,56 @@
 
 <!-- jumbotron title -->
 # block header
-<div class="container">
+<div class="container-fluid">
+  <div class="jumbotronHeader">
+  <div class="container">
   <div class="row">
-    <div class="col-md-4">
-      <h1 class="h1LeftBigBlack">DASPOTS <br>
-      FAVORITE PLACES SAVED</h1> 
-      <p class="pLeftBigBlack">
+    <div class="col-md-5">
+      <h1 class="h1LeftBigWhite">DASPOTS</h1>
+      <p class="pLeftBigWhite">
       Find favorite places from people who are passionate about food - they work in the industry, they care about great ingredients and they leave no bad vibes.
       </p>
       <a class="linkCenter" href="{{url_for('recommender_overview')}}">MEET THE INSIDERS</a>
+      <br>
+      <br>
+      <br>
     </div>
-    <div class="col-md-8 col-sm-3">
-      <img src="/p/img/Greenpoint F&L_1000x561.jpg" class="thumbnailImage">
-    </div>
+    <div class="col-md-7"></div>
+  </div>
+  </div>
   </div>
 </div>
+
 
 # endblock
 # block content
 # include 'bit/popup_loginform_star.html'
 
   <!-- city -->
-  <div class="container">
-    <p class="pCenter">NEW YORK</p>
-
+   <div class="container">
+    <p class="pCenter">
+        <span class="list_link"><a class="lista active">LIST</a></span> | <span class="map_link"><a class="mapa">MAP</a></span></p>
   </div>
+
+        <!-- Google Map Code -->
+
+      {% if search_query is not defined %}
+        {% set search_query = '*' %}
+      {% endif %}
+
+      <script>
+          var query = '{{ search_query }}';
+      </script>
+   <div class="container" id="map" style="display:none;">
+      <div class="map" style="margin-right:10px;"></div>
+      <br>
+   </div>
+
   <!-- UI post -->
-  <div class="container-fluid" id="restaurant">
-    <div class="row">
-        <div class="col-6 col-lg-8">
-            <div class="grid">
+  <div class="container" id="restaurant">
+    <div class="grid">
     <div class="grid-sizer col-6 col-sm-3"></div>
+
 
     {%- for post_db in post_dbs %}
        <div class="grid-item col-1 col-sm-3">
@@ -116,25 +135,13 @@
 
     <!-- end row -->
     </div>
-   </div>
-    <!-- Google Map Code -->
-
-      {% if search_query is not defined %}
-        {% set search_query = '*' %}
-      {% endif %}
-
-      <script>
-          var query = '{{ search_query }}';
-      </script>
-        <div class="col-4">
-            <div class="map" style="margin-right:10px;"></div>
-            <br>
-        </div>
-    </div>
     {% if next_url %}
       <a href="{{next_url}}">next</a>
     {% endif %}
   <!-- end container -->
-  </div>
+   </div>
+
+
+
 
 # endblock

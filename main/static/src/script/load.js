@@ -73,7 +73,7 @@ $('.draaiknopje').click(function () {
   }, 100);
 });
 
-window.onload = function() {
+$(document).ready(function() {
   Gifffer({
       playButtonStyles: {
         'width': '60px',
@@ -108,4 +108,4 @@ window.onload = function() {
       $('.grid').masonry('layout');
     });
 
- }
+ })
