@@ -1,100 +1,88 @@
 'use strict';
 
-function generateBox(image_url, location_url, location_keyword, name, keyword_urls, recommender, recommender_url, docid, website, content, google_maps_directions){
- result = '<div class="box" style="max-width:300px;"><img class="img-fluid" data-gifffer="';
- result += image_url;
- result += '"><ul class="additionalLinks" style="margin-left:0px;padding-left:0px;padding-top:3px"><div><i class="fa fa-map-marker map-marker" aria-hidden="true"></i><a class="thumbnailLocation" href="';
- result += location_url;
- result += '">';
- result += location_keyword;
- result += '</a></div><li class="iconList"><h1 class="thumbnailTitle">';
- result += name;
- result += '</h1></li></ul><div class="addPadding">';
- result += keyword_urls;
- result += '</div>';
- result +=  '<div class="tab"><br><a class="linkRecommendedBy" href="';
- result += recommender_url;
- result += '"> BY ' + recommender + "</a>";
- result += '<input id="';
- result += docid;
- result += '" class="hidden draaiknopje" type="checkbox" name="tabs">';
- result += '<label for="' + docid + '">';
- result += '<ul class="additionalLinks" style="margin-left:0px;padding-left:0px;padding-top:10px">';
- result += '<li class="iconList"><a href="' + website + '"><img src="/p/img/ic_open_in_new_black_24px.png" class="postIcon"></a></li>';
- result += '<li class="iconList"><a href="' + google_maps_directions + '"><img src="/p/img/ic_directions_black_24px.png" class="postIcon"></a></li></ul>';
- result += '</label>';
- result += '<div class="tab-content">';
- result += '<p class="pLeft">' + content + '</p>';
- result += '</div></div></div>';
-
- return result;
-
+function escapeHTML(string) {
+    return string.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 }
 
-
-var _templateObject = _taggedTemplateLiteral(
-['<div class="box scrollFix"><img class="img-fluid" data-gifffer="',
-'"><ul class="additionalLinks" style="margin-left:0px;padding-left:0px;padding-top:3px"><div><i class="fa fa-map-marker map-marker" aria-hidden="true"></i><a class="thumbnailLocation" href="',
-'">',
-'</a></div><li class="iconList"><h1 class="thumbnailTitle">',
-'</h1></li></ul><div class="addPadding">',
-'</div>',
-
-],
-
-['<div style="margin-bottom:20px;"><h2>',
-'</h2><p>',
-'</p><p><img class="img-fluid" data-gifffer="',
-'"></p></div>']);
-
-function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-
-/*
- * Copyright 2017 Google Inc. All rights reserved.
- *
- *
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this
- * file except in compliance with the License. You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software distributed under
- * the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF
- * ANY KIND, either express or implied. See the License for the specific language governing
- * permissions and limitations under the License.
- */
-
-// Style credit: https://snazzymaps.com/style/1/pale-dawn
-
-
-// Escapes HTML characters in a template literal string, to prevent XSS.
-// See https://www.owasp.org/index.php/XSS_%28Cross_Site_Scripting%29_Prevention_Cheat_Sheet#RULE_.231_-_HTML_Escape_Before_Inserting_Untrusted_Data_into_HTML_Element_Content
-function sanitizeHTML(strings) {
-  var entities = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' };
-  var result = strings[0];
-  for (var i = 1; i < arguments.length; i++) {
-    result += String(arguments[i]).replace(/[&<>'"]/g, function (char) {
-      return entities[char];
-    });
-    result += strings[i];
-  }
-  return result;
+function getCleanName(feature, property){
+    //return string stipped of html codes
+    return escapeHTML(feature.getProperty(property));
 }
 
 function getKeywordUrls(mainUrl, keywordArray){
+    // Returns a string of html links based on array of keywords
     var result = '';
     var aLen = Math.min(3,  keywordArray.length);
     for (var i = 0; i < aLen; i++) {
-      result += '<a class="thumbnailHashtag" href="';
-      result += mainUrl;
-      result += keywordArray[i];
-      result += '">#';
-      result += keywordArray[i];
-      result += '</a>';
+      html = [
+        '<a class="thumbnailHashtag" href="' + mainUrl + keywordArray[i] + '">',
+            '#' + keywordArray[i],
+         '</a>'
+      ].join("\n");
+      result += html;
     }
-    console.log(result);
     return result;
 }
+
+
+function generateBox(feature){
+ // Generates the HTML code for the map info window
+ var search_page_url = '/post/q/';
+
+ var name = getCleanName(feature, 'name');
+ var description = getCleanName(feature, 'description');
+ var image_url = getCleanName(feature, 'image_url');
+ var location_keyword = getCleanName(feature, 'location');
+ var keywords = getCleanName(feature, 'keywords').split(',');
+ var recommender = getCleanName(feature, 'recommender');
+ var docid = getCleanName(feature, 'docid');
+ var website = getCleanName(feature, 'website');
+ var address = getCleanName(feature, 'address');
+
+
+ var location_url = search_page_url + location_keyword;
+ var keyword_urls = getKeywordUrls(search_page_url, keywords);
+ var recommender_url = search_page_url + 'recommender=' + recommender.replace(',', '');
+ var google_maps_directions = 'https://www.google.com/maps?saddr=My+Location&daddr=' + address.replace(' ', '+');
+
+ var html = [
+ '<div class="box" style="max-width:300px;">',
+    '<img class="img-fluid" data-gifffer="' + image_url + '">',
+    '<ul class="additionalLinks" style="margin-left:0px;padding-left:0px;padding-top:3px">',
+        '<div>',
+            '<i class="fa fa-map-marker map-marker" aria-hidden="true"></i>',
+            '<a class="thumbnailLocation" href="' + location_url + '">',
+                location_keyword,
+             '</a>',
+        '</div>',
+        '<li class="iconList">',
+            '<h1 class="thumbnailTitle">' + name + '</h1>',
+         '</li>',
+    '</ul>',
+    '<div class="addPadding">' + keyword_urls + '</div>',
+    '<div class="tab">',
+        '<br><a class="linkRecommendedBy" href="' + recommender_url + '"> BY ' + recommender + '</a>',
+        '<input id="' + docid + '" class="hidden draaiknopje" type="checkbox" name="tabs">',
+        '<label for="' + docid + '">',
+            '<ul class="additionalLinks" style="margin-left:0px;padding-left:0px;padding-top:10px">',
+                '<li class="iconList"><a href="' + website + '">',
+                    '<img src="/p/img/ic_open_in_new_black_24px.png" class="postIcon">',
+                '</a></li>',
+                '<li class="iconList"><a href="' + google_maps_directions + '">',
+                    '<img src="/p/img/ic_directions_black_24px.png" class="postIcon">',
+                 '</a></li>',
+            '</ul>',
+        '</label>',
+        '<div class="tab-content">',
+            '<p class="pLeft">' + description + '</p>',
+        '</div>',
+    '</div>',
+ '</div>'
+  ];
+ return html.join("\n");
+
+}
+
 
 function processPoints(geometry, callback, thisArg) {
   if (geometry instanceof google.maps.LatLng) {
@@ -109,93 +97,30 @@ function processPoints(geometry, callback, thisArg) {
 }
 
 function initMap() {
-//  var mapStyle = [{
-//    "featureType": "administrative",
-//    "elementType": "all",
-//    "stylers": [{
-//      "visibility": "on"
-//    }, {
-//      "lightness": 33
-//    }]
-//  }, {
-//    "featureType": "landscape",
-//    "elementType": "all",
-//    "stylers": [{
-//      "color": "#f2e5d4"
-//    }]
-//  }, {
-//    "featureType": "poi.park",
-//    "elementType": "geometry",
-//    "stylers": [{
-//      "color": "#c5dac6"
-//    }]
-//  }, {
-//    "featureType": "poi.park",
-//    "elementType": "labels",
-//    "stylers": [{
-//      "visibility": "on"
-//    }, {
-//      "lightness": 20
-//    }]
-//  }, {
-//    "featureType": "road",
-//    "elementType": "all",
-//    "stylers": [{
-//      "lightness": 20
-//    }]
-//  }, {
-//    "featureType": "road.highway",
-//    "elementType": "geometry",
-//    "stylers": [{
-//      "color": "#c5c6c6"
-//    }]
-//  }, {
-//    "featureType": "road.arterial",
-//    "elementType": "geometry",
-//    "stylers": [{
-//      "color": "#e4d7c6"
-//    }]
-//  }, {
-//    "featureType": "road.local",
-//    "elementType": "geometry",
-//    "stylers": [{
-//      "color": "#fbfaf7"
-//    }]
-//  }, {
-//    "featureType": "water",
-//    "elementType": "all",
-//    "stylers": [{
-//      "visibility": "on"
-//    }, {
-//      "color": "#acbcc9"
-//    }]
-//  }];
   // Create the map.
   var map = new google.maps.Map(document.getElementsByClassName('map')[0], {
     zoom: 7,
     center: { lat: 0, lng: 0 },
-//    styles: mapStyle
   });
 
   var bounds = new google.maps.LatLngBounds();
   map.data.addListener('addfeature', function (e) {
     processPoints(e.feature.getGeometry(), bounds.extend, bounds);
+
+    if (bounds.getNorthEast().equals(bounds.getSouthWest())) {
+       var extendPoint1 = new google.maps.LatLng(bounds.getNorthEast().lat() + 0.01, bounds.getNorthEast().lng() + 0.01);
+       var extendPoint2 = new google.maps.LatLng(bounds.getNorthEast().lat() - 0.01, bounds.getNorthEast().lng() - 0.01);
+       bounds.extend(extendPoint1);
+       bounds.extend(extendPoint2);
+    }
+
     map.fitBounds(bounds);
   });
   console.log(query);
+
   api_url = '/api/v1/post/' + query;
   // Load the stores GeoJSON onto the map.
   map.data.loadGeoJson(api_url);
-
-  // Define the custom marker icons, using the store's "category".
-  //  map.data.setStyle(feature => {
-  //    return {
-  //      icon: {
-  //        url: `img/icon_${feature.getProperty('category')}.png`,
-  //        scaledSize: new google.maps.Size(64, 64)
-  //      }
-  //    };
-  //  });
 
   var apiKey = 'AIzaSyAbcMGMULgp5l0Trav2G3OseIrNGIxHDZk';
   var infoWindow = new google.maps.InfoWindow();
@@ -203,30 +128,15 @@ function initMap() {
 
   // Show the information for a store when its marker is clicked.
   map.data.addListener('click', function (event) {
+  var position = event.feature.getGeometry().get();
+  var content = generateBox(event.feature);
 
-    var name = event.feature.getProperty('name');
-    var description = event.feature.getProperty('description');
-    var image_url = event.feature.getProperty('image_url');
-    var location_keyword = event.feature.getProperty('location');
-    var location_url = '/post/q/' + location_keyword;
-    var keywords = event.feature.getProperty('keywords').split(',');
-    var keyword_urls = getKeywordUrls('/post/q/', keywords);
-    var recommender = event.feature.getProperty('recommender');
-    var recommender_url = '/post/q/recommender=' + recommender;
-    var docid = event.feature.getProperty('docid');
-    var website = event.feature.getProperty('website');
-    var address = event.feature.getProperty('address');
-    var google_maps_directions = 'https://www.google.com/maps?saddr=My+Location&daddr=' + address.replace(' ', '+');
+  infoWindow.setContent(content);
+  infoWindow.setPosition(position);
 
-    var position = event.feature.getGeometry().get();
-//    var content = sanitizeHTML(_templateObject, image_url, location_url, location_keyword, name, keyword_urls);
-    var content = generateBox(image_url, location_url, location_keyword, name, keyword_urls, recommender, recommender_url, docid, website, description, google_maps_directions);
-    infoWindow.setContent(content);
-    infoWindow.setPosition(position);
+  infoWindow.open(map);
 
-    infoWindow.open(map);
-
-    Gifffer({
+   Gifffer({
       playButtonStyles: {
         'width': '60px',
         'height': '60px',
