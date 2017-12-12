@@ -34,7 +34,14 @@ def build_feature_dict(doc):
             'type': 'Feature',
             'properties': {
                 'name': doc.field('title').value,
-                'description': doc.field('post_text').value
+                'description': doc.field('post_text').value,
+                'image_url': doc.field('image_url').value,
+                'location': doc.field('location').value,
+                'keywords': doc.field('keywords').value,
+                'recommender': doc.field('recommender').value,
+                'docid': doc.field('docid').value,
+                'website': doc.field('website').value,
+                'address': doc.field('address').value
             }
 
         }

@@ -62,7 +62,7 @@ def no_posts_found():
 @app.route('/post/q/<query>')
 def post_list_q(query):
 
-    query = query.replace('+', ' ')
+    query = query.replace('+', ' ').replace(',', '')
     index = search.Index('spots')
     search_results = index.search(query)
 
@@ -76,7 +76,7 @@ def post_list_q(query):
 
     return flask.render_template(
         'welcome.html',
-        html_class='main-list',
+        html_class='search-list',
         title='Post List',
         post_dbs=post_dbs,
         next_url='',

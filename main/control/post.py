@@ -95,8 +95,8 @@ def create_document(post_db, id):
         fields=[
             search.TextField(name='post_text', value=post_db.content),
             search.TextField(name='title', value=post_db.title),
-            search.TextField(name='keywords', value=post_db.keywords.replace(',', ' ')),
-            search.TextField(name='location', value=post_db.location_keywords.replace(',', ' ')),
+            search.TextField(name='keywords', value=post_db.keywords),
+            search.TextField(name='location', value=post_db.location_keywords),
             search.TextField(name='recommender', value=post_db.recommender),
             search.AtomField(name='website', value=post_db.website),
             search.AtomField(name='image_url', value=post_db.image_url),

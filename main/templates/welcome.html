@@ -2,33 +2,17 @@
 
 <!-- jumbotron title -->
 # block header
-<div class="container-fluid">
-  <div class="jumbotronHeader">
-  <div class="container">
-  <div class="row">
-    <div class="col-md-5">
-      <h1 class="h1LeftBigWhite">DASPOTS</h1>
-      <p class="pLeftBigWhite">
-      Find favorite places from people who are passionate about food - they work in the industry, they care about great ingredients and they leave no bad vibes.
-      </p>
-      <a class="linkCenter" href="{{url_for('recommender_overview')}}">MEET THE INSIDERS</a>
-      <br>
-      <br>
-      <br>
-    </div>
-    <div class="col-md-7"></div>
-  </div>
-  </div>
-  </div>
-</div>
 
+{% if html_class == 'main-list' %}
+ {% include 'bit/welcome_header.html' %}
+{% endif %}
 
 # endblock
 # block content
 # include 'bit/popup_loginform_star.html'
 
   <!-- city -->
-   <div class="container">
+   <div class="container less_padding">
     <p class="pCenter">
         <span class="list_link"><a class="lista active">LIST</a></span> | <span class="map_link"><a class="mapa">MAP</a></span></p>
   </div>

@@ -1,16 +1,50 @@
 'use strict';
 
+function generateBox(image_url, location_url, location_keyword, name, keyword_urls, recommender, recommender_url, docid, website, content, google_maps_directions){
+ result = '<div class="box" style="max-width:300px;"><img class="img-fluid" data-gifffer="';
+ result += image_url;
+ result += '"><ul class="additionalLinks" style="margin-left:0px;padding-left:0px;padding-top:3px"><div><i class="fa fa-map-marker map-marker" aria-hidden="true"></i><a class="thumbnailLocation" href="';
+ result += location_url;
+ result += '">';
+ result += location_keyword;
+ result += '</a></div><li class="iconList"><h1 class="thumbnailTitle">';
+ result += name;
+ result += '</h1></li></ul><div class="addPadding">';
+ result += keyword_urls;
+ result += '</div>';
+ result +=  '<div class="tab"><br><a class="linkRecommendedBy" href="';
+ result += recommender_url;
+ result += '"> BY ' + recommender + "</a>";
+ result += '<input id="';
+ result += docid;
+ result += '" class="hidden draaiknopje" type="checkbox" name="tabs">';
+ result += '<label for="' + docid + '">';
+ result += '<ul class="additionalLinks" style="margin-left:0px;padding-left:0px;padding-top:10px">';
+ result += '<li class="iconList"><a href="' + website + '"><img src="/p/img/ic_open_in_new_black_24px.png" class="postIcon"></a></li>';
+ result += '<li class="iconList"><a href="' + google_maps_directions + '"><img src="/p/img/ic_directions_black_24px.png" class="postIcon"></a></li></ul>';
+ result += '</label>';
+ result += '<div class="tab-content">';
+ result += '<p class="pLeft">' + content + '</p>';
+ result += '</div></div></div>';
+
+ return result;
+
+}
+
+
 var _templateObject = _taggedTemplateLiteral(
+['<div class="box scrollFix"><img class="img-fluid" data-gifffer="',
+'"><ul class="additionalLinks" style="margin-left:0px;padding-left:0px;padding-top:3px"><div><i class="fa fa-map-marker map-marker" aria-hidden="true"></i><a class="thumbnailLocation" href="',
+'">',
+'</a></div><li class="iconList"><h1 class="thumbnailTitle">',
+'</h1></li></ul><div class="addPadding">',
+'</div>',
+
+],
+
 ['<div style="margin-bottom:20px;"><h2>',
 '</h2><p>',
-'</p><p><img src="https://maps.googleapis.com/maps/api/streetview?size=350x120&location=',
-',', '&key=',
-'"></p></div>'],
-['<div style="margin-left:220px; margin-bottom:20px;"><h2>',
-'</h2><p>',
-'</p><p><img src="https://maps.googleapis.com/maps/api/streetview?size=350x120&location=',
-',',
-'&key=',
+'</p><p><img class="img-fluid" data-gifffer="',
 '"></p></div>']);
 
 function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
@@ -45,6 +79,21 @@ function sanitizeHTML(strings) {
     result += strings[i];
   }
   return result;
+}
+
+function getKeywordUrls(mainUrl, keywordArray){
+    var result = '';
+    var aLen = Math.min(3,  keywordArray.length);
+    for (var i = 0; i < aLen; i++) {
+      result += '<a class="thumbnailHashtag" href="';
+      result += mainUrl;
+      result += keywordArray[i];
+      result += '">#';
+      result += keywordArray[i];
+      result += '</a>';
+    }
+    console.log(result);
+    return result;
 }
 
 function processPoints(geometry, callback, thisArg) {
@@ -157,14 +206,49 @@ function initMap() {
 
     var name = event.feature.getProperty('name');
     var description = event.feature.getProperty('description');
+    var image_url = event.feature.getProperty('image_url');
+    var location_keyword = event.feature.getProperty('location');
+    var location_url = '/post/q/' + location_keyword;
+    var keywords = event.feature.getProperty('keywords').split(',');
+    var keyword_urls = getKeywordUrls('/post/q/', keywords);
+    var recommender = event.feature.getProperty('recommender');
+    var recommender_url = '/post/q/recommender=' + recommender;
+    var docid = event.feature.getProperty('docid');
+    var website = event.feature.getProperty('website');
+    var address = event.feature.getProperty('address');
+    var google_maps_directions = 'https://www.google.com/maps?saddr=My+Location&daddr=' + address.replace(' ', '+');
 
     var position = event.feature.getGeometry().get();
-    var content = sanitizeHTML(_templateObject, name, description, position.lat(), position.lng(), apiKey);
-
+//    var content = sanitizeHTML(_templateObject, image_url, location_url, location_keyword, name, keyword_urls);
+    var content = generateBox(image_url, location_url, location_keyword, name, keyword_urls, recommender, recommender_url, docid, website, description, google_maps_directions);
     infoWindow.setContent(content);
     infoWindow.setPosition(position);
 
     infoWindow.open(map);
+
+    Gifffer({
+      playButtonStyles: {
+        'width': '60px',
+        'height': '60px',
+        'border-radius': '30px',
+        'background': 'rgba(0, 0, 0, 0.3)',
+        'position': 'absolute',
+        'top': '50%',
+        'left': '50%',
+        'margin': '-30px 0 0 -30px'
+      },
+      playButtonIconStyles: {
+        'width': '0',
+        'height': '0',
+        'border-top': '14px solid transparent',
+        'border-bottom': '14px solid transparent',
+        'border-left': '14px solid rgba(255,255,255, 0.5)',
+        'position': 'absolute',
+        'left': '26px',
+        'top': '16px'
+      }
+    });
+
   });
 }
 
@@ -175,6 +259,7 @@ $('.map_link').on('click',function() {
   initMap();
   $("a.lista").css({"color":"gray"});
   $("a.mapa").css({"color":"black"});
+
 
 })
 
