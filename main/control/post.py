@@ -20,8 +20,8 @@ from settings import GEOCODING_API_KEY
 from main import app
 
 
-import requests_toolbelt.adapters.appengine
-requests_toolbelt.adapters.appengine.monkeypatch()
+# import requests_toolbelt.adapters.appengine
+# requests_toolbelt.adapters.appengine.monkeypatch()
 
 
 def get_recommenders():
