@@ -1,16 +1,45 @@
-.iconList {
-  display: inline-block;
-}
-
 /* Acordeon styles */
+
+.box {
+  margin-bottom: 30px;
+  box-shadow: 0 4px 2px -2px gray;
+  padding: 0 0 7px 5px;
+}
 
 .tab {
   position: relative;
   width: 100%;
   color: #fff;
   overflow: hidden;
-  margin-top: 30px;
-  box-shadow: 0 4px 2px -2px gray;
+  margin-bottom: 0px!important;
+}
+
+.tablinks {
+  border: none;
+  width: 50%;
+}
+
+
+/* Style the buttons inside the tab */
+.tab button {
+    background-color: white;
+    color: black;
+    font-family: 'Roboto Condensed', sans-serif;
+    float: left;
+    transition: 0.3s;
+    font-size: 0.6em;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+   text-decoration: underline;
+   color: black;
+}
+
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
 }
 
 #tab-one {
@@ -22,9 +51,9 @@
 label {
   position: relative;
   display: block;
-  padding: 0 0 7px 5px;
   color: black;
   background: white;
+  margn-bottom: 0px;
 }
 
 .blue label {
@@ -38,7 +67,6 @@ label {
   -webkit-transition: max-height 0.1s;
   -o-transition: max-height 0.1s;
   transition: max-height 0.1s;
-  box-shadow: 0 4px 2px -2px gray;
 }
 
 .blue .tab-content {
@@ -55,35 +83,31 @@ input:checked ~ .tab-content {
 }
 
 /* Icon */
-label::after {
+  label::after {
   position: absolute;
   right: 0;
   top: 0;
   display: block;
   width: 3em;
-  height: 3em;
-  line-height: 3;
+  height: 2em;
+  line-height: 2;
   text-align: center;
   -webkit-transition: all 0.1s;
   -o-transition: all 0.1s;
   transition: all 0.1s;
   cursor: pointer;
+  backrgound-color: black;
 }
 
 input[type=checkbox] + label::after {
-  content: url("/p/img/ic_keyboard_arrow_down_black_24px.png");
-  margin-top: 10px;
+  content: url("/p/img/read more icon.png");
+  margin-top: 3px;
 } 
 
 input[type=radio] + label::after {
-  content: url("/p/img/ic_keyboard_arrow_down_black_24px.png");
-  margin-top: 10px;
+  content: url("/p/img/read more icon.png");
+  margin-top: 3px;
 }
 
-input[type=checkbox]:checked + label::after {
-  transform: rotate(315deg);
-}
 
-input[type=radio]:checked + label::after {
-  transform: rotateX(180deg);
-}
+  

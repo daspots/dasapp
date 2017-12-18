@@ -24,8 +24,6 @@
         # include 'bit/contact_menu.html'
       </ul>
       <ul class="nav navbar-nav navbar-right">
-
-
          <!-- search bar big screen -->
         <!--<li class="visible-md-block visible-lg-block ">-->
           <!--<form class="navbar-form" role="search"  action="{{ url_for('search_page') }}" method="post" name="search">-->
@@ -37,7 +35,7 @@
             <!--</div>-->
             <!--</div>-->
           <!--</form>-->
-        </li>
+        <li><a class="navbarListElement" href="{{url_for('recommender_overview')}}">MEET THE INSIDERS</a></li>
         <li><a class="navbarListElement" href="{{url_for('about')}}">ABOUT</a></li>
         <li><a class="navbarListElement" href="{{url_for('work_with_us')}}">WORK WITH US</a></li>
         # include 'bit/user_menu.html'

@@ -11,54 +11,103 @@
 # block content
 # include 'bit/popup_loginform_star.html'
 
-  <!-- city -->
-   <div class="container less_padding">
+
+  <!-- list/map -->
+  <div class="container-fluid less_padding">
     <p class="pCenter">
         <span class="list_link"><a class="lista active">LIST</a></span> | <span class="map_link"><a class="mapa">MAP</a></span></p>
   </div>
 
-        <!-- Google Map Code -->
+  <!-- Google Map Code -->
+    {% if search_query is not defined %}
+    {% set search_query = '*' %}
+    {% endif %}
 
-      {% if search_query is not defined %}
-        {% set search_query = '*' %}
-      {% endif %}
-
-      <script>
-          var query = '{{ search_query }}';
-      </script>
-   <div class="container" id="map" style="display:none;">
+    <script>
+      var query = '{{ search_query }}';
+    </script>
+   
+    <div class="container" id="map" style="display:none;">
       <div class="map" style="margin-right:10px;"></div>
       <br>
-   </div>
+    </div>
 
   <!-- UI post -->
   <div class="container" id="restaurant">
     <div class="grid">
     <div class="grid-sizer col-6 col-sm-3"></div>
-
-
     {%- for post_db in post_dbs %}
        <div class="grid-item col-1 col-sm-3">
+        
         <!-- UI thumbnail -->
         <div class="box">
+
+        <!--  link recommender -->
+        <a class="linkRecommendedBy" href="{{post_db.recommender_url}}">FAV' SPOT OF {{post_db.recommender}}</a>
+
         <!-- image -->
         <img class="img-fluid" data-gifffer="{{post_db.image_url}}">
-        <ul class="additionalLinks" style="margin-left:0px;padding-left:0px;padding-top:3px">
+
+        <!-- start accordion -->
+        <div class="tab">
+
+        <!-- icon list -->
+          <input id="{{post_db.key.id()}}" class="hidden draaiknopje" type="checkbox" name="tabs">
+
+          <label for="{{post_db.key.id()}}">
+
+          <!-- Name spot with accordion -->
+          <ul style="margin-left:0px;padding-left:0px;padding-top:0px">
+            <li class="iconList">
+              <h1 class="thumbnailTitle">{{post_db.title}}</h1>
+            </li>
+          </ul>
+          </label>
+
+          <!-- content accordion -->
+          <div class="tab-content">
+            <p class="pLeft">{{post_db.content}}</p>
+          </div>
+
+        <!-- end accordion -->
+        </div>
+
         <!-- location -->
-        <div>
           <i class="fa fa-map-marker map-marker" aria-hidden="true"></i>
           {% for keyword in post_db.location_keyword_list %}
           {% if loop.index <= 3 %}
             <a class="thumbnailLocation" href="{{url_for('post_list_q', query=keyword)}}">{{keyword}}</a>
           {% endif %}
           {% endfor %}
-        </div>
-        <!-- Name spot -->
-        <li class="iconList">
-          <h1 class="thumbnailTitle">{{post_db.title}}</h1>
-        </li>
 
-          <!-- bookmark -->
+        <!-- link hashtags -->
+        <div class="addPadding">
+          {% for keyword in post_db.keyword_list %}
+          {% if loop.index <= 3 %}
+            <a class="thumbnailHashtag" href="{{url_for('post_list_q', query=keyword)}}">#{{keyword}} </a>
+          {% endif %}
+          {% endfor %}
+        </div>
+
+        <!-- additional links  -->
+        <div class="tab">
+        <hr>
+          <button class="tablinks">
+            <a href="{{post_db.website}}">
+            <img src="/p/img/ic_open_in_new_black_24px.png" class="postIcon"><!-- {{post_db.adress}} -->
+            <p class="pLink">VISIT WEBSITE</p>
+            </a>
+          </button>
+          <button class="tablinks">
+            <a href="{{post_db.google_maps_directions}}">
+            <img src="/p/img/ic_directions_black_24px.png" class="postIcon"><!-- {{post_db.title}} -->
+            <p class="pLink">GET DIRECTIONS</p>
+            </a>
+          </button>
+        </div>
+
+        
+        <!-- bookmark -->
           <!-- <li class="iconList" style="float: right; margin-top: 20px; margin-right: 10px;"><i onclick="starFunction(this, '{{post_db.key.id()}}')" role="button"
                {% if post_db.starred %}
                  class="fa blue fa-star
@@ -71,61 +120,23 @@
                 not-logged-in"
               {% endif %}></i>
               </li> -->
-          </ul>
 
-          <!-- link hashtags -->
-          <div class="addPadding">
-            {% for keyword in post_db.keyword_list %}
-             {% if loop.index <= 3 %}
-              <a class="thumbnailHashtag" href="{{url_for('post_list_q', query=keyword)}}">#{{keyword}} </a>
-             {% endif %}
-            {% endfor %}
-          </div>
-
-          <!-- start accordion -->
-          <div class="tab">
-
-            <!-- link recommender -->
-            <br>
-            <a class="linkRecommendedBy" href="{{post_db.recommender_url}}">BY {{post_db.recommender}}</a>
-
-
-            <!-- icon list -->
-            <input id="{{post_db.key.id()}}" class="hidden draaiknopje" type="checkbox" name="tabs">
-            
-            <label for="{{post_db.key.id()}}">
-              <ul class="additionalLinks" style="margin-left:0px;padding-left:0px;padding-top:10px">
-              
-              <!-- link getdirections -->
-               <li class="iconList"><a href="{{post_db.website}}"><img src="/p/img/ic_open_in_new_black_24px.png" class="postIcon">
-              <!-- {{post_db.adress}} --></a></li>
-
-              <!-- link website -->
-              <li class="iconList"><a href="{{post_db.google_maps_directions}}"><img src="/p/img/ic_directions_black_24px.png" class="postIcon"><!-- {{post_db.title}} --></a></li>
-              </ul>
-            </label>
-
-            <!-- content accordion -->
-            <div class="tab-content">
-              <p class="pLeft">{{post_db.content}}</p>
-            </div>
-          <!-- end accordion -->
+        <!-- end box -->
         </div>
-         <!-- end box -->
-        </div>
+
       <!-- end col -->
       </div>
       {%- endfor %}
 
     <!-- end row -->
     </div>
+
+    <!-- page numbering -->
     {% if next_url %}
       <a href="{{next_url}}">next</a>
     {% endif %}
+
   <!-- end container -->
    </div>
-
-
-
 
 # endblock
