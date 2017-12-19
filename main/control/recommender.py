@@ -142,11 +142,15 @@ def get_bootstrap_class_list(recommender_db):
 @auth.admin_required
 def recommender_update(recommender_id):
     recommender_db = model.Recommender.get_by_id(recommender_id)
-    if not recommender_db or recommender_db.user_key != auth.current_user_key():
+
+    if not recommender_db:
+            # or recommender_db.user_key != auth.current_user_key():
         flask.abort(404)
     form = RecommenderUpdateForm(obj=recommender_db)
     if form.validate_on_submit():
         form.populate_obj(recommender_db)
+        recommender_db.name_lower = form.name.data.lower()
+
         recommender_db.put()
         return flask.redirect(flask.url_for('recommender_list', order='-modified'))
 
