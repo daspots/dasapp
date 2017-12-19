@@ -175,7 +175,7 @@ def recommender_remove(recommender_id):
 @app.route('/recommender_overview')
 def recommender_overview():
     recommender_dbs, post_cursor = model.Recommender.get_dbs(
-        query=model.Recommender.query(),
+        query=model.Recommender.query().order(-model.Recommender.created),
     )
     for recommender_db in recommender_dbs:
         recommender_db.bootstrap_class_list = get_bootstrap_class_list(recommender_db)
