@@ -12,25 +12,20 @@
 # include 'bit/popup_loginform_star.html'
 
 
-  <!-- list/map -->
-  <div class="container-fluid less_padding">
-    <p class="pCenter">
-        <span class="list_link"><a class="lista active">LIST</a></span> | <span class="map_link"><a class="mapa">MAP</a></span></p>
-  </div>
-
   <!-- Google Map Code -->
-    {% if search_query is not defined %}
-    {% set search_query = '*' %}
-    {% endif %}
+  {% if search_query is not defined %}
+  {% set search_query = '*' %}
+  {% endif %}
 
-    <script>
-      var query = '{{ search_query }}';
-    </script>
-   
-    <div class="container" id="map" style="display:none;">
-      <div class="map" style="margin-right:10px;"></div>
-      <br>
+  <script>
+    var query = '{{ search_query }}';
+  </script>
+
+  <div class="container" id="map" style="display:none;">
+    <div class="map" style="margin-right:10px;">
     </div>
+    <br>
+   </div>
 
   <!-- UI post -->
   <div class="container" id="restaurant">
@@ -87,11 +82,12 @@
             <a class="thumbnailHashtag" href="{{url_for('post_list_q', query=keyword)}}">#{{keyword}} </a>
           {% endif %}
           {% endfor %}
+          <br>
+          <br>
         </div>
 
         <!-- additional links  -->
         <div class="tab">
-        <hr>
           <button class="tablinks">
             <a href="{{post_db.website}}">
             <img src="/p/img/ic_open_in_new_black_24px.png" class="postIcon"><!-- {{post_db.adress}} -->

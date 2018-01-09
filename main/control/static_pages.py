@@ -36,4 +36,18 @@ def work_with_us():
       'work_with_us.html',
         html_class='main-list',
       )
+
+@app.route('/new_feature')
+def new_feature():
+    return flask.render_template(
+      'new_feature.html',
+        html_class='main-list',
+      )
+
+@app.route('/stories')
+def stories():
+    return flask.render_template(
+      'stories.html',
+        html_class='main-list',
+      ) 
  

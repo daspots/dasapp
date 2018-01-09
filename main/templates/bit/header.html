@@ -1,45 +1,99 @@
+<!-- begin fixed header -->
 <header class="navbar navbar-default navbar-fixed-top">
+
+  <!-- begin container -->
   <div class="container">
-    <!-- toggle -->
+    
+    <!-- begin navbar -->
     <div class="navbar-header">
+      
+      <!-- begin hamburger menu -->
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
+
+      <!-- begin button nearby -->
+      <button type="button" class="navbar-toggle">
+        <a href="{{url_for('new_feature')}}">
+          <i class="fa fa-map-marker" aria-hidden="true""></i>
+        </a>
+      </button>
+
+      <!-- begin button searchbar -->
+      <button type="button" class="navbar-toggle">
+        <a href="{{url_for('search_page')}}">
+          <i class="fa fa-search"></i>
+        </a>
+      </button>
+
+      <!-- brand -->
       <a class="navbar-brand" href="{{url_for('welcome')}}"><img class="navbar-brand" src="/p/img/logo_web.png"></a>
+    
     </div>
-    <!-- navbar -->
+    <!-- end navbar -->
+
+    <!-- begin collapse navbar -->
     <nav class="collapse navbar-collapse">
+
+      <!-- contact menu -->
       <ul class="nav navbar-nav">
-        <!-- search bar mobile screen -->
-        <!--<li class="navbarList  {{'active' if html_class == 'search'}} visible-sm-block visible-xs-block">-->
-          <!--<a href="{{url_for('search_page')}}">-->
-            <!--<i class="fa fa-search"></i> Search-->
-          <!--</a>-->
-        <!--</li>-->
-
-
         # include 'bit/contact_menu.html'
       </ul>
+
+      <!-- navbar elements -->
       <ul class="nav navbar-nav navbar-right">
-         <!-- search bar big screen -->
-        <!--<li class="visible-md-block visible-lg-block ">-->
-          <!--<form class="navbar-form" role="search"  action="{{ url_for('search_page') }}" method="post" name="search">-->
-            <!--<div class="input-group add-on">-->
-            <!--{{ g.search_form.search(class="form-control", placeholder="Search", type="text") }}-->
-            <!--{{ g.search_form.hidden_tag() }}-->
-            <!--<div class="input-group-btn">-->
-              <!--<button class="btn btn-default cvdb-button-addon" type="submit"><i class="glyphicon glyphicon-search"></i></button>-->
-            <!--</div>-->
-            <!--</div>-->
-          <!--</form>-->
-        <li><a class="navbarListElement" href="{{url_for('recommender_overview')}}">MEET THE INSIDERS</a></li>
         <li><a class="navbarListElement" href="{{url_for('about')}}">ABOUT</a></li>
         <li><a class="navbarListElement" href="{{url_for('work_with_us')}}">WORK WITH US</a></li>
+        <li><a class="navbarListElement" href="{{url_for('recommender_overview')}}">MEET THE INSIDERS</a></li>
         # include 'bit/user_menu.html'
       </ul>
+
     </nav>
+    <!-- end collpase navbar -->
+
+    <!-- begin second navbar -->
+    <nav class="navbar">
+
+      <!-- begin map vs list -->
+      <div class="maplist extra-margin">
+        <span class="list_link"><a class="lista active">LIST</a></span> | <span class="map_link"><a class="mapa">MAP</a></span>
+      </div>
+      <!-- end map vs list -->
+
+      <!-- begin navbar right -->
+      <ul class="nav navbar-nav navbar-right">
+        
+        <!-- search bar big screen -->
+        <li class="visible-md-block visible-lg-block">
+          <form class="navbar-form" role="search"  action="{{ url_for('search_page') }}" method="post" name="search">
+            <div class="input-group add-on">
+            {{ g.search_form.search(class="form-control", placeholder="Search", type="text") }}
+            {{ g.search_form.hidden_tag() }}
+            <div class="input-group-btn">
+              <button class="btn btn-default cvdb-button-addon" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+            </div>
+            </div>
+          </form>
+        </li>
+
+        <!-- begin location button -->
+        <li class="visible-md-block visible-lg-block">
+          <button class="btn btn-default extra-margin" type="submit"><a href="{{url_for('new_feature')}}"><i class="fa fa-map-marker"></i></a></button>
+        </li>
+
+      </ul>
+      <!-- end navbar right -->
+    
+    </nav>
+    <!-- end second navbar -->
+
   </div>
+  <!-- end container -->
+
 </header>
+<!-- end fixed header -->
+
+

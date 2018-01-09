@@ -1,17 +1,21 @@
 # extends 'base.html'
 
 # block header
-  <div class="jumbotron">
-    <div class="container">
-      <h2>
-        <small>{{error.code}}</small>
-        Oh no...! {{error.name}}
-      </h2>
-      <p>Maybe it's our fault.. maybe it's yours.. but either case, this page is unavailable!</p>
+
+<div class="jumbotronBlank">
+  <div class="container">
+  <div class="row">
+    <div class="col-sm-6 col-md-2"></div>
+    <div class="col-sm-6 col-md-8">
+      <h1 class="h1CenterBig">OH NO...!</h1>
+      <p class="pCenterBig">This page is unavailable!</p>
     </div>
+    <div class="col-sm-6 col-md-2"></div>
   </div>
+  </div>
+</div>
+
 # endblock
 
-# block content
-  <img src="//i.imgur.com/wzBcYCV.png" class="img-error" alt="xkcd: Wisdom of the Ancients" title="xkcd: Wisdom of the Ancients">
-# endblock
+
+     

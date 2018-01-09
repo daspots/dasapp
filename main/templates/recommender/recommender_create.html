@@ -1,16 +1,15 @@
 # extends 'base.html'
 # import 'macro/utils.html' as utils
 # import 'macro/forms.html' as forms
-
 # block content
 
-  <div class="container">
+<div class="container">
   <div class="row">
     <div class="col-sm-6 col-md-2"></div>
     <div class="col-sm-6 col-md-8">
       <form method="POST" enctype="multipart/form-data" action=".">
         <fieldset>
-
+        
           <!--  inputfields -->       
           {{form.csrf_token}}
           {{forms.text_field(form.name, autofocus=True)}}

@@ -1,58 +1,60 @@
 .mc-field-group {
-  font-size: 0.9em;
-  font-family: 'Roboto', sans-serif;
+  font-size: @font_size_medium;
+  font-family: @font_small;
 }
 
 input[type=email], select {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0px 0px 0px;
+    width: @full_width;
+    padding: @padding_button;
+    margin-top: @padding_small;
     display: inline-block;
-    border: 1px solid #black;
+    border: @input_border;
     border-radius: 0px;
     box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
+    font-family: @font_small;
 }
 
 input[type=text], select {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 0px 0;
+    width: @full_width;
+    background-color: @color_5;
+    color: @color_4;
+    padding: @padding_button;
     display: inline-block;
-    border: 1px solid #black;
+    border:  @input_border;
     border-radius: 0px;
     box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
+    font-family: @font_small;
 }
 
 input[type=submit] {
-    width: 100%;
-    background-color: black;
-    color: white;
-    padding: 14px 20px;
-    margin: 15px 0;
+    width: @full_width;
+    background-color: @color_4;
+    color: @color_5;
+    padding: @padding_button;
+    display: inline-block;
     border: none;
     border-radius: 0px;
-    cursor: pointer;
-    font-family: 'Roboto', sans-serif;
+    font-family: @font_small;
+    margin-top: @bottom_margin_big;
 }
+
+input[type=file] {
+    width: @full_width;
+    background-color: @color_5;
+    color: @color_4;
+    padding: @padding_button;
+    display: inline-block;
+    border:  @input_border;
+    border-radius: 0px;
+    box-sizing: border-box;
+    font-family: @font_small;
+}
+
 
 input[type=submit]:hover {
     background-color: #20e9a3;
     color: black;
 }
-
-input[type=file] {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 0px 0;
-    display: inline-block;
-    border: 1px solid #black;
-    border-radius: 0px;
-    box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
-}
-
 
 #mce-FNAME {
     margin: 24px 0;

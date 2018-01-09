@@ -1,11 +1,9 @@
 # extends 'base.html'
-
 # block content
 
   <div class="container">
     <form class="navbar-form visible-sm-block visible-xs-block" role="search"  action="{{url_for('search_page')}}" method="post" name="search">
       <div class="input-group add-on">
-
         {{ form.search_page(class="form-control", placeholder="Search", type="text") }}
         {{ form.hidden_tag() }}
         <div class="input-group-btn">
@@ -13,22 +11,18 @@
         </div>
       </div>
     </form>
-    <div class="card box">
 
     <div class="card-block" >
-        <h4 class="card-title">#HASHTAGS</h4>
-
-      <p class="card-text keyword_tag_box">
+      <h4 class="card-title">OR SEARCH BY HASHTAGS</h4>
+      <p class="card-text keyword_tag_box pCenter">
         {% for keyword_db in keyword_dbs %}
           <a href="{{url_for('post_list_q', query=keyword_db.keyword)}}">#{{ keyword_db.keyword}}
           </a>
         {% endfor %}
       </p>
-
     </div>
+ 
 
-
-    </div>
   </div>
 
 # endblock

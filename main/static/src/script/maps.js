@@ -47,36 +47,61 @@ function generateBox(feature){
 
  var html = [
  '<div class="box" style="max-width:300px;">',
+    // link recommender
+    '<a class="linkRecommendedBy" href="' + recommender_url + '"> BY ' + recommender + '</a>',
+    
+    // image
     '<img class="img-fluid" data-gifffer="' + image_url + '">',
-    '<ul class="additionalLinks" style="margin-left:0px;padding-left:0px;padding-top:3px">',
-        '<div>',
-            '<i class="fa fa-map-marker map-marker" aria-hidden="true"></i>',
-            '<a class="thumbnailLocation" href="' + location_url + '">',
-                location_keyword,
-             '</a>',
-        '</div>',
+
+    // start accordion
+    '<div class="tab">',
+
+    // icon list
+    '<input id="' + docid + '" class="hidden draaiknopje" type="checkbox" name="tabs">',
+        
+      '<label for="' + docid + '">',
+
+        // name spot
+        '<ul class="additionalLinks" style="margin-left:0px;padding-left:0px;padding-top:10px">',
         '<li class="iconList">',
             '<h1 class="thumbnailTitle">' + name + '</h1>',
          '</li>',
-    '</ul>',
-    '<div class="addPadding">' + keyword_urls + '</div>',
-    '<div class="tab">',
-        '<br><a class="linkRecommendedBy" href="' + recommender_url + '"> BY ' + recommender + '</a>',
-        '<input id="' + docid + '" class="hidden draaiknopje" type="checkbox" name="tabs">',
-        '<label for="' + docid + '">',
-            '<ul class="additionalLinks" style="margin-left:0px;padding-left:0px;padding-top:10px">',
-                '<li class="iconList"><a href="' + website + '">',
-                    '<img src="/p/img/ic_open_in_new_black_24px.png" class="postIcon">',
-                '</a></li>',
-                '<li class="iconList"><a href="' + google_maps_directions + '">',
-                    '<img src="/p/img/ic_directions_black_24px.png" class="postIcon">',
-                 '</a></li>',
-            '</ul>',
-        '</label>',
-        '<div class="tab-content">',
-            '<p class="pLeft">' + description + '</p>',
-        '</div>',
-    '</div>',
+        '</ul>',
+        
+      '</label>',
+        
+      // content accordion
+      '<div class="tab-content">',
+        '<p class="pLeft">' + description + '</p>',
+      '</div>',
+
+      // end accordion
+      '</div>',
+
+      // location
+      '<i class="fa fa-map-marker map-marker" aria-hidden="true"></i>',
+      '<a class="thumbnailLocation" href="' + location_url + '">',
+                location_keyword,
+      '</a>',
+       
+      // link hashtags
+      '<div class="addPadding">' + keyword_urls + '</div>',
+    
+      // additional links
+      '<div class="tab">',
+        '<button class="tablinks" >',
+          '<a href="' + website + '">',
+            '<img src="/p/img/ic_open_in_new_black_24px.png" class="postIcon">',
+            '<p class="pLink">VISIT WEBSITE</p>',
+          '</a>',
+        '</button>',
+        '<button class="tablinks" >',
+          '<a href="' + google_maps_directions + '">',
+            '<img src="/p/img/ic_directions_black_24px.png" class="postIcon">',
+            '<p class="pLink">GET DIRECTIONS</p>',
+          '</a>',
+        '</button>',
+      '</div>',
  '</div>'
   ];
  return html.join("\n");
