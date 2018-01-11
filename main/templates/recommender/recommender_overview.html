@@ -28,7 +28,11 @@
 
 <!-- begin subdevider -->
 <div class="container">
-  <p class="subdevider">ALL INSIDERS</p>
+  <div class="floatCenter">
+    <div class="wrap"><i class="fa fa-bolt" style="font-size:28px;color:#20e9a3"></i></div>
+    <div class="wrap"><p class="subdevider">ALL INSIDERS</p></div>
+    <div class="wrap"><i class="fa fa-bolt" style="font-size:28px;color:#20e9a3;"></i></div>
+  </div>
 </div>
 <!-- end subdevider -->
 
@@ -59,7 +63,7 @@
         <!-- all spots recommender -->
         <div>
           {% set q = "recommender=" ~ recommender_db.name_lower %}
-          <a class="linkRecommendedByColor" href="{{url_for('post_list_q', query=q)}}">
+          <a class="linkRecommendedByColor" href="{{url_for('post_list_q', query=q)}}"><span class="glyphicon glyphicon-arrow-right"></span>
           SEE ALL SPOTS BY {{recommender_db.name}}
           </a>
         </div>

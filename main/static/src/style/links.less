@@ -4,6 +4,11 @@ a.linkRecommendedBy {
   color: @color_4;
   font-size: @font_size_small;
   margin-top: @bottom_margin_extra_big;
+  margin-left: @padding_small;
+}
+
+a.linkRecommendedBy:hover {
+  color: @color_5 !important;
 }
 
 a.linkRecommendedByColor {
@@ -11,7 +16,6 @@ a.linkRecommendedByColor {
   text-align: left;
   color: @color_7;
   padding-left: @padding_small;
-  text-decoration: underline;
   font-size: @font_size_small;
 }
 
@@ -20,7 +24,6 @@ a.linkRecommendedByCenter {
   text-align: center;
   margin: 0 auto !important;
   color: @color_7;
-  text-decoration: underline;
   font-size: @font_size_small;
 }
 
@@ -45,6 +48,11 @@ a.thumbnailLocation {
   font-family: @font_big;
   color: @color_6;
   font-size: @font_size_small;
+  margin-left: @padding_small;
+}
+
+a.thumbnailLocation:hover {
+  color: #20e9a3 !important;
 }
 
 a.thumbnailHashtag {
@@ -53,6 +61,10 @@ a.thumbnailHashtag {
   color: @color_6;
   font-size: @font_size_small;
   padding-left: @padding_small;
+}
+
+a.thumbnailHashtag :hover {
+  color: #20e9a3 !important;
 }
 
 .maplist {
@@ -71,12 +83,11 @@ a.navbarListElement{
 }
 
 a.navbarListElement:hover {
-  text-decoration: underline!important;
+  color: #20e9a3 !important;
 }
 
 a.navbarListElement:active {
-  color: @color_5;
-  background-color: @color_4; 
+  color: @color_8; 
 }
 
 .linkFooter {
@@ -117,6 +128,12 @@ a.linkLeft {
   margin-bottom: @bottom_margin_extra_big;
 }
 
+a.linkLeft:hover {
+  background-color: @color_9 !important;
+  text-decoration: none !important;
+  border: @color_9 !important;
+}
+
 a.linkCenter {
   font-family: @font_big;
   text-align: center; 
@@ -127,6 +144,12 @@ a.linkCenter {
   color: @color_4;
   text-align: center;
   margin-bottom: @bottom_margin_extra_big;
+}
+
+a.linkCenter:hover {
+  background-color: @color_9 !important;
+  text-decoration: none !important;
+  border: @color_9 !important;
 }
 
 a.linkCenterWhite {

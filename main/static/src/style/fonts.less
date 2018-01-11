@@ -10,9 +10,10 @@
 @color_6: grey;
 @color_7: #ff3c8b;
 @color_8: #20e9a3;
+@color_9: #EEEEEE;
 @bottom_margin_small: 10px;
 @bottom_margin_big: 30px;
-@bottom_margin_extra_big: 45px;
+@bottom_margin_extra_big: 70px;
 @bottom_margin_small_jumbotron: 90px;
 @bottom_margin_jumbotron: 280px;
 @bottom_margin_0: 0px!important;
@@ -24,6 +25,7 @@
 @height_auto: auto;
 @shadow: 0 4px 2px -2px gray;
 @input_border: 1px solid black;
+@icon_medium: 17px;
 
 p.pCenterBig {
   font-family: @font_small;
@@ -34,6 +36,10 @@ p.pCenterBig {
   margin-right: @bottom_margin_big;
   font-size: @font_size_medium_big;
   color: @color_4;
+}
+
+p.psearchbar {
+  font-family: @font_small;
 }
 
 p.pCenterGrey {
@@ -88,7 +94,7 @@ p.subdevider {
   font-family: @font_big;
   text-align: center;
   font-weight: @font_weight_bold;
-  font-size: @font_size_medium;
+  font-size: @font_size_medium_big;
   color: @color_4;
   margin-top: @bottom_margin_big;
 }
@@ -106,12 +112,13 @@ h1.thumbnailTitle {
   font-family: @font_big;
   text-align: left;
   font-weight: @font_weight_bold;
-  color: @color_7;
+  color: @color_4;
   font-size: @font_size_medium;
   position: relative;
   padding-left: @padding_small;
   margin-top: @bottom_margin_small;
   margin-bottom: @bottom_margin_0;
+  background-color: @color_8;
 }
 
 h1.h1Header {
@@ -120,7 +127,7 @@ h1.h1Header {
   font-weight: @font_weight_bold;
   margin-top: @bottom_margin_extra_big;
   font-size: 4em;
-  color: @color_4;
+  color: @color_7;
 }
 
 h1.h1LeftBig {

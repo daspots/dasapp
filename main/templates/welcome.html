@@ -13,32 +13,28 @@
 
 
   <!-- Google Map Code -->
-  {% if search_query is not defined %}
-  {% set search_query = '*' %}
-  {% endif %}
+    {% if search_query is not defined %}
+    {% set search_query = '*' %}
+    {% endif %}
 
-  <script>
-    var query = '{{ search_query }}';
-  </script>
-
-  <div class="container" id="map" style="display:none;">
-    <div class="map" style="margin-right:10px;">
+    <script>
+      var query = '{{ search_query }}';
+    </script>
+   
+    <div class="container" id="map" style="display:none;">
+      <div class="map" style="margin-right:10px;"></div>
+      <br>
     </div>
-    <br>
-   </div>
 
   <!-- UI post -->
   <div class="container" id="restaurant">
     <div class="grid">
-    <div class="grid-sizer col-6 col-sm-3"></div>
+    <div class="grid-sizer col-6 col-sm-4"></div>
     {%- for post_db in post_dbs %}
-       <div class="grid-item col-1 col-sm-3">
+       <div class="grid-item col-1 col-sm-4">
         
         <!-- UI thumbnail -->
         <div class="box">
-
-        <!--  link recommender -->
-        <a class="linkRecommendedBy" href="{{post_db.recommender_url}}">FAV' SPOT OF {{post_db.recommender}}</a>
 
         <!-- image -->
         <img class="img-fluid" data-gifffer="{{post_db.image_url}}">
@@ -55,7 +51,9 @@
           <ul style="margin-left:0px;padding-left:0px;padding-top:0px">
             <li class="iconList">
               <h1 class="thumbnailTitle">{{post_db.title}}</h1>
-            </li>
+              <!--  link recommender -->
+              <a class="linkRecommendedBy" style="font-weight:normal;" href="{{post_db.recommender_url}}">FAV' SPOT OF {{post_db.recommender}}</a>
+            </li> 
           </ul>
           </label>
 
@@ -68,38 +66,40 @@
         </div>
 
         <!-- location -->
-          <i class="fa fa-map-marker map-marker" aria-hidden="true"></i>
+        <div class="tab4">
+          <i class="fa fa-map-pin" style="font-size:12px; padding: 5px 0px 5px 5px; color:#EEEEEE;" aria-hidden="true"></i>
           {% for keyword in post_db.location_keyword_list %}
           {% if loop.index <= 3 %}
             <a class="thumbnailLocation" href="{{url_for('post_list_q', query=keyword)}}">{{keyword}}</a>
           {% endif %}
           {% endfor %}
-
-        <!-- link hashtags -->
-        <div class="addPadding">
-          {% for keyword in post_db.keyword_list %}
-          {% if loop.index <= 3 %}
-            <a class="thumbnailHashtag" href="{{url_for('post_list_q', query=keyword)}}">#{{keyword}} </a>
-          {% endif %}
-          {% endfor %}
-          <br>
-          <br>
         </div>
 
-        <!-- additional links  -->
-        <div class="tab">
-          <button class="tablinks">
-            <a href="{{post_db.website}}">
-            <img src="/p/img/ic_open_in_new_black_24px.png" class="postIcon"><!-- {{post_db.adress}} -->
-            <p class="pLink">VISIT WEBSITE</p>
+        <!-- link hashtags -->
+        <div class="tab4">
+        <i class="fa fa-tag" style="font-size:12px; padding: 5px 0px 5px 5px; color:#EEEEEE;" aria-hidden="true"></i>
+          {% for keyword in post_db.keyword_list %}
+          {% if loop.index <= 3 %}
+            <a class="thumbnailLocation" href="{{url_for('post_list_q', query=keyword)}}">{{keyword}} </a>
+          {% endif %}
+          {% endfor %}
+        </div>
+
+        <!-- external website  -->
+        <div class="tab4">
+            <i class="fa fa-map-signs" aria-hidden="true" style="font-size:12px; padding: 5px 0px 5px 5px; color:#EEEEEE;" aria-hidden="true"></i>
+            <a href="{{post_db.website}}" class="thumbnailLocation">
+            <!-- {{post_db.adress}} -->visit website
             </a>
-          </button>
-          <button class="tablinks">
-            <a href="{{post_db.google_maps_directions}}">
-            <img src="/p/img/ic_directions_black_24px.png" class="postIcon"><!-- {{post_db.title}} -->
-            <p class="pLink">GET DIRECTIONS</p>
+        </div>
+
+        <!-- direction  -->
+        <div class="tab4">
+            <i class="fa fa-external-link" style="font-size:12px; padding: 5px 0px 5px 5px; color:#EEEEEE;" aria-hidden="true"></i>
+            <a href="{{post_db.google_maps_directions}}" class="thumbnailLocation">
+            get directions
+            <!-- {{post_db.title}} -->
             </a>
-          </button>
         </div>
 
         

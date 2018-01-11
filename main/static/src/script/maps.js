@@ -47,8 +47,7 @@ function generateBox(feature){
 
  var html = [
  '<div class="box" style="max-width:300px;">',
-    // link recommender
-    '<a class="linkRecommendedBy" href="' + recommender_url + '"> BY ' + recommender + '</a>',
+    
     
     // image
     '<img class="img-fluid" data-gifffer="' + image_url + '">',
@@ -65,6 +64,8 @@ function generateBox(feature){
         '<ul class="additionalLinks" style="margin-left:0px;padding-left:0px;padding-top:10px">',
         '<li class="iconList">',
             '<h1 class="thumbnailTitle">' + name + '</h1>',
+            // link recommender
+            '<a class="linkRecommendedBy" href="' + recommender_url + '"> BY ' + recommender + '</a>',
          '</li>',
         '</ul>',
         
@@ -79,28 +80,33 @@ function generateBox(feature){
       '</div>',
 
       // location
-      '<i class="fa fa-map-marker map-marker" aria-hidden="true"></i>',
+      '<div class="tab4">',
+      '<i class="fa fa-map-pin" style="font-size:12px; padding: 5px 0px 5px 5px; color:#EEEEEE;" aria-hidden="true"></i>',
       '<a class="thumbnailLocation" href="' + location_url + '">',
                 location_keyword,
       '</a>',
+      '</div>',
        
       // link hashtags
-      '<div class="addPadding">' + keyword_urls + '</div>',
+      '<div class="tab4">',
+      '<i class="fa fa-tag" style="font-size:12px; padding: 5px 0px 5px 5px; color:#EEEEEE;" aria-hidden="true"></i>',
+      '<a class="thumbnailLocation">' + keyword_urls + 
+      '</a>',
+      '</div>',
     
-      // additional links
-      '<div class="tab">',
-        '<button class="tablinks" >',
-          '<a href="' + website + '">',
-            '<img src="/p/img/ic_open_in_new_black_24px.png" class="postIcon">',
-            '<p class="pLink">VISIT WEBSITE</p>',
-          '</a>',
-        '</button>',
-        '<button class="tablinks" >',
-          '<a href="' + google_maps_directions + '">',
-            '<img src="/p/img/ic_directions_black_24px.png" class="postIcon">',
-            '<p class="pLink">GET DIRECTIONS</p>',
-          '</a>',
-        '</button>',
+
+      // external website
+      '<div class="tab4">',
+      '<i class="fa fa-map-signs" aria-hidden="true" style="font-size:12px; padding: 5px 0px 5px 5px; color:#EEEEEE;" aria-hidden="true"></i>',
+          '<a class="thumbnailLocation" href="' + website + '">','</a>',
+        '</div>',
+
+      // direction
+        '<div class="tab4" >',
+        '<i class="fa fa-external-link" style="font-size:12px; padding: 5px 0px 5px 5px; color:#EEEEEE;" aria-hidden="true"></i>',
+        '<a class="thumbnailLocation" href="' + google_maps_directions + '">','</a>',
+        '</div>',
+
       '</div>',
  '</div>'
   ];

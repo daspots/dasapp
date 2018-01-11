@@ -3,43 +3,28 @@
 .box {
   margin-bottom: @bottom_margin_big;
   box-shadow: @shadow;
-  backgroound-color: @color_5;
+  background-color: @color_5;
 }
 
 .tab {
   position: relative;
   width: @full_width;
-  color: @color_5;
+  color: @color_4;
   overflow: hidden;
-  border-top: 1px solid #eeeeee;
+  border: 0.5px solid @color_8;
+  background-color: @color_8;
 }
 
-.tablinks {
-  margin-top: 5px;
-  border: none;
-  width: 50%;
+.tab4 {
+  position: relative;
+  width: @full_width;
+  overflow: hidden;
+  border-top: 0.5px solid @color_9;
+  height: 2em;
 }
 
-/* Style the buttons inside the tab */
-.tab button {
-    font-family: @font_big;
-    background-color: @color_5;
-    color: @color_4;
-    float: left;
-    transition: 0.3s;
-    font-size: @font_size_small;
-}
-
-/* Change background color of buttons on hover */
-.tab button:hover {
-   text-decoration: underline;
-   color: @color_4;
-}
-
-
-/* Style the tab content */
-.tabcontent {
-    display: none;
+extraInfo {
+  border: 0.5px solid @color_9;
 }
 
 #tab-one {
@@ -52,14 +37,11 @@ label {
   position: relative;
   display: block;
   color: black;
-  background-color: @color_5;
-  margn-bottom: @bottom_margin_0;
+  background: @color_8;
 }
 
-.hr {
-    margin-top: 10px !important;
-    margin-bottom: 5px !important;
-    border: 0;
+.blue label {
+    background: black;
 }
 
 .tab-content {
@@ -87,36 +69,64 @@ input:checked ~ .tab-content {
 /* Icon */
   label::after {
   position: absolute;
+  background-color: @color_8;
   right: 0;
   top: 0;
   display: block;
   width: 3em;
   height: 2em;
-  line-height: 2;
+  line-height: 1;
   text-align: center;
   -webkit-transition: all .01s;
   -o-transition: all .01s;
   transition: all .01s;
-  cursor: pointer;
+  margin-bottom: 15px;
 }
 
 input[type=checkbox] + label::after {
   content: "+";
-  color: @color_7;
+  font-size: 20px;
+  color: @color_4;
 }
 
 input[type=radio] + label::after {
   content: "\25BC";
+  font-size: 20px;
 }
 
 input[type=checkbox]:checked + label::after {
   transform: rotate(315deg);
-  color: @color_7;
+  color: @color_4;
+  font-size: 20px;
 }
 
 input[type=radio]:checked + label::after {
   transform: rotateX(180deg);
-  color: @color_7;
+  color: @color_4;
+  font-size: 20px;
 }
+
+.iconlist {
+  background-color: @color_8;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   
