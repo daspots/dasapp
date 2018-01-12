@@ -205,8 +205,11 @@ def post_update(post_id):
   form = PostUpdateForm(obj=post_db)
   form.recommender.choices = get_recommenders()
 
+
   if form.validate_on_submit():
     form.populate_obj(post_db)
+    post_db.recommender_lower = form.recommender.data.lower()
+
     post_db.keyword_list = split_keywords(form.keywords)
     post_db.location_keyword_list = split_keywords(form.location_keywords)
 

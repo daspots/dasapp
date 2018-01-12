@@ -51,3 +51,9 @@ def stories():
         html_class='main-list',
       ) 
  
+@app.route('/spots')
+def spots():
+    return flask.render_template(
+      'spots.html',
+        html_class='main-list',
+      ) 

@@ -16,8 +16,13 @@
         <!-- <bio> -->
         <p class="pLeft">
         <!-- all spots recommender -->
+<<<<<<< HEAD
         {% set q = "recommender=" ~ recommender_db.name_lower %}
         <a class="linkRecommendedByCenter" href="{{url_for('post_list_q', query=q)}}"><span class="glyphicon glyphicon-arrow-right"></span>
+=======
+        {% set q = "recommender=" ~ recommender_db.name %}
+        <a class="linkRecommendedByCenter" href="{{url_for('post_list_q', query=q)}}">
+>>>>>>> 977c22fde86418a1aabea86c201d88fe771a5832
         SEE ALL SPOTS BY {{title}}</a>
         </p>
 

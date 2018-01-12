@@ -1,0 +1,114 @@
+# extends 'base.html'
+# block header
+
+  <!-- UI post -->
+  <div class="container" id="restaurant">
+    <div class="grid">
+    <div class="grid-sizer col-6 col-sm-4"></div>
+    {%- for post_db in post_dbs %}
+       <div class="grid-item col-1 col-sm-4">
+        
+        <!-- UI thumbnail -->
+        <div class="box">
+
+        <!-- image -->
+        <img class="img-fluid" data-gifffer="{{post_db.image_url}}">
+
+        <!-- start accordion -->
+        <div class="tab">
+
+        <!-- icon list -->
+          <input id="{{post_db.key.id()}}" class="hidden draaiknopje" type="checkbox" name="tabs">
+
+          <label for="{{post_db.key.id()}}">
+
+          <!-- Name spot with accordion -->
+          <ul style="margin-left:0px;padding-left:0px;padding-top:0px">
+            <li class="iconList">
+              <h1 class="thumbnailTitle">{{post_db.title}}</h1>
+              <!--  link recommender -->
+              <a class="linkRecommendedBy" style="font-weight:normal;" href="{{post_db.recommender_url}}">FAV' SPOT OF {{post_db.recommender}}</a>
+            </li> 
+          </ul>
+          </label>
+
+          <!-- content accordion -->
+          <div class="tab-content">
+            <p class="pLeft">{{post_db.content}}</p>
+          </div>
+
+        <!-- end accordion -->
+        </div>
+
+        <!-- location -->
+        <div class="tab4">
+          <i class="fa fa-map-pin" style="font-size:12px; padding: 5px 0px 5px 5px; color:#EEEEEE;" aria-hidden="true"></i>
+          {% for keyword in post_db.location_keyword_list %}
+          {% if loop.index <= 3 %}
+            <a class="thumbnailLocation" href="{{url_for('post_list_q', query=keyword)}}">{{keyword}}</a>
+          {% endif %}
+          {% endfor %}
+        </div>
+
+        <!-- link hashtags -->
+        <div class="tab4">
+        <i class="fa fa-tag" style="font-size:12px; padding: 5px 0px 5px 5px; color:#EEEEEE;" aria-hidden="true"></i>
+          {% for keyword in post_db.keyword_list %}
+          {% if loop.index <= 3 %}
+            <a class="thumbnailLocation" href="{{url_for('post_list_q', query=keyword)}}">{{keyword}} </a>
+          {% endif %}
+          {% endfor %}
+        </div>
+
+        <!-- external website  -->
+        <div class="tab4">
+            <i class="fa fa-map-signs" aria-hidden="true" style="font-size:12px; padding: 5px 0px 5px 5px; color:#EEEEEE;" aria-hidden="true"></i>
+            <a href="{{post_db.website}}" class="thumbnailLocation">
+            <!-- {{post_db.adress}} -->visit website
+            </a>
+        </div>
+
+        <!-- direction  -->
+        <div class="tab4">
+            <i class="fa fa-external-link" style="font-size:12px; padding: 5px 0px 5px 5px; color:#EEEEEE;" aria-hidden="true"></i>
+            <a href="{{post_db.google_maps_directions}}" class="thumbnailLocation">
+            get directions
+            <!-- {{post_db.title}} -->
+            </a>
+        </div>
+
+        
+        <!-- bookmark -->
+          <!-- <li class="iconList" style="float: right; margin-top: 20px; margin-right: 10px;"><i onclick="starFunction(this, '{{post_db.key.id()}}')" role="button"
+               {% if post_db.starred %}
+                 class="fa blue fa-star
+               {% else %}
+                class="fa blue fa-star-o
+               {% endif %}
+               {%  if current_user.id > 0 %}
+                  "
+              {% else %}
+                not-logged-in"
+              {% endif %}></i>
+              </li> -->
+
+        <!-- end box -->
+        </div>
+
+      <!-- end col -->
+      </div>
+      {%- endfor %}
+
+    <!-- end row -->
+    </div>
+
+    <!-- page numbering -->
+    {% if next_url %}
+      <a href="{{next_url}}">next</a>
+    {% endif %}
+
+  <!-- end container -->
+   </div>
+
+
+# endblock
