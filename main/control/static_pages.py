@@ -57,3 +57,4 @@ def spots():
       'spots.html',
         html_class='main-list',
       ) 
+

@@ -1,5 +1,30 @@
 # extends 'base.html'
+
+<!-- jumbotron title -->
 # block header
+
+{% if html_class == 'main-list' %}
+ {% include 'bit/welcome_header.html' %}
+{% endif %}
+
+# endblock
+# block content
+# include 'bit/popup_loginform_star.html'
+
+
+  <!-- Google Map Code -->
+    {% if search_query is not defined %}
+    {% set search_query = '*' %}
+    {% endif %}
+
+    <script>
+      var query = '{{ search_query }}';
+    </script>
+   
+    <div class="container" id="map" style="display:none;">
+      <div class="map" style="margin-right:10px;"></div>
+      <br>
+    </div>
 
   <!-- UI post -->
   <div class="container" id="restaurant">

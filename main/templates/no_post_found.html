@@ -7,15 +7,23 @@
   <div class="row">
     <div class="col-sm-6 col-md-4"></div>
     <div class="col-sm-6 col-md-4">
-      <h1 class="h1CenterBig">THIS PLACE LOOKS LONELY</h1>
+      <div style="width:100%;height:0;padding-bottom:56%;position:relative;"><iframe src="https://giphy.com/embed/Jf8tQksLHhpXa" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+      </div>
+    </div>
+    <div class="col-sm-6 col-md-4"></div>
+  </div>
+</div>
+
+<!--  Jumbotron Contact -->
+<div class="container">
+      <h1 class="h1CenterMedium">THIS PLACE LOOKS LONELY</h1>
       <p class="pCenterBig">{{error_message}}
        <br>
        <br>
        <br>
        <a class="linkCenter" href="{{url_for('welcome')}}">EXPLORE PLACES </a>
       </p>
-    </div>
-  </div>
+</div>
 
 <!--   search by tags -->
   <!-- <form class="navbar-form visible-sm-block visible-xs-block" role="search"  action="{{ url_for('search_page') }}" method="post" name="search">
@@ -31,7 +39,7 @@
   <!--   search by tags -->  
   <div class="card">
     <div class="card-block">
-      <h1 class="h1CenterBig">OR SEARCH BY HASHTAGS</h1>
+      <h1 class="h1CenterMedium">OR SEARCH BY HASHTAGS</h1>
       <br>
       <p class="card-text keyword_tag_box pCenterBig">
         {% for keyword_db in keyword_dbs %}

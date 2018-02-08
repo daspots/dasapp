@@ -11,6 +11,14 @@
 # block content
 # include 'bit/popup_loginform_star.html'
 
+  <!-- begin subdevider -->
+  <div class="container">
+    <div class="floatCenter">
+      <div class="wrap"><i class="fa fa-bolt" style="font-size:28px;color:#20e9a3"></i></div>
+      <div class="wrap"><p class="subdevider">ALL FAVORITE PLACES</p></div>
+      <div class="wrap"><i class="fa fa-bolt" style="font-size:28px;color:#20e9a3;"></i></div>
+    </div>
+  </div>
 
   <!-- Google Map Code -->
     {% if search_query is not defined %}
@@ -25,6 +33,8 @@
       <div class="map" style="margin-right:10px;"></div>
       <br>
     </div>
+
+<!-- end subdevider -->
 
   <!-- UI post -->
   <div class="container" id="restaurant">
@@ -51,8 +61,9 @@
           <ul style="margin-left:0px;padding-left:0px;padding-top:0px">
             <li class="iconList">
               <h1 class="thumbnailTitle">{{post_db.title}}</h1>
+              
               <!--  link recommender -->
-              <a class="linkRecommendedBy" style="font-weight:normal;" href="{{post_db.recommender_url}}">FAV' SPOT OF {{post_db.recommender}}</a>
+              <a class="linkRecommendedBy" style="font-weight:normal;" href="{{post_db.recommender_url}}"><span class="glyphicon glyphicon-arrow-right"></span> FAV' SPOT OF {{post_db.recommender}}</a>
             </li> 
           </ul>
           </label>
@@ -67,7 +78,7 @@
 
         <!-- location -->
         <div class="tab4">
-          <i class="fa fa-map-pin" style="font-size:12px; padding: 5px 0px 5px 5px; color:#EEEEEE;" aria-hidden="true"></i>
+          <i class="fa fa-map-pin" style="font-size:10px; padding: 10px 0px 10px 12px; color:grey;" aria-hidden="true"></i>
           {% for keyword in post_db.location_keyword_list %}
           {% if loop.index <= 3 %}
             <a class="thumbnailLocation" href="{{url_for('post_list_q', query=keyword)}}">{{keyword}}</a>
@@ -77,7 +88,7 @@
 
         <!-- link hashtags -->
         <div class="tab4">
-        <i class="fa fa-tag" style="font-size:12px; padding: 5px 0px 5px 5px; color:#EEEEEE;" aria-hidden="true"></i>
+        <i class="fa fa-tag" style="font-size:10px; padding: 10px 0px 10px 12px; color:grey;" aria-hidden="true"></i>
           {% for keyword in post_db.keyword_list %}
           {% if loop.index <= 3 %}
             <a class="thumbnailLocation" href="{{url_for('post_list_q', query=keyword)}}">{{keyword}} </a>
@@ -85,24 +96,36 @@
           {% endfor %}
         </div>
 
-        <!-- external website  -->
-        <div class="tab4">
-            <i class="fa fa-map-signs" aria-hidden="true" style="font-size:12px; padding: 5px 0px 5px 5px; color:#EEEEEE;" aria-hidden="true"></i>
-            <a href="{{post_db.website}}" class="thumbnailLocation">
-            <!-- {{post_db.adress}} -->visit website
-            </a>
-        </div>
-
         <!-- direction  -->
         <div class="tab4">
-            <i class="fa fa-external-link" style="font-size:12px; padding: 5px 0px 5px 5px; color:#EEEEEE;" aria-hidden="true"></i>
+            <i class="fa fa-map-signs" aria-hidden="true" style="font-size:10px; padding: 10px 0px 10px 12px; color:grey;" aria-hidden="true"></i>
             <a href="{{post_db.google_maps_directions}}" class="thumbnailLocation">
             get directions
             <!-- {{post_db.title}} -->
             </a>
         </div>
 
-        
+
+        <!-- share  -->
+        <div class="tab4">
+            <i class="fa fa-share-alt" style="font-size:10px; padding: 10px 0px 10px 12px; color:grey;" aria-hidden="true"></i>
+            <a href="whatsapp://send?text= See this spot on www.daspots.com" data-action="share/whatsapp/share" class="thumbnailLocation"  title="Share by WhatsApp"><i class="fa fa-whatsapp" style="font-size:15px; padding: 10px 0px 10px 5px; color:black; margin-right: 10px;"></i>
+            </a>
+            <a href="mailto:?subject=See this spot on www.daspots.com&amp;body=See this spot on www.daspots.com" title="Share by Email">
+            <i class="fa fa-envelope-o" aria-hidden="false" style="font-size:15px; padding: 10px 0px 10px 5px; color:black;"></i>
+            </a>
+        </div>
+
+        <!-- external website  -->
+<!--         <div class="tab4">
+            <i class="fa fa-external-link" style="font-size:12px; padding: 5px 0px 5px 5px; color:grey;" aria-hidden="true"></i>
+            <a href="{{post_db.website}}" class="thumbnailLocation"> -->
+            <!-- {{post_db.adress}} --><!-- visit website -->
+<!--             </a>
+        </div> -->
+
+
+
         <!-- bookmark -->
           <!-- <li class="iconList" style="float: right; margin-top: 20px; margin-right: 10px;"><i onclick="starFunction(this, '{{post_db.key.id()}}')" role="button"
                {% if post_db.starred %}
@@ -129,7 +152,7 @@
 
     <!-- page numbering -->
     {% if next_url %}
-      <a href="{{next_url}}">next</a>
+      <center><a class="linkCenter" href="{{next_url}}">next</a></center>
     {% endif %}
 
   <!-- end container -->

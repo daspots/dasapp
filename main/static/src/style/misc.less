@@ -40,7 +40,7 @@ img.gif {
   padding: 9px 10px;
   margin-top: 0px;
   margin-bottom: 8px;
-  background-color: transparent;
+  background-color: @color_5;
   background-image: none;
   border: 1px solid transparent;
   border-radius: 4px;
@@ -54,6 +54,14 @@ img.gif {
   border: 0 !important;
   box-shadow: none !important;
   margin-bottom: @bottom_margin_small !important;
+}
+
+.navbar {
+   background: @color_5;
+}
+
+.navbar-form {
+   background: @color_5!important;
 }
 
 .navbar-toggle {
@@ -113,10 +121,10 @@ img.gif {
       touch-action: manipulation;
   cursor: pointer;
   background-image: none;
-  border: 1px solid black;
+  border: 2px solid @color_8;
   white-space: nowrap;
-  padding: 6px 12px;
-  font-size: 14px;
+  padding: 6px 10px;
+  font-size: 13px;
   line-height: 1.42857143;
   border-radius: 0px;
   -webkit-user-select: none;
@@ -124,6 +132,7 @@ img.gif {
   -ms-user-select: none;
   user-select: none;
 }
+
 .btn:focus,
 .btn:active:focus,
 .btn.active:focus,
@@ -133,6 +142,7 @@ img.gif {
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
+
 .btn:hover,
 .btn:focus,
 .btn.focus {
@@ -157,3 +167,4 @@ img.gif {
 button.img-fluid {
   margin: 0px !important;
 }
+

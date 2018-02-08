@@ -48,7 +48,6 @@ function generateBox(feature){
  var html = [
  '<div class="box" style="max-width:300px;">',
     
-    
     // image
     '<img class="img-fluid" data-gifffer="' + image_url + '">',
 
@@ -61,7 +60,7 @@ function generateBox(feature){
       '<label for="' + docid + '">',
 
         // name spot
-        '<ul class="additionalLinks" style="margin-left:0px;padding-left:0px;padding-top:10px">',
+        '<ul class="additionalLinks" style="margin-left:0px;padding-left:0px;">',
         '<li class="iconList">',
             '<h1 class="thumbnailTitle">' + name + '</h1>',
             // link recommender
@@ -99,12 +98,12 @@ function generateBox(feature){
       '<div class="tab4">',
       '<i class="fa fa-map-signs" aria-hidden="true" style="font-size:12px; padding: 5px 0px 5px 5px; color:#EEEEEE;" aria-hidden="true"></i>',
           '<a class="thumbnailLocation" href="' + website + '">','</a>',
-        '</div>',
+      '</div>',
 
       // direction
         '<div class="tab4" >',
         '<i class="fa fa-external-link" style="font-size:12px; padding: 5px 0px 5px 5px; color:#EEEEEE;" aria-hidden="true"></i>',
-        '<a class="thumbnailLocation" href="' + google_maps_directions + '">','</a>',
+        '<a class="thumbnailLocation" href="' + address + '">','</a>',
         '</div>',
 
       '</div>',

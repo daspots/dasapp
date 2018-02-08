@@ -40,10 +40,22 @@ function followFunction(x, y) {
                 })
                 ;
     }
-
 }
 
-$('.close-icon').on('click',function() {
-  $(this).closest('.card').css({"display":"none"});
-  $(".recommender").fadeIn();
-})
+$("#toTop").hide();
+$(window).scroll(function() {
+  if ($(window).scrollTop() > 150) { $('#toTop').slideDown(150); 
+  }
+  if ($(window).scrollTop() < 150) { $('#toTop').slideUp(150); 
+  }
+});
+
+window.onscroll = function() {myFunction()};
+function myFunction() {
+    if (document.body.scrollTop > 150 || document.documentElement.scrollTop > 150) {
+        document.getElementsByClassName("navbarListElement").className = "test";
+    } else {
+        document.getElementsByClassName("navbarListElement").className = "";
+    }
+}
+
