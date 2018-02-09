@@ -126,7 +126,6 @@ function processPoints(geometry, callback, thisArg) {
     });
   }
 }
-
 function initMap() {
   // Create the map.
   var map = new google.maps.Map(document.getElementsByClassName('map')[0], {
@@ -147,50 +146,84 @@ function initMap() {
 
     map.fitBounds(bounds);
   });
-  console.log(query);
 
-  api_url = '/api/v1/post/' + query;
-  // Load the stores GeoJSON onto the map.
-  map.data.loadGeoJson(api_url);
+  function addDataToMap(map, infoWindow, pos){
 
-  var apiKey = 'AIzaSyAbcMGMULgp5l0Trav2G3OseIrNGIxHDZk';
-  var infoWindow = new google.maps.InfoWindow();
-  infoWindow.setOptions({ pixelOffset: new google.maps.Size(0, -30) });
+    // Load the stores GeoJSON onto the map.
+    map.data.loadGeoJson(api_url);
+    var im = 'http://www.robotwoods.com/dev/misc/bluecircle.png';
+     var marker = new google.maps.Marker({
+          position: pos,
+          map: map,
+          icon: im
+        });
 
-  // Show the information for a store when its marker is clicked.
-  map.data.addListener('click', function (event) {
-  var position = event.feature.getGeometry().get();
-  var content = generateBox(event.feature);
+    var apiKey = 'AIzaSyAbcMGMULgp5l0Trav2G3OseIrNGIxHDZk';
+    var infoWindow = new google.maps.InfoWindow();
+    infoWindow.setOptions({ pixelOffset: new google.maps.Size(0, -30) });
 
-  infoWindow.setContent(content);
-  infoWindow.setPosition(position);
+    map.data.addListener('click', function (event) {
+          var position = event.feature.getGeometry().get();
+          var content = generateBox(event.feature);
 
-  infoWindow.open(map);
+          infoWindow.setContent(content);
+          infoWindow.setPosition(position);
 
-   Gifffer({
-      playButtonStyles: {
-        'width': '60px',
-        'height': '60px',
-        'border-radius': '30px',
-        'background': 'rgba(0, 0, 0, 0.3)',
-        'position': 'absolute',
-        'top': '50%',
-        'left': '50%',
-        'margin': '-30px 0 0 -30px'
-      },
-      playButtonIconStyles: {
-        'width': '0',
-        'height': '0',
-        'border-top': '14px solid transparent',
-        'border-bottom': '14px solid transparent',
-        'border-left': '14px solid rgba(255,255,255, 0.5)',
-        'position': 'absolute',
-        'left': '26px',
-        'top': '16px'
+           infoWindow.open(map);
+
+           Gifffer({
+              playButtonStyles: {
+                'width': '60px',
+                'height': '60px',
+                'border-radius': '30px',
+                'background': 'rgba(0, 0, 0, 0.3)',
+                'position': 'absolute',
+                'top': '50%',
+                'left': '50%',
+                'margin': '-30px 0 0 -30px'
+              },
+              playButtonIconStyles: {
+                'width': '0',
+                'height': '0',
+                'border-top': '14px solid transparent',
+                'border-bottom': '14px solid transparent',
+                'border-left': '14px solid rgba(255,255,255, 0.5)',
+                'position': 'absolute',
+                'left': '26px',
+                'top': '16px'
+              }
+            });
+
+           });
+
+  }
+
+  function geoLocationSucces(position){
+        var pos = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        };
+      console.log(pos)
+      api_url = '/api/v1/post/' + query + '&' + pos['lat'] + '&' + pos['lng'];
+
+      addDataToMap(map, api_url, pos)
       }
-    });
 
-  });
+   function geoLocationFail(){
+      api_url = '/api/v1/post/' + query;
+
+      // Show the information for a store when its marker is clicked.
+      addDataToMap(map, api_url, false)
+   }
+
+  console.log(query);
+  if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(geoLocationSucces, geoLocationFail)
+
+   } else {
+       geoLocationFail();
+   }
+
 }
 
 $('.map_link').on('click',function() {
