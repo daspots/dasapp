@@ -209,3 +209,110 @@ a.linkNewsletterBlack {
     padding: 8px 5px;
     color: #000;
 }
+
+.btn {
+  display: inline-block;
+  margin-bottom: 0;
+  font-weight: normal;
+  text-align: center;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+      touch-action: manipulation;
+  cursor: pointer;
+  background-image: none;
+  border: 2px solid @color_8;
+  white-space: nowrap;
+  padding: 6px 10px;
+  font-size: 13px;
+  line-height: 1.42857143;
+  border-radius: 0px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.btn:focus,
+.btn:active:focus,
+.btn.active:focus,
+.btn.focus,
+.btn:active.focus,
+.btn.active.focus {
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+
+.btn:hover,
+.btn:focus,
+.btn.focus {
+  backrgound-color: @color_8;
+  color: @color_4;
+  text-decoration: none;
+}
+
+button.img-fluid {
+  margin: 0px !important;
+}
+
+.btn-group > .btn-lg + .dropdown-toggle {
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+.btn-primary {
+  width: @full_width;
+  background-color: @color_4;
+  color: @color_5;
+  padding: @padding_button;
+  display: inline-block;
+  border: none;
+  border-radius: 0px;
+  font-family: @font_small;
+  margin-top: @bottom_margin_big;
+  margin-bottom: @bottom_margin_small;
+  text-align: center;
+}
+
+.btn-google {
+  width: @full_width;
+  background-color: @color_5;
+  color: @color_4;
+  padding: @padding_button;
+  display: inline-block;
+  border: 1px solid @color_4;
+  border-radius: 0px;
+  font-family: @font_small;
+  margin-top: @bottom_margin_small;
+  margin-bottom: @bottom_margin_small;
+  text-align: center;
+}
+
+.btn-facebook {
+  width: @full_width;
+  background-color: @color_5;
+  color: @color_4;
+  padding: @padding_button;
+  display: inline-block;
+  border: 1px solid @color_4;
+  border-radius: 0px;
+  font-family: @font_small;
+  margin-top: @bottom_margin_small;
+  margin-bottom: @bottom_margin_small;
+  text-align: center;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary.focus {
+  backrgound-color: @color_8;
+  color: @color_4;
+  text-decoration: none;
+}
+    
+.btn-google:hover,
+.btn-google:focus,
+.btn-google.focus {
+  backrgound-color: @color_8;
+  color: @color_4;
+  text-decoration: none;
+}

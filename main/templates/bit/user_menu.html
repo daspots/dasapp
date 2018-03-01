@@ -19,6 +19,16 @@
           <a class="navbarListElementColor" href="{{url_for('post_list')}}">POST LIST</a>
         </li>
 
+        <!-- create post -->
+        <li class="navbarList {{'active' if html_class == 'guide-create'}}">
+          <a class="navbarListElementColor" href="{{url_for('guide_create')}}">CREATE GUIDE</a>
+        </li>
+
+        <!-- post list -->
+        <li class="navbarList {{'active' if html_class == 'guide-list'}}">
+          <a class="navbarListElementColor" href="{{url_for('guide_list')}}">GUIDE LIST</a>
+        </li>
+
         <!-- create recommender -->
         <li class="navbarList {{'active' if html_class == 'recommender-create'}}">
           <a class="navbarListElementColor" href="{{url_for('recommender_create')}}"></i> CREATE RECOMMENDER</a>
@@ -29,8 +39,6 @@
           <a class="navbarListElementColor" href="{{url_for('recommender_list')}}"> RECOMMENDER LIST</a>
         </li>
 
-        <li class="divider"></li>
-
         <li><a class="user-menu" href="{{url_for('admin')}}">ADMIN</a></li>
         <li class="divider"></li>
 
@@ -38,39 +46,49 @@
 
     <!-- list user -->
 
+<!--       <li class="navbarList  {{'active' if html_class == 'starred'}}">
+          <a class="navbarListElement" href="{{url_for('post_list_u')}}">
+            SIGN IN
+          </a>
+       </li> -->
+<!--       <li class="navbarList  {{'active' if html_class == 'starred'}}">
+          <a class="navbarListElementColor" href="{{url_for('post_list_u')}}">
+            SIGN IN
+          </a>
+      </li> -->
+
+        <li class="navbarList  {{'active' if html_class == 'starred'}}">
+          <a class="navbarListElementColor" href="{{url_for('post_list_u')}}">
+            MY SPOTS
+          </a>
+       </li>
+
+        <li class="navbarList"><a class="navbarListElementColor" href="{{url_for('signout')}}">SIGN OUT</a></li>
+
+      </ul>
+
+      <!-- <li><a class="user-menu" href="{{url_for('profile')}}">SETTINGS</a></li> -->
+
        <!-- about -->
-       <li class="navbarList {{'active' if html_class == 'about'}}">
+ <!--       <li class="navbarList {{'active' if html_class == 'about'}}">
         <a class="navbarListElementColor" href="{{url_for('about')}}">
             ABOUT
         </a>
-       </li>
+       </li> -->
 
        <!-- meet insiders -->
-       <li class="navbarList {{'active' if html_class == 'recommender_overview'}}">
+<!--        <li class="navbarList {{'active' if html_class == 'recommender_overview'}}">
         <a class="navbarListElementColor" href="{{url_for('recommender_overview')}}">
             MEET OUR INSIDERS
         </a>
-       </li>
+       </li> -->
 
        <!-- guides -->
-       <li class="navbarList {{'active' if html_class == 'stories'}}">
+<!--        <li class="navbarList {{'active' if html_class == 'stories'}}">
         <a class="navbarListElementColor" href="{{url_for('stories')}}">
             GUIDES
         </a>
-       </li>
-
-<!--        <li class="navbarList  {{'active' if html_class == 'starred'}}">
-          <a class="navbarListElement" href="{{url_for('post_list_u')}}">
-            MY SPOTS
-          </a>
        </li> -->
-
-      <!-- <li><a class="user-menu" href="{{url_for('profile')}}">SETTINGS</a></li>
-
-      <li><a class="user-menu" href="{{url_for('signout')}}">SIGN OUT</a></li> -->
-
-    </ul>
-  </li>
 
 # else
   <!--<li class="{{'active' if html_class.find('auth') != -1}}">-->

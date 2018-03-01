@@ -12,8 +12,7 @@ from main import app
 def about():
     return flask.render_template(
       'about.html',
-        html_class='main-list',
-
+        html_class='main-list'
     )
 
 @app.route('/contact')

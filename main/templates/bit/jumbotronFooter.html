@@ -5,23 +5,38 @@
     <!-- begin row -->
     <div clas="row">
 
+      <div class="col-sm-6 col-md-6">
+        <ul>
+          <br>
+          <h1 class="h1HeaderWhite">LET YOUR FRIENDS KNOW ABOUT DASPOTS</h1>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=example.org" target="_blank"><i class="fa fa-facebook-f" style="font-size:15px; padding: 10px 0px 10px 5px; color:white; margin-right: 0px;"></i>
+            </a>
+            <a href="whatsapp://send?text= See this spot on www.daspots.com" data-action="share/whatsapp/share" class="thumbnailLocation"  title="Share by WhatsApp"><i class="fa fa-whatsapp" style="font-size:15px; padding: 10px 0px 10px 5px; color:white; margin-right: 10px;"></i>
+            </a>
+            <a href="mailto:?subject=See this spot on www.daspots.com&amp;body=See this spot on www.daspots.com" title="Share by Email">
+            <i class="fa fa-envelope-o" aria-hidden="false" style="font-size:15px; padding: 10px 0px 10px 5px; color:white;"></i>
+            </a>
+        </ul>
+      </div>
+
+      <div class="col-sm-6 col-md-3">
+        <ul>
+          <br><br>
+          <li class="linkFooter">FOLLOW US ON</li>
+          <li class="linkFooter"><a class="linkFooterGrey" href="https://www.facebook.com/favorite.places.saved/">FACEBOOK</a></li>
+          <li class="linkFooter"><a class="linkFooterGrey" href="https://www.instagram.com/daspots/">INSTAGRAM</a></li>
+        </ul>  
+      </div>
+
       <div class="col-sm-6 col-md-3">
         <ul>
           <br><br>
           <li class="linkFooter"><a class="linkFooterWhite" href="{{url_for('about')}}">ABOUT</a></li>
           <li class="linkFooter"><a class="linkFooterWhite" href="('work_with_us')}}">WORK WITH US</a></li>
           <li class="linkFooter"><a class="linkFooterWhite" href="{{url_for('contact')}}">CONTACT</a></li>
+          <li class="linkFooter"><a class="linkFooterWhite" href="{{url_for('guide_overview')}}">GUIDES</a></li>
           <li class="linkFooter"><a class="linkFooterWhite" href="{{url_for('newsletter')}}">SIGN UP FOR OUR NEWSLETTER</a></li>
         </ul>
-      </div>
-      
-      <div class="col-sm-6 col-md-9">
-        <ul>
-          <br><br>
-          <li class="linkFooter"><a class="linkFooterGrey" href="https://www.facebook.com/favorite.places.saved/">FACEBOOK</a></li>
-          <li class="linkFooter"><a class="linkFooterGrey" href="https://www.instagram.com/daspots/">INSTAGRAM</a></li>
-          <li class="linkFooter"><a class="linkFooterGrey" href="{{url_for('stories')}}">STORIES</a></li>
-        </ul>  
       </div>  
     
     </div>

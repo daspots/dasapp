@@ -1,0 +1,71 @@
+# extends 'base.html'
+# block header
+
+<!-- begin subdevider -->
+<div class="container">
+  <div class="floatCenter">
+    <div class="wrap"><i class="fa fa-bolt" style="font-size:28px;color:#20e9a3"></i></div>
+    <div class="wrap"><p class="subdevider">ALL GUIDES</p></div>
+    <div class="wrap"><i class="fa fa-bolt" style="font-size:28px;color:#20e9a3;"></i></div>
+  </div>
+</div>
+<!-- end subdevider -->
+
+# endblock
+# block content
+  
+<!-- begin places grid -->
+<div class="container">
+  <div class="row">
+  {%- for guide_db in guide_dbs %}
+    <div class="col-6 col-sm-4">
+
+     <!-- begin thumbnail -->
+      <div class="box shadow">
+
+        <!-- image -->
+        <img class="guideImage"  src="{{guide_db.image_url}}">
+
+        <!-- name guide -->
+        <div>
+          <h1 class="h1LeftBig">
+            <!-- <a href="{{url_for('guide_view', guide_id=guide_db.key.id())}}"> -->
+              {{guide_db.name}}
+            <!-- </a> -->
+          </h1>
+        </div>
+
+        <!-- all spots guide -->
+        <div>
+          {% set q = "guide=" ~ guide_db.name_lower %}
+          <a class="linkRecommendedByColor" href="{{guide_db.website_url}}"><span class="glyphicon glyphicon-arrow-right"></span>
+          EXPLORE SPOTS
+          </a>
+        </div>
+
+        <!-- bio guide -->
+        <br>
+        <p class="pLeft">{{guide_db.bio}}</p>
+          
+        <!-- external link -->
+        <!-- <a class="linkWebsite" href="{{guide_db.website_url}}">            {{guide_db.website_url}}
+        </a> -->
+
+        <!-- <p role="button" onclick="followFunction(this, '{{guide_db.key.id()}}')" class="{{guide_db.bootstrap_class_list}}">
+        {{guide_db.follow_text}}
+        </p> -->
+
+        </div>
+        <!-- end thumnail -->
+
+      </div>
+      {%- endfor %}
+      <!-- grid -->
+    
+  </div>
+  <!-- end row -->
+
+</div>
+<!-- end container -->
+
+# endblock

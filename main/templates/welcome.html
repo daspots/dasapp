@@ -1,17 +1,17 @@
 # extends 'base.html'
-
-<!-- jumbotron title -->
 # block header
+# include 'bit/popup_loginform_star.html' 
+
+<div id="restaurant">
+
+# endblock
+# block content
 
 {% if html_class == 'main-list' %}
  {% include 'bit/welcome_header.html' %}
 {% endif %}
 
-# endblock
-# block content
-# include 'bit/popup_loginform_star.html'
-
-  <!-- begin subdevider -->
+  <!-- jumbotron title -->
   <div class="container">
     <div class="floatCenter">
       <div class="wrap"><i class="fa fa-bolt" style="font-size:28px;color:#20e9a3"></i></div>
@@ -21,23 +21,23 @@
   </div>
 
   <!-- Google Map Code -->
-    {% if search_query is not defined %}
-    {% set search_query = '*' %}
-    {% endif %}
+  {% if search_query is not defined %}
+  {% set search_query = '*' %}
+  {% endif %}
 
-    <script>
-      var query = '{{ search_query }}';
-    </script>
+  <script>
+    var query = '{{ search_query }}';
+  </script>
    
-    <div class="container" id="map" style="display:none;">
-      <div class="map" style="margin-right:10px;"></div>
-      <br>
-    </div>
-
-<!-- end subdevider -->
+  <!-- begin subdevider -->
+  <div class="container" id="map" style="display:none;">
+    <div class="map" style="margin-right:10px;"></div>
+    <br>
+  </div>
+  <!-- end subdevider -->
 
   <!-- UI post -->
-  <div class="container" id="restaurant">
+  <div class="container">
     <div class="grid">
     <div class="grid-sizer col-6 col-sm-4"></div>
     {%- for post_db in post_dbs %}
@@ -105,43 +105,35 @@
             </a>
         </div>
 
-
-        <!-- share  -->
+        <!-- save  -->
         <div class="tab4">
-            <i class="fa fa-share-alt" style="font-size:10px; padding: 10px 0px 10px 12px; color:grey;" aria-hidden="true"></i>
-            <a href="whatsapp://send?text= See this spot on www.daspots.com" data-action="share/whatsapp/share" class="thumbnailLocation"  title="Share by WhatsApp"><i class="fa fa-whatsapp" style="font-size:15px; padding: 10px 0px 10px 5px; color:black; margin-right: 10px;"></i>
-            </a>
-            <a href="mailto:?subject=See this spot on www.daspots.com&amp;body=See this spot on www.daspots.com" title="Share by Email">
-            <i class="fa fa-envelope-o" aria-hidden="false" style="font-size:15px; padding: 10px 0px 10px 5px; color:black;"></i>
-            </a>
+            <i style="font-size:12px; padding: 10px 0px 10px 12px; color:grey;" aria-hidden="true" 
+            onclick="starFunction(this, '{{post_db.key.id()}}')" role="button"
+               {% if post_db.starred %}
+                 class="fa blue fa-star
+               {% else %}
+                class="fa blue fa-star-o
+               {% endif %}
+               {%  if current_user.id > 0 %}"
+
+              {% else %}
+                not-logged-in"
+              {% endif %}> 
+              
+              <a class="thumbnailLocation" style="font:'Roboto Condensed', sans-serif;font-size:0.8em; padding: 7px 0px 0px 0px; color:grey;">save this spot</a>
+            </i>
         </div>
 
-        <!-- external website  -->
+        <!-- end box -->
+        </div>
+
+                <!-- external website  -->
 <!--         <div class="tab4">
             <i class="fa fa-external-link" style="font-size:12px; padding: 5px 0px 5px 5px; color:grey;" aria-hidden="true"></i>
             <a href="{{post_db.website}}" class="thumbnailLocation"> -->
             <!-- {{post_db.adress}} --><!-- visit website -->
 <!--             </a>
         </div> -->
-
-
-
-        <!-- bookmark -->
-          <!-- <li class="iconList" style="float: right; margin-top: 20px; margin-right: 10px;"><i onclick="starFunction(this, '{{post_db.key.id()}}')" role="button"
-               {% if post_db.starred %}
-                 class="fa blue fa-star
-               {% else %}
-                class="fa blue fa-star-o
-               {% endif %}
-               {%  if current_user.id > 0 %}
-                  "
-              {% else %}
-                not-logged-in"
-              {% endif %}></i>
-              </li> -->
-
-        <!-- end box -->
-        </div>
 
       <!-- end col -->
       </div>
@@ -157,5 +149,7 @@
 
   <!-- end container -->
    </div>
+  </div>
 
 # endblock
+

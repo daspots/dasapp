@@ -10,7 +10,7 @@
       <!-- begin hamburger menu -->
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
         <span class="sr-only">Toggle navigation</span>
-        <i class="fa fa-bars" style="font-size:17px"></i>
+        <i class="fa fa-user" aria-hidden="true"></i>
       </button>
 
       <!-- begin button nearby -->
@@ -57,15 +57,23 @@
 
       <!-- contact menu -->
       <ul class="nav navbar-nav">
-        # include 'bit/contact_menu.html'
+        
       </ul>
 
       <!-- navbar elements -->
       <ul class="nav navbar-nav navbar-right">
         <!-- <li><a class="navbarListElement" href="{{url_for('spots')}}">SPOTS</a></li> -->
-        <li id="test"><a class="navbarListElement" href="{{url_for('stories')}}">GUIDES</a></li>
+        
+        <!-- <li id="test"><a class="navbarListElement" href="{{url_for('guide_overview')}}">GUIDES</a></li> -->
         <!-- <li><a class="navbarListElement" href="{{url_for('spots')}}">SPOTS</a></li> -->
+
         <li id="test"><a class="navbarListElement" href="{{url_for('recommender_overview')}}">MEET THE INSIDERS</a></li>
+
+      <li class="test  {{'active' if html_class == 'starred'}}">
+          <a class="navbarListElement" href="{{url_for('post_list_u')}}">
+            SIGN IN
+          </a>
+      </li>
         # include 'bit/user_menu.html'
       </ul>
 

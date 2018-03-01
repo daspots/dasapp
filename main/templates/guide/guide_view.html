@@ -1,0 +1,40 @@
+# extends 'base.html'
+# block content
+# include 'bit/popup_loginform_follow.html'
+
+<div class="container-fluid">
+    <div class="col-sm-6 col-md-8">
+        <!-- image -->
+        <img class="recommenderImage" src="{{recommender_db.image_url}}">
+    </div>
+
+    <!-- begin title and description -->
+    <div class="col-md-4">
+        <!-- title -->
+        <h1 class="h1Header">{{title}}</h1>
+
+        <!-- <bio> -->
+        <p class="pLeft">
+
+        <!-- all spots recommender -->
+        {% set q = "recommender=" ~ recommender_db.name_lower %}
+        <a class="linkRecommendedByCenter" href="{{url_for('post_list_q', query=q)}}"><span class="glyphicon glyphicon-arrow-right"></span>
+
+        {% set q = "recommender=" ~ recommender_db.name %}
+        <a class="linkRecommendedByCenter" href="{{url_for('post_list_q', query=q)}}">
+
+        SEE ALL SPOTS BY {{title}}</a>
+        </p>
+
+        <!-- bio recommender -->
+        <p class="pLeft">{{recommender_db.bio}}
+        <br>
+        <br>
+        <!-- external link -->
+        <a class="linkWebsiteCenter" href="{{recommender_db.website_url}}">{{recommender_db.website_url}}</a>
+        </p>
+    </div>
+
+</div>
+
+# endblock
