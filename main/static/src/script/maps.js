@@ -125,104 +125,122 @@ function processPoints(geometry, callback, thisArg) {
     });
   }
 }
+
 function initMap() {
-  // Create the map.
-  var map = new google.maps.Map(document.getElementsByClassName('map')[0], {
-    zoom: 7,
-    center: { lat: 0, lng: 0 },
-  });
+    var mapDiv = document.getElementById('nearby_link');
 
-  var bounds = new google.maps.LatLngBounds();
-  map.data.addListener('addfeature', function (e) {
-    processPoints(e.feature.getGeometry(), bounds.extend, bounds);
+    // Create the map.
+    var map = new google.maps.Map(document.getElementsByClassName('map')[0], {
+        zoom: 7,
+        center: {
+            lat: 0,
+            lng: 0
+        },
+    });
 
-    if (bounds.getNorthEast().equals(bounds.getSouthWest())) {
-       var extendPoint1 = new google.maps.LatLng(bounds.getNorthEast().lat() + 0.01, bounds.getNorthEast().lng() + 0.01);
-       var extendPoint2 = new google.maps.LatLng(bounds.getNorthEast().lat() - 0.01, bounds.getNorthEast().lng() - 0.01);
-       bounds.extend(extendPoint1);
-       bounds.extend(extendPoint2);
-    }
+    var bounds = new google.maps.LatLngBounds();
+    map.data.addListener('addfeature', function(e) {
+        processPoints(e.feature.getGeometry(), bounds.extend, bounds);
 
-    map.fitBounds(bounds);
-  });
+        if (bounds.getNorthEast().equals(bounds.getSouthWest())) {
+            var extendPoint1 = new google.maps.LatLng(bounds.getNorthEast().lat() + 0.01, bounds.getNorthEast().lng() + 0.01);
+            var extendPoint2 = new google.maps.LatLng(bounds.getNorthEast().lat() - 0.01, bounds.getNorthEast().lng() - 0.01);
+            bounds.extend(extendPoint1);
+            bounds.extend(extendPoint2);
+        }
 
-  function addDataToMap(map, infoWindow, pos){
+        map.fitBounds(bounds);
+    });
+    var nearby = false;
+    google.maps.event.addDomListener(mapDiv, 'click', function() {
+        nearby = true;
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(geoLocationSucces, geoLocationFail)
+        } else {
+            geoLocationFail();
+        }
+    });
+    console.log('nearby' + nearby)
 
-    // Load the stores GeoJSON onto the map.
-    map.data.loadGeoJson(api_url);
-    var im = 'http://www.robotwoods.com/dev/misc/bluecircle.png';
-     var marker = new google.maps.Marker({
-          position: pos,
-          map: map,
-          icon: im
+    function addDataToMap(map, infoWindow, pos) {
+
+        // Load the stores GeoJSON onto the map.
+        map.data.loadGeoJson(api_url);
+        var im = 'http://www.robotwoods.com/dev/misc/bluecircle.png';
+        var marker = new google.maps.Marker({
+            position: pos,
+            map: map,
+            icon: im
         });
 
-    var apiKey = 'AIzaSyAbcMGMULgp5l0Trav2G3OseIrNGIxHDZk';
-    var infoWindow = new google.maps.InfoWindow();
-    infoWindow.setOptions({ pixelOffset: new google.maps.Size(0, -30) });
+        var apiKey = 'AIzaSyAbcMGMULgp5l0Trav2G3OseIrNGIxHDZk';
+        var infoWindow = new google.maps.InfoWindow();
+        infoWindow.setOptions({
+            pixelOffset: new google.maps.Size(0, -30)
+        });
 
-    map.data.addListener('click', function (event) {
-          var position = event.feature.getGeometry().get();
-          var content = generateBox(event.feature);
+        map.data.addListener('click', function(event) {
+            var position = event.feature.getGeometry().get();
+            var content = generateBox(event.feature);
 
-          infoWindow.setContent(content);
-          infoWindow.setPosition(position);
+            infoWindow.setContent(content);
+            infoWindow.setPosition(position);
 
-           infoWindow.open(map);
+            infoWindow.open(map);
 
-           Gifffer({
-              playButtonStyles: {
-                'width': '60px',
-                'height': '60px',
-                'border-radius': '30px',
-                'background': 'rgba(0, 0, 0, 0.3)',
-                'position': 'absolute',
-                'top': '50%',
-                'left': '50%',
-                'margin': '-30px 0 0 -30px'
-              },
-              playButtonIconStyles: {
-                'width': '0',
-                'height': '0',
-                'border-top': '14px solid transparent',
-                'border-bottom': '14px solid transparent',
-                'border-left': '14px solid rgba(255,255,255, 0.5)',
-                'position': 'absolute',
-                'left': '26px',
-                'top': '16px'
-              }
+            Gifffer({
+                playButtonStyles: {
+                    'width': '60px',
+                    'height': '60px',
+                    'border-radius': '30px',
+                    'background': 'rgba(0, 0, 0, 0.3)',
+                    'position': 'absolute',
+                    'top': '50%',
+                    'left': '50%',
+                    'margin': '-30px 0 0 -30px'
+                },
+                playButtonIconStyles: {
+                    'width': '0',
+                    'height': '0',
+                    'border-top': '14px solid transparent',
+                    'border-bottom': '14px solid transparent',
+                    'border-left': '14px solid rgba(255,255,255, 0.5)',
+                    'position': 'absolute',
+                    'left': '26px',
+                    'top': '16px'
+                }
             });
 
-           });
+        });
 
-  }
+    }
 
-  function geoLocationSucces(position){
+    function geoLocationSucces(position) {
+
+        map.data.forEach(function(feature) {
+            // If you want, check here for some constraints.
+            map.data.remove(feature);
+        });
         var pos = {
-          lat: position.coords.latitude,
-          lng: position.coords.longitude
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
         };
-      console.log(pos)
-      api_url = '/api/v1/post/' + query + '&' + pos['lat'] + '&' + pos['lng'];
+        console.log(pos)
+        console.log(query)
+        api_url = '/api/v1/post/' + query + '&' + pos['lat'] + '&' + pos['lng'];
 
-      addDataToMap(map, api_url, pos)
-      }
+        addDataToMap(map, api_url, pos)
+    }
 
-   function geoLocationFail(){
-      api_url = '/api/v1/post/' + query;
+    function geoLocationFail() {
+        api_url = '/api/v1/post/' + query;
 
-      // Show the information for a store when its marker is clicked.
-      addDataToMap(map, api_url, false)
-   }
+        // Show the information for a store when its marker is clicked.
+        addDataToMap(map, api_url, false)
+    }
 
-  console.log(query);
-  if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(geoLocationSucces, geoLocationFail)
-
-   } else {
-       geoLocationFail();
-   }
-
+    console.log(query);
+    geoLocationFail();
 }
 
 $('.map_link').on('click',function() {

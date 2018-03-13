@@ -59,7 +59,7 @@ def parse_query(query):
             'lon':float(query_split[1]),
             'lat':float(query_split[2])}
 
-def get_query_options(query_dict, limit=1):
+def get_query_options(query_dict, limit=10):
     if 'lat' in query_dict and 'lon' in query_dict:
         print 'lat ' + str(query_dict['lat'])
         print 'lon ' + str(query_dict['lon'])
