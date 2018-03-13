@@ -1,5 +1,5 @@
 <!-- begin fixed header -->
-<header class="navbar navbar-default navbar-fixed-top">
+<header class="navbar navbar-default navbar-fixed-top" id="toBottom">
 
   <!-- begin container -->
   <div class="container">
@@ -16,16 +16,35 @@
       <!-- begin button nearby -->
       <button type="button" class="navbar-toggle">
         <a href="{{url_for('new_feature')}}">
-          <i class="fa fa-map-marker" aria-hidden="true""></i>
+          <i class="fa fa-map-marker" aria-hidden="true"></i>
         </a>
       </button>
 
-      <!-- begin button searchbar -->
+
+      <!-- begin button list -->
       <button type="button" class="navbar-toggle">
+      <span class="list_link">
+        <a class="mapa">
+          <i class="fa fa-list" aria-hidden="true"></i>
+        </a>
+      </span>
+      </button>
+
+      <!-- begin button map -->
+      <button type="button" class="navbar-toggle">
+      <span class="map_link">
+        <a class="mapa">
+          <i class="fa fa-map" aria-hidden="true"></i>
+        </a>
+      </span>
+      </button>
+
+      <!-- begin button searchbar -->
+<!--       <button type="button" class="navbar-toggle">
         <a href="{{url_for('search_page')}}">
           <i class="fa fa-search"></i>
         </a>
-      </button>
+      </button> -->
 
       <!-- brand -->
       <a class="navbar-brand" href="{{url_for('welcome')}}"><img class="navbar-brand" src="/p/img/logo_favorite_web.gif"></a>
@@ -43,10 +62,10 @@
 
       <!-- navbar elements -->
       <ul class="nav navbar-nav navbar-right">
-        <li><a class="navbarListElement" href="{{url_for('about')}}">ABOUT</a></li>
-        <li><a class="navbarListElement" href="{{url_for('stories')}}">GUIDES</a></li>
         <!-- <li><a class="navbarListElement" href="{{url_for('spots')}}">SPOTS</a></li> -->
-        <li><a class="navbarListElement" href="{{url_for('recommender_overview')}}">MEET THE INSIDERS</a></li>
+        <li id="test"><a class="navbarListElement" href="{{url_for('stories')}}">GUIDES</a></li>
+        <!-- <li><a class="navbarListElement" href="{{url_for('spots')}}">SPOTS</a></li> -->
+        <li id="test"><a class="navbarListElement" href="{{url_for('recommender_overview')}}">MEET THE INSIDERS</a></li>
         # include 'bit/user_menu.html'
       </ul>
 
@@ -54,12 +73,20 @@
     <!-- end collpase navbar -->
 
     <!-- begin second navbar -->
-    <nav class="navbar">
-
+    <nav class="navbar" id="toTop">
+      <p class="pCenter"> Search favorite places of insiders by neighborhood, cuisine, or keywords.</p>
       <!-- begin map vs list -->
-      <div class="maplist extra-margin">
-        <span class="list_link"><a class="lista active">LIST</a></span> | <span class="map_link"><a class="mapa">MAP</a></span>
-      </div>
+         <div class="maplist">
+          <form class="navbar-form" role="search"  action="{{ url_for('search_page') }}" method="post" name="search">
+            <div class="input-group add-on">
+            {{ g.search_form.search(class="form-control", placeholder="Start typing...", type="text") }}
+            {{ g.search_form.hidden_tag() }}
+            <div class="input-group-btn">
+              <button class="btn btn-default cvdb-button-addon" type="submit"><!-- <i class="glyphicon glyphicon-search"></i> -->GO!</button>
+            </div>
+            </div>
+          </form>
+        </div>
       <!-- end map vs list -->
 
       <!-- begin navbar right -->
@@ -67,20 +94,16 @@
         
         <!-- search bar big screen -->
         <li class="visible-md-block visible-lg-block">
-          <form class="navbar-form" role="search"  action="{{ url_for('search_page') }}" method="post" name="search">
-            <div class="input-group add-on">
-            {{ g.search_form.search(class="form-control", placeholder="Search for neighborhood, cuisine, or occasion", type="text") }}
-            {{ g.search_form.hidden_tag() }}
-            <div class="input-group-btn">
-              <button class="btn btn-default cvdb-button-addon" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-            </div>
-            </div>
-          </form>
+        <button class="btn btn-default extra-margin list_link" style="margin-right:10px"><a class="lista active">LIST</a></button>  
+        </li>
+
+        <li class="visible-md-block visible-lg-block">
+          <button class="btn btn-default extra-margin map_link" style="margin-right:10px"><a class="mapa">MAP</a></button>
         </li>
 
         <!-- begin location button -->
         <li class="visible-md-block visible-lg-block">
-          <button class="btn btn-default extra-margin" type="submit"><a href="{{url_for('new_feature')}}"><i class="fa fa-map-marker"></i></a></button>
+          <button class="btn btn-default extra-margin"><a href="{{url_for('new_feature')}}"><!-- <i class="fa fa-map-marker"></i> -->NEARBY</a></button>
         </li>
 
       </ul>

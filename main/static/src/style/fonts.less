@@ -18,13 +18,15 @@
 @bottom_margin_jumbotron: 280px;
 @bottom_margin_0: 0px!important;
 @padding_small: 7px;
+@padding_medium: 12px;
 @padding_button: 12px 8px 12px 8px;
 @padding_extra_small: 2px;
 @margin_header: 300px;
 @full_width: 100%;
 @height_auto: auto;
 @shadow: 0 4px 2px -2px gray;
-@input_border: 1px solid black;
+@input_border: 2px solid @color_8;
+@input_border_black: 1px solid @color_4;
 @icon_medium: 17px;
 
 p.pCenterBig {
@@ -54,8 +56,10 @@ p.pCenterGrey {
 p.pCenter {
   font-family:@font_big;
   text-align: center;
-  font-size: @font_size_medium;
+  font-size: @font_size_medium_big;
   color: @color_4;
+  font-weight: bold;
+  margin-top: @padding_small;
 }
 
 p.pCenterHeader {
@@ -118,14 +122,14 @@ h1.thumbnailTitle {
   padding-left: @padding_small;
   margin-top: @bottom_margin_small;
   margin-bottom: @bottom_margin_0;
-  background-color: @color_8;
+  background-color: @color_9;
 }
 
 h1.h1Header {
   font-family: @font_big;
   text-align: left;
   font-weight: @font_weight_bold;
-  margin-top: @bottom_margin_extra_big;
+  margin-top: @bottom_margin_big;
   font-size: 4em;
   color: @color_7;
 }
@@ -149,11 +153,29 @@ h1.h1CenterHeader {
   color: @color_5;
 }
 
+h1.h1CenterSmall {
+  font-family: @font_big;
+  text-align: center;
+  font-weight: @font_weight_bold;
+  margin-top: @bottom_margin_big;
+  font-size: @font_size_big;
+  color: @color_4;
+}
+
 h1.h1CenterBig {
   font-family: @font_big;
   text-align: center;
   font-weight: @font_weight_bold;
   margin-top: @bottom_margin_extra_big;
+  font-size: @font_size_big;
+  color: @color_4;
+}
+
+h1.h1CenterMedium {
+  font-family: @font_big;
+  text-align: center;
+  font-weight: @font_weight_bold;
+  margin-top: @bottom_margin_big;
   font-size: @font_size_big;
   color: @color_4;
 }

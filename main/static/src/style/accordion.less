@@ -11,8 +11,8 @@
   width: @full_width;
   color: @color_4;
   overflow: hidden;
-  border: 0.5px solid @color_8;
-  background-color: @color_8;
+  border: 0.5px solid @color_9;
+  background-color: @color_9;
 }
 
 .tab4 {
@@ -37,7 +37,7 @@ label {
   position: relative;
   display: block;
   color: black;
-  background: @color_8;
+  background: @color_9;
 }
 
 .blue label {
@@ -69,7 +69,7 @@ input:checked ~ .tab-content {
 /* Icon */
   label::after {
   position: absolute;
-  background-color: @color_8;
+  background-color: @color_9;
   right: 0;
   top: 0;
   display: block;
@@ -84,30 +84,27 @@ input:checked ~ .tab-content {
 }
 
 input[type=checkbox] + label::after {
-  content: "+";
-  font-size: 20px;
-  color: @color_4;
+  content: url("/p/img/plus.gif");
+  margin-top: 6px;
 }
 
 input[type=radio] + label::after {
-  content: "\25BC";
-  font-size: 20px;
+  content: url("/p/img/plus.gif");
+  margin-top: 6px;
 }
 
 input[type=checkbox]:checked + label::after {
   transform: rotate(315deg);
-  color: @color_4;
-  font-size: 20px;
+  margin-top: 6px;
 }
 
 input[type=radio]:checked + label::after {
   transform: rotateX(180deg);
-  color: @color_4;
-  font-size: 20px;
+  margin-top: 6px;
 }
 
 .iconlist {
-  background-color: @color_8;
+  background-color: @color_9;
 }
 
 
