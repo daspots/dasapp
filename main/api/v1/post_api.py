@@ -53,9 +53,10 @@ def parse_query(query):
     query.replace('%26', '&')
     query_split = query.split('&')
     print query_split
+    query = '' if query_split[0] == '*' else query_split[0]
     if len(query_split) == 1:
-        return {'query': query_split[0]}
-    return {'query': query_split[0],
+        return {'query': query}
+    return {'query': query,
             'lon':float(query_split[1]),
             'lat':float(query_split[2])}
 
@@ -100,7 +101,7 @@ class PostApi(flask_restful.Resource):
                 features.append(
                     build_feature_dict(doc)
                 )
-
+        # features = in_query if len(features) == 0 else features
         dict = {
             "type": "FeatureCollection",
             "features": features
