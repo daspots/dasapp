@@ -1,17 +1,17 @@
 # extends 'base.html'
+
+<!-- jumbotron title -->
 # block header
-# include 'bit/popup_loginform_star.html' 
-
-<div id="restaurant">
-
-# endblock
-# block content
 
 {% if html_class == 'main-list' %}
  {% include 'bit/welcome_header.html' %}
 {% endif %}
 
-  <!-- jumbotron title -->
+# endblock
+# block content
+# include 'bit/popup_loginform_star.html'
+
+  <!-- begin subdevider -->
   <div class="container">
     <div class="floatCenter">
       <div class="wrap"><i class="fa fa-bolt" style="font-size:28px;color:#20e9a3"></i></div>
@@ -21,23 +21,23 @@
   </div>
 
   <!-- Google Map Code -->
-  {% if search_query is not defined %}
-  {% set search_query = '*' %}
-  {% endif %}
+    {% if search_query is not defined %}
+    {% set search_query = '*' %}
+    {% endif %}
 
-  <script>
-    var query = '{{ search_query }}';
-  </script>
+    <script>
+      var query = '{{ search_query }}';
+    </script>
    
-  <!-- begin subdevider -->
-  <div class="container" id="map" style="display:none;">
-    <div class="map" style="margin-right:10px;"></div>
-    <br>
-  </div>
-  <!-- end subdevider -->
+    <div class="container" id="map" style="display:none;">
+      <div class="map" style="margin-right:10px;"></div>
+      <br>
+    </div>
+
+<!-- end subdevider -->
 
   <!-- UI post -->
-  <div class="container">
+  <div class="container" id="restaurant">
     <div class="grid">
     <div class="grid-sizer col-6 col-sm-4"></div>
     {%- for post_db in post_dbs %}
@@ -105,35 +105,34 @@
             </a>
         </div>
 
-        <!-- save  -->
+
+        <!-- share  -->
         <div class="tab4">
-            <i style="font-size:12px; padding: 10px 0px 10px 12px; color:grey;" aria-hidden="true" 
-            onclick="starFunction(this, '{{post_db.key.id()}}')" role="button"
+           <!-- bookmark -->
+           
+            <i style="font-size:10px; padding: 10px 0px 10px 12px; color:grey;" onclick="starFunction(this, '{{post_db.key.id()}}')" role="button" 
                {% if post_db.starred %}
                  class="fa blue fa-star
                {% else %}
                 class="fa blue fa-star-o
                {% endif %}
-               {%  if current_user.id > 0 %}"
-
+               {%  if current_user.id > 0 %}
+                  "
               {% else %}
                 not-logged-in"
-              {% endif %}> 
-              
-              <a class="thumbnailLocation" style="font:'Roboto Condensed', sans-serif;font-size:0.8em; padding: 7px 0px 0px 0px; color:grey;">save this spot</a>
-            </i>
+              {% endif %}> <a style="font-size: 10px"; class="thumbnailLocation">want to go</a></i>
         </div>
 
-        <!-- end box -->
-        </div>
-
-                <!-- external website  -->
+        <!-- external website  -->
 <!--         <div class="tab4">
             <i class="fa fa-external-link" style="font-size:12px; padding: 5px 0px 5px 5px; color:grey;" aria-hidden="true"></i>
             <a href="{{post_db.website}}" class="thumbnailLocation"> -->
             <!-- {{post_db.adress}} --><!-- visit website -->
 <!--             </a>
         </div> -->
+
+        <!-- end box -->
+        </div>
 
       <!-- end col -->
       </div>
@@ -149,7 +148,5 @@
 
   <!-- end container -->
    </div>
-  </div>
 
 # endblock
-

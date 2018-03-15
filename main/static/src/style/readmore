@@ -1,0 +1,27 @@
+function moreLess(initiallyVisibleCharacters) {
+	var visibleCharacters = initiallyVisibleCharacters;
+	var paragraph = $(".text")
+	
+
+	paragraph.each(function() {
+		var text = $(this).text();
+		var wholeText = text.slice(0, visibleCharacters) + "<span class='ellipsis'>... </span><a href='#' class='more'>MORE<i class='fa fa-arrow-circle-o-down' aria-hidden='true'></i></a>" + "<span style='display:none'>" + text.slice(visibleCharacters, text.length) + "<a href='#' class='less'> LESS<i class='fa fa-arrow-circle-o-up' aria-hidden='true'></i></a></span>"
+		
+		if (text.length < visibleCharacters) {
+			return
+		} else {
+			$(this).html(wholeText)
+		}
+	});
+	$(".more").click(function(e) {
+		e.preventDefault();
+		$(this).hide().prev().hide();
+		$(this).next().show();
+	});
+	$(".less").click(function(e) {
+		e.preventDefault();
+		$(this).parent().hide().prev().show().prev().show();
+	});
+};
+
+moreLess(300);

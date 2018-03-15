@@ -213,4 +213,3 @@ $('.list_link').on('click',function() {
 })
 
 
-
