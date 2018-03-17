@@ -69,11 +69,7 @@
 
         <li id="test"><a class="navbarListElement" href="{{url_for('recommender_overview')}}">MEET THE INSIDERS</a></li>
 
-      <li class="test  {{'active' if html_class == 'starred'}}">
-          <a class="navbarListElement" href="{{url_for('post_list_u')}}">
-            SIGN IN
-          </a>
-      </li>
+        <li class="test  {{'active' if html_class == 'starred'}}"><a class="navbarListElement" href="{{url_for('post_list_u')}}">SIGN IN</a></li>
         # include 'bit/user_menu.html'
       </ul>
 
@@ -82,7 +78,7 @@
 
     <!-- begin second navbar -->
     <nav class="navbar" id="toTop">
-      <p class="pCenter"> Search favorite places of insiders by neighborhood, cuisine, or keywords.</p>
+      <p class="pCenter"> Search favorite places by insiders, neighborhood, cuisine, or keywords.</p>
       <!-- begin map vs list -->
          <div class="maplist">
           <form class="navbar-form" role="search"  action="{{ url_for('search_page') }}" method="post" name="search">
@@ -125,5 +121,3 @@
 
 </header>
 <!-- end fixed header -->
-
-

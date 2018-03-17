@@ -1,49 +1,5 @@
-img.img-fluid {
-  width: @full_width;
-  width: 100% \9;
-  height: @height_auto;
-}
-
-img.img-fluid-welcome {
-  width: @full_width;
-  width: 100% \9;
-  height: @height_auto;
-  margin-bottom: @bottom_margin_big;
-}
-
-img.recommenderImage {
-    width: 100% \9;
-    width: @full_width;
-    height: @height_auto;
-    margin-top: @bottom_margin_big;
-}
-
-img.gif {
-  margin-top: @bottom_margin_extra_big;
-  width: 40%;
-  height: auto;
-}
-
-.addPadding {
-  margin-bottom: @padding_small;
-}
-
-.shadow {
-  box-shadow: @shadow;
-  padding: 0 0 7px 5px;
-}
-
-.navbarListElement {
-  position: relative;
-  float: right;
-  margin-right: 15px;
-  padding: 9px 10px;
-  margin-top: 0px;
-  margin-bottom: 8px;
-  background-color: @color_5;
-  background-image: none;
-  border: 1px solid transparent;
-  border-radius: 4px;
+.navbar {
+   background: @color_5;
 }
 
 .navbar-fixed-top {
@@ -56,21 +12,33 @@ img.gif {
   margin-bottom: @bottom_margin_small !important;
 }
 
-.navbar {
-   background: @color_5;
+.navbar-toggle {
+  border: none !important;
+}
+
+.navbarListElement {
+  position: relative;
+  float: right;
+  margin-right: 15px;
+  padding: 9px 10px;
+  margin-top: 0px;
+  margin-bottom: 8px;
+  background-color: @color_5;
+  border: 1px solid transparent;
 }
 
 .navbar-form {
    background: @color_5!important;
 }
 
-.navbar-toggle {
-  border: none !important;
-  border-radius: 0px;
-}
-
-.nav {
-    background-color: white;
+.maplist {
+    position: absolute;
+    width: @full_width;
+    left: 0;
+    text-align: center;
+    margin:0 auto;
+    color: @color_4;
+    font-size: @font_size_medium_big;
 }
 
 .dropdown {
@@ -101,20 +69,6 @@ img.gif {
     overflow:hidden!important;
  }
 
-.maplist {
-    position: absolute;
-    width: @full_width;
-    left: 0;
-    text-align: center;
-    margin:0 auto;
-    color: @color_4;
-    font-size: @font_size_medium_big;
-}
-
-.extra-margin {
-  margin-top: 7px;
-}
-
 
 .floatCenter {
    text-align: center;
@@ -139,6 +93,37 @@ img.gif {
     visibility: visible;
 }
 
+img.img-fluid {
+  width: @full_width;
+  width: 100% \9;
+  height: @height_auto;
+}
 
+img.img-fluid-welcome {
+  width: @full_width;
+  width: 100% \9;
+  height: @height_auto;
+  margin-bottom: @bottom_margin_big;
+}
 
+img.recommenderImage {
+    width: 100% \9;
+    width: @full_width;
+    height: @height_auto;
+    margin-top: @bottom_margin_big;
+}
+
+img.gif {
+  width: 40%;
+  height: auto;
+}
+
+.addPadding {
+  margin-bottom: @padding_small;
+}
+
+.shadow {
+  box-shadow: @shadow;
+  padding: 0 0 7px 5px;
+}
 
