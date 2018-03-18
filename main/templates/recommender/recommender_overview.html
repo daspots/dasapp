@@ -63,7 +63,7 @@
         <!-- all spots recommender -->
         <div>
           {% set q = "recommender=" ~ recommender_db.name_lower %}
-          <a class="linkRecommendedByColor" href="{{url_for('post_list_q', query=q)}}"><span class="glyphicon glyphicon-arrow-right"></span>
+          <a class="linkRecommendedByColor" href="{{url_for('post_list_q', query=q, city=city)}}"><span class="glyphicon glyphicon-arrow-right"></span>
           SEE ALL SPOTS BY {{recommender_db.name}}
           </a>
         </div>

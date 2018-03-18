@@ -16,3 +16,5 @@ def add_starred_to_posts(post_dbs):
                 post_db.starred = True
 
     return post_dbs
+
+

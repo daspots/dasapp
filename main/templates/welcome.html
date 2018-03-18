@@ -81,7 +81,7 @@
           <i class="fa fa-map-pin" style="font-size:10px; padding: 10px 0px 10px 12px; color:grey;" aria-hidden="true"></i>
           {% for keyword in post_db.location_keyword_list %}
           {% if loop.index <= 3 %}
-            <a class="thumbnailLocation" href="{{url_for('post_list_q', query=keyword)}}">{{keyword}}</a>
+            <a class="thumbnailLocation" href="{{url_for('post_list_q', query=keyword, city=city)}}">{{keyword}}</a>
           {% endif %}
           {% endfor %}
         </div>
@@ -91,7 +91,7 @@
         <i class="fa fa-tag" style="font-size:10px; padding: 10px 0px 10px 12px; color:grey;" aria-hidden="true"></i>
           {% for keyword in post_db.keyword_list %}
           {% if loop.index <= 3 %}
-            <a class="thumbnailLocation" href="{{url_for('post_list_q', query=keyword)}}">{{keyword}} </a>
+            <a class="thumbnailLocation" href="{{url_for('post_list_q', query=keyword, city=city)}}">{{keyword}} </a>
           {% endif %}
           {% endfor %}
         </div>

@@ -84,8 +84,8 @@ class PostApi(flask_restful.Resource):
     def get(self, in_query):
         index = search.Index('spots')
         query_dict = parse_query(in_query)
-        if query_dict['query'] == '*' and 'lat' not in query_dict and 'lon' not in query_dict:
-            search_results = index.get_range(start_id="0", limit=20)
+        if query_dict['query'] == '' and 'lat' not in query_dict and 'lon' not in query_dict:
+            search_results = index.get_range(start_id="0", limit=10)
         else:
             # search_results = index.search(query_dict['query'])
             search_query = search.Query(
@@ -95,7 +95,6 @@ class PostApi(flask_restful.Resource):
 
         features = []
         for doc in search_results:
-            print doc
             if (doc.field('place').value.longitude != 0.0 and
                     doc.field('place').value.latitude != 0.0):
                 features.append(
