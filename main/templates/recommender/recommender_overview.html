@@ -1,31 +1,6 @@
 # extends 'base.html'
 # block header
 
-<!-- jumbotron -->
-<div class="container-fluid">
-  <!-- picture -->
-  <div class="col-md-8">
-    <img class="img-fluid-welcome" src="/p/img/Nick West_1000x561.jpg">
-  </div>
-
-  <!-- begin title and descrition -->
-  <div class="col-md-4">
-    <h1 class="h1Header">MEET NICK</h1>
-    <p class="pLeft">
-    "Nick keeps busy eating and reviewing burgers and sharing them on his his instagram page, @alltheburgers, based in NYC, while also grabbing bites in far off places like Morocco, Chile, and Colombia. "As an instagrammer, it's easy to get sucked into the free-food for PR trap. I'm proud to offer an unbiased take on the city's ever-evolving burger game." As ATB is a side passion, he also runs a media site, www.newlibrary.nyc while advising startups and working in eCommerce by day."
-    <br>
-    <br>
-    <br>
-    <!-- begin link -->
-    <a class="linkLeft" href="https://www.daspots.com/post/q/recommender%3Dnick%2C%20creator%20of%20alltheburgers">DISCOVER NICK'S FAV' SPOTS</a>
-    <!-- end link -->
-    </p>
-  </div>
-  <!-- end title and caption -->
-
-</div>
-<!-- end jumbotron -->
-
 <!-- begin subdevider -->
 <div class="container">
   <div class="floatCenter">
@@ -70,7 +45,9 @@
 
         <!-- bio recommender -->
         <br>
-        <p class="pLeft">{{recommender_db.bio}}</p>
+        <div class="reviewtekst">
+          <p class="pLeft">{{recommender_db.bio}}</p>
+        </div>
           
         <!-- external link -->
         <a class="linkWebsite" href="{{recommender_db.website_url}}">            {{recommender_db.website_url}}

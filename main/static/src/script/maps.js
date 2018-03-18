@@ -262,3 +262,5 @@ $('.list_link').on('click',function() {
   $("a.mapa").css({"color":"gray"});
 
 })
+
+

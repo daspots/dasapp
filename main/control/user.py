@@ -2,6 +2,7 @@
 
 import copy
 
+from google.appengine.ext import deferred
 from google.appengine.ext import ndb
 from webargs import fields as wf
 from webargs.flaskparser import parser

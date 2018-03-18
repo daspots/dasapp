@@ -1,0 +1,40 @@
+# extends 'base.html'
+
+# block content
+  <div class="page-header">
+    <h1>{{title}}</h1>
+  </div>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Bio</th>
+        <th>Image</th>
+        <th>Website</th>
+        <th>Remove</th>
+      </tr>
+    </thead>
+    <tbody>
+      # for guide_db in guide_dbs
+        <tr>
+          <td> <a href="{{url_for('guide_update', guide_id=guide_db.key.id())}}">
+              update
+          </a></td>
+          <td> <a href="{{url_for('guide_view', guide_id=guide_db.key.id())}}">
+                {{guide_db.name}}
+          </a></td>
+          <td>{{guide_db.bio}}</td>
+          <td><a href="{{guide_db.image_url}}">{{guide_db.image_url}}</a></td>
+          <td>{{guide_db.website_url }}</td>
+          <td><a href="{{url_for('guide_remove', guide_id=guide_db.key.id())}}">
+            <button type="button" class="btn btn-default btn-md">
+              <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+            </button>
+            </a>
+          </td>
+        </tr>
+      # endfor
+    </tbody>
+  </table>
+# endblock

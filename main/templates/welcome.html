@@ -105,16 +105,31 @@
             </a>
         </div>
 
+        <!-- bookmark  -->
+        <div class="tab4">
+            <i style="font-size:10px; padding: 10px 0px 10px 12px; color:grey;" onclick="starFunction(this, '{{post_db.key.id()}}')" role="button" 
+               {% if post_db.starred %}
+                 class="fa blue fa-star
+               {% else %}
+                class="fa blue fa-star-o
+               {% endif %}
+               {%  if current_user.id > 0 %}
+                  "
+              {% else %}
+                not-logged-in"
+              {% endif %}> <a style="font-size: 10px"; class="thumbnailLocation">want to go</a></i>
+        </div>
+
 
         <!-- share  -->
-        <div class="tab4">
+<!--         <div class="tab4">
             <i class="fa fa-share-alt" style="font-size:10px; padding: 10px 0px 10px 12px; color:grey;" aria-hidden="true"></i>
             <a href="whatsapp://send?text= See this spot on www.daspots.com" data-action="share/whatsapp/share" class="thumbnailLocation"  title="Share by WhatsApp"><i class="fa fa-whatsapp" style="font-size:15px; padding: 10px 0px 10px 5px; color:black; margin-right: 10px;"></i>
             </a>
             <a href="mailto:?subject=See this spot on www.daspots.com&amp;body=See this spot on www.daspots.com" title="Share by Email">
             <i class="fa fa-envelope-o" aria-hidden="false" style="font-size:15px; padding: 10px 0px 10px 5px; color:black;"></i>
             </a>
-        </div>
+        </div> -->
 
         <!-- external website  -->
 <!--         <div class="tab4">

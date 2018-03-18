@@ -2,8 +2,11 @@
 # import 'macro/utils.html' as utils
 
 # block content
-  <div class="page-header">
-    <h1 class="signinIntro">It only takes 8 seconds</h1>
+
+  <!-- begin title -->
+<div class="container">
+  <div>
+    <h1 class="h1CenterBig">YOUR ACCOUNT TO ALL THE BEST RESTAURANTS</h1>
   </div>
 
   # if current_user.id == 0
@@ -15,7 +18,6 @@
           # else
             # include 'auth/signup_form.html'
           # endif
-          <legend class="text-muted text-center">or</legend>
         # endif
 
         # set is_icon = config.CONFIG_DB.has_email_authentication
@@ -36,15 +38,19 @@
           {{utils.signin_button('VK', 'btn-vk', 'fa-vk', vk_signin_url, is_icon) if config.CONFIG_DB.has_vk}}
           {{utils.signin_button('Yahoo!', 'btn-yahoo', 'fa-yahoo', yahoo_signin_url, is_icon) if config.CONFIG_DB.has_yahoo}}
         </div>
-        <hr>
+
+        <!-- checkbox -->
         <div class="checkbox remember">
           <label><input type="checkbox" checked>Keep me signed in</label>
         </div>
+
       </div>
     </div>
+</div>
+
   # else
     <div class="alert alert-warning text-center">
-      <h3>You are already signed in as {{current_user.user_db.name}}!</h3>
+      <h3 class="h1CenterBig">You are already signed in as {{current_user.user_db.name}}!</h3>
       Please <a class="alert-link" href="{{url_for('signout')}}">sign out</a>
       first if you want to sign in with a different account.
     </div>

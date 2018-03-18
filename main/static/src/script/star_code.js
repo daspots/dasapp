@@ -45,3 +45,6 @@ $('.close-icon').on('click',function() {
   $(this).closest('.card').css({"display":"none"});
   $("#restaurant").fadeIn();
 })
+
+
+
